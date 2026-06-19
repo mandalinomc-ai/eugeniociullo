@@ -14,8 +14,6 @@ export default function Footer() {
             </p>
             <p className="text-zinc-500 text-sm leading-relaxed">
               Digital Marketer & Content Creator
-              <br />
-              aka Lil Manda
             </p>
           </div>
 

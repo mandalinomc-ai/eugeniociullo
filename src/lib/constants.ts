@@ -1,6 +1,5 @@
 export const SITE = {
   name: "Eugenio Ciullo",
-  alias: "Lil Manda",
   title: "Eugenio Ciullo | Digital Marketer & Content Creator",
   description:
     "Digital Marketing con l'anima da Creator. Strategia, Content & ADS per brand che vogliono farsi sentire.",
@@ -17,12 +16,22 @@ export function whatsappUrl(message?: string) {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
+export const WORK_COLLABORATION = {
+  name: "ZeroAgency",
+  subtitle: "Agenzia Offline · Benevento",
+  description:
+    "Collaborazione lavorativa attuale. Opero all'interno della struttura su digital marketing, social media e content per i progetti dell'agenzia.",
+  logo: "/images/zeroagency-logo.jpg",
+  badge: "Collaborazione attuale",
+} as const;
+
 export const BRANDS = [
   {
-    name: "ZeroAgency",
-    subtitle: "Agenzia Offline · Benevento",
-    highlight: "Collaborazione attuale",
-    logo: "/images/zeroagency-logo.jpg",
+    name: "LIL MANDA",
+    subtitle: "Personal Brand · Rap & Events",
+    highlight:
+      "Gestione strategica del personal brand: social media, content creation e identità visiva nel mondo rap ed eventi.",
+    logo: "/images/lil-manda-logo.jpg",
     featured: true,
   },
   {

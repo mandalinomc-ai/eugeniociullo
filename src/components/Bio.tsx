@@ -11,22 +11,22 @@ const bioCards = [
     span: "col-span-1",
   },
   {
-    label: "Agenzia",
+    label: "Collaborazione",
     value: "ZeroAgency",
-    sub: "Benevento · Collaborazione attuale",
+    sub: "Benevento · Partner lavorativo attuale",
     span: "col-span-1",
     highlight: true,
-  },
-  {
-    label: "Alter Ego",
-    value: "Lil Manda",
-    sub: "Rapper · Personal Brand · Street Culture",
-    span: "col-span-1",
   },
   {
     label: "Piattaforme",
     value: "FB · IG · TikTok",
     sub: "Analisi · Content · Meta ADS · Report",
+    span: "col-span-1",
+  },
+  {
+    label: "Specialità",
+    value: "Content & ADS",
+    sub: "Social strategy · Eventi · Visual",
     span: "col-span-1",
   },
   {
@@ -60,17 +60,15 @@ export default function Bio() {
             </p>
             <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
               Opero ufficialmente nel digital e social marketing da{" "}
-              <span className="text-white font-medium">gennaio 2025</span>, collaborando
-              attualmente con{" "}
-              <span className="text-[#a3ff12] font-medium">ZeroAgency</span> (nota agenzia
-              offline di Benevento) e lavorando con molteplici brand.
+              <span className="text-white font-medium">gennaio 2025</span>, in{" "}
+              <span className="text-[#a3ff12] font-medium">collaborazione lavorativa con ZeroAgency</span>{" "}
+              (nota agenzia offline di Benevento) e con molteplici brand come consulente e content creator.
             </p>
             <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
-              La mia esperienza nasce molto prima, sperimentando sul campo con aziende e con il
-              mio personal brand da rapper{" "}
-              <span className="text-white font-medium">(Lil Manda)</span>. Gestisco
-              strategicamente Facebook, Instagram e TikTok, occupandomi di analisi, content
-              creation, campagne Meta ADS, reportistica mensile e sviluppo web.
+              La mia esperienza nasce molto prima, sperimentando sul campo con aziende e personal brand
+              nel settore musicale ed eventi. Gestisco strategicamente Facebook, Instagram e TikTok,
+              occupandomi di analisi, content creation, campagne Meta ADS, reportistica mensile e
+              sviluppo web.
             </p>
             <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
               Unisco la potenza dei dati alla forza del visual: realizzo foto per eventi con

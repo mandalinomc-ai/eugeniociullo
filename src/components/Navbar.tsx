@@ -49,7 +49,7 @@ export default function Navbar() {
               EUGENIO<span className="text-[#a3ff12]">.</span>
             </span>
             <span className="text-[10px] text-zinc-500 tracking-[0.2em] uppercase group-hover:text-[#a3ff12] transition-colors">
-              Lil Manda
+              Digital Marketer
             </span>
           </a>
 

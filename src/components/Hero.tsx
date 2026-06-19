@@ -117,11 +117,9 @@ export default function Hero() {
             </a>
 
             <div className="gradient-border rounded-2xl p-4 sm:p-5 mt-1 sm:mt-4">
-              <p className="text-[10px] sm:text-xs text-zinc-500 uppercase tracking-widest mb-2">Also known as</p>
-              <p className="text-xl sm:text-2xl font-black tracking-tight">
-                LIL <span className="text-[#a3ff12]">MANDA</span>
-              </p>
-              <p className="text-xs sm:text-sm text-zinc-500 mt-1">Rap · Events · Visual Culture</p>
+              <p className="text-[10px] sm:text-xs text-zinc-500 uppercase tracking-widest mb-2">Assistenza</p>
+              <p className="text-sm sm:text-base font-semibold text-white">{SITE.supportHoursLabel}</p>
+              <p className="text-xs sm:text-sm text-zinc-500 mt-2">{SITE.email}</p>
             </div>
           </motion.div>
         </div>
