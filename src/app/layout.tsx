@@ -17,10 +17,24 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: SITE.title,
   description: SITE.description,
+  metadataBase: new URL("https://eugeniociullo.vercel.app"),
   openGraph: {
     title: SITE.title,
     description: SITE.description,
     type: "website",
+    url: "https://eugeniociullo.vercel.app",
+    images: [{ url: "/images/eugenio-portrait.png", width: 800, height: 1000, alt: "Eugenio Ciullo" }],
+    locale: "it_IT",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.title,
+    description: SITE.description,
+    images: ["/images/eugenio-portrait.png"],
+  },
+  icons: {
+    icon: "/images/eugenio-portrait.png",
+    apple: "/images/eugenio-portrait.png",
   },
 };
 

@@ -8,7 +8,8 @@ export const SITE = {
   email: "eugeniociullo96@gmail.com",
   supportHours: "9:00 – 17:00",
   supportHoursLabel: "Assistenza Lun–Ven, 9:00 – 17:00",
-  calendlyUrl: "https://calendly.com/eugenio-ciullo/consulenza",
+  calendlyUrl:
+    "https://wa.me/393483470654?text=Ciao%20Eugenio!%20Vorrei%20prenotare%20una%20consulenza%201to1.",
 } as const;
 
 export function whatsappUrl(message?: string) {
@@ -36,7 +37,7 @@ export const BRANDS = [
   },
   {
     name: "HEALTHYSAN",
-    logo: "/images/healthysan-logo.jpg",
+    textOnly: true,
   },
   {
     name: "AP TRICOSISTEM",
@@ -48,11 +49,11 @@ export const BRANDS = [
   },
   {
     name: "LE SETTE REGIONI",
-    logo: "/images/le-sette-regioni-logo.jpg",
+    textOnly: true,
   },
   {
     name: "MISS GRAND INTERNATIONAL",
-    logo: "/images/miss-grand-international-logo.jpg",
+    textOnly: true,
   },
   {
     name: "THUNDERVAPE STORE",
@@ -70,11 +71,11 @@ export const BRANDS = [
   },
   {
     name: "AMA EXPERIENCE",
-    logo: "/images/ama-experience-logo.jpg",
+    textOnly: true,
   },
   {
     name: "THE LOBBY LOUNGE",
-    logo: "/images/the-lobby-lounge-logo.jpg",
+    textOnly: true,
   },
 ] as const;
 

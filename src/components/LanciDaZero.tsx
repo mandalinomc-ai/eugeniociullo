@@ -1,34 +1,40 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion, animate } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { LANCI_DA_ZERO } from "@/lib/constants";
 
 function AnimatedCounter({ target }: { target: number }) {
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (v) => Math.round(v).toLocaleString("it-IT"));
+  const [value, setValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
-          animate(count, target, { duration: 2, ease: "easeOut" });
+          animate(0, target, {
+            duration: 2,
+            ease: "easeOut",
+            onUpdate: (v) => setValue(Math.round(v)),
+          });
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(el);
     return () => observer.disconnect();
-  }, [count, target]);
+  }, [target]);
 
   return (
     <span ref={ref} className="tabular-nums">
-      <motion.span>{rounded}</motion.span>
+      {value.toLocaleString("it-IT")}
     </span>
   );
 }

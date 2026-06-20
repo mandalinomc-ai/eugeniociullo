@@ -6,6 +6,49 @@ import { useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { BRANDS, WORK_COLLABORATION } from "@/lib/constants";
 
+function BrandVisual({
+  brand,
+  failed,
+  onError,
+}: {
+  brand: (typeof BRANDS)[number];
+  failed: boolean;
+  onError: () => void;
+}) {
+  const textOnly = "textOnly" in brand && brand.textOnly;
+  const hasLogo = "logo" in brand && brand.logo;
+
+  if (textOnly || failed || !hasLogo) {
+    const initials = brand.name
+      .split(" ")
+      .slice(0, 2)
+      .map((w) => w[0])
+      .join("");
+
+    return (
+      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-zinc-900 via-black to-zinc-900">
+        <span className="text-4xl sm:text-5xl font-black text-zinc-800 tracking-tighter select-none">
+          {initials}
+        </span>
+        <span className="absolute bottom-4 left-4 right-4 text-center text-xs sm:text-sm font-bold text-zinc-500 tracking-widest uppercase">
+          {brand.name}
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={brand.logo}
+      alt={`${brand.name} - progetto Eugenio Ciullo`}
+      fill
+      className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+      sizes="(max-width: 768px) 100vw, 33vw"
+      onError={onError}
+    />
+  );
+}
+
 function BrandCard({
   brand,
   failedLogos,
@@ -17,6 +60,8 @@ function BrandCard({
   onLogoError: (name: string) => void;
   index: number;
 }) {
+  const failed = failedLogos[brand.name] ?? false;
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 40 }}
@@ -27,25 +72,12 @@ function BrandCard({
         "featured" in brand && brand.featured ? "ring-1 ring-[#a3ff12]/20" : ""
       }`}
     >
-      <div className="relative h-36 sm:h-40 bg-zinc-900/50 overflow-hidden flex items-center justify-center">
-        {!failedLogos[brand.name] ? (
-          <Image
-            src={brand.logo}
-            alt={`${brand.name} - progetto Eugenio Ciullo`}
-            fill
-            className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
-            sizes="(max-width: 768px) 100vw, 33vw"
-            onError={() => onLogoError(brand.name)}
-          />
-        ) : (
-          <span className="text-2xl sm:text-3xl font-black text-zinc-700 tracking-tighter px-4 text-center">
-            {brand.name}
-          </span>
-        )}
+      <div className="relative h-36 sm:h-40 bg-zinc-900/50 overflow-hidden">
+        <BrandVisual brand={brand} failed={failed} onError={() => onLogoError(brand.name)} />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
 
         {"highlight" in brand && brand.highlight && (
-          <span className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-bold tracking-widest uppercase bg-[#a3ff12] text-black rounded-full">
+          <span className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-bold tracking-widest uppercase bg-[#a3ff12] text-black rounded-full z-10">
             {"featured" in brand && brand.featured ? "Case Study" : "Highlight"}
           </span>
         )}
@@ -80,7 +112,6 @@ export default function Brands() {
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[#a3ff12]/3 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
-        {/* Collaborazione lavorativa — separata dai clienti */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,19 +127,14 @@ export default function Brands() {
 
           <div className="gradient-border rounded-2xl sm:rounded-3xl overflow-hidden hover:glow-accent transition-all duration-500">
             <div className="grid md:grid-cols-5 gap-0">
-              <div className="relative md:col-span-2 h-48 md:h-auto min-h-[12rem] bg-zinc-900/50 flex items-center justify-center overflow-hidden">
-                {!failedLogos[WORK_COLLABORATION.name] ? (
-                  <Image
-                    src="/images/work-fiera.png"
-                    alt="Eugenio Ciullo al lavoro con ZeroAgency"
-                    fill
-                    className="object-cover opacity-70"
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                    onError={() => handleLogoError(WORK_COLLABORATION.name)}
-                  />
-                ) : (
-                  <span className="text-3xl font-black text-zinc-700">{WORK_COLLABORATION.name}</span>
-                )}
+              <div className="relative md:col-span-2 h-48 md:h-auto min-h-[12rem] bg-zinc-900/50 overflow-hidden">
+                <Image
+                  src="/images/work-fiera.png"
+                  alt="Eugenio Ciullo al lavoro con ZeroAgency"
+                  fill
+                  className="object-cover opacity-70"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/80 md:bg-gradient-to-r md:from-transparent md:to-black pointer-events-none" />
                 <span className="absolute top-4 left-4 px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-white text-black rounded-full">
                   {WORK_COLLABORATION.badge}
