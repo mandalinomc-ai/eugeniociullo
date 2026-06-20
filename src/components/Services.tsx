@@ -1,9 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlowButton from "@/components/ui/GlowButton";
 import { SERVICES, SITE } from "@/lib/constants";
+
+const serviceImages = [
+  { src: "/images/ap-tricosistem-presentation.png", alt: "Event management AP TRICOSISTEM", label: "Eventi & Presentazioni" },
+  { src: "/images/antum-hotel-work.png", alt: "Content creation Antum Hotel", label: "Content & Social" },
+  { src: "/images/thundervape-design.png", alt: "Graphic design Thunder Vape", label: "Graphic Design" },
+];
 
 export default function Services() {
   return (
@@ -69,22 +76,17 @@ export default function Services() {
           viewport={{ once: true }}
           className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4"
         >
-          {[
-            { src: "/images/party-selfie360.jpg", alt: "Selfie 360 event setup", label: "Selfie 360" },
-            { src: "/images/event-dj-setup.jpg", alt: "DJ and event management", label: "DJ & Eventi" },
-            { src: "/images/event-pyrotechnics.jpg", alt: "Event pyrotechnics effects", label: "Pirotecnica" },
-          ].map((img) => (
+          {serviceImages.map((img) => (
             <div
               key={img.src}
-              className="relative h-40 sm:h-48 rounded-2xl overflow-hidden gradient-border group"
+              className="relative h-48 sm:h-56 rounded-2xl overflow-hidden gradient-border group"
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-500"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = "none";
-                }}
+                fill
+                className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-4">
                 <span className="text-sm font-bold">{img.label}</span>

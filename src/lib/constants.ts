@@ -31,7 +31,7 @@ export const BRANDS = [
     subtitle: "Personal Brand · Rap & Events",
     highlight:
       "Gestione strategica del personal brand: social media, content creation e identità visiva nel mondo rap ed eventi.",
-    logo: "/images/lil-manda-logo.jpg",
+    logo: "/images/eugenio-portrait.png",
     featured: true,
   },
   {
@@ -43,7 +43,7 @@ export const BRANDS = [
     subtitle: "Cosmoprof & The Lookmaker · Garden Toscana",
     highlight:
       "Partecipazione ufficiale e copertura eventi alle fiere Cosmoprof e The Lookmaker in Toscana presso il Garden",
-    logo: "/images/ap-tricosistem-logo.jpg",
+    logo: "/images/ap-tricosistem-cosmoprof.png",
     featured: true,
   },
   {
@@ -56,11 +56,17 @@ export const BRANDS = [
   },
   {
     name: "THUNDERVAPE STORE",
-    logo: "/images/thundervape-logo.jpg",
+    subtitle: "Graphic Design & Social",
+    highlight: "Flyer promozionali, branding visivo e gestione social per il punto vendita di Benevento.",
+    logo: "/images/thundervape-design.png",
+    featured: true,
   },
   {
     name: "ANTUM HOTEL",
-    logo: "/images/antum-hotel-logo.jpg",
+    subtitle: "Benevento · Hospitality",
+    highlight: "Content creation e promozione social per l'hotel, inclusi format Instagram e materiali evento.",
+    logo: "/images/antum-hotel-work.png",
+    featured: true,
   },
   {
     name: "AMA EXPERIENCE",
@@ -69,6 +75,89 @@ export const BRANDS = [
   {
     name: "THE LOBBY LOUNGE",
     logo: "/images/the-lobby-lounge-logo.jpg",
+  },
+] as const;
+
+export const WORK_GALLERY = [
+  {
+    id: "cosmoprof",
+    src: "/images/ap-tricosistem-cosmoprof.png",
+    alt: "Eugenio Ciullo a Cosmoprof Bologna per AP TRICOSISTEM",
+    label: "Cosmoprof 2025",
+    category: "Eventi & Fiere",
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    id: "presentation",
+    src: "/images/ap-tricosistem-presentation.png",
+    alt: "Presentazione evento AP TRICOSISTEM",
+    label: "Event Management",
+    category: "Sul Campo",
+    span: "md:col-span-2",
+  },
+  {
+    id: "analytics",
+    src: "/images/analytics-meta-ads.png",
+    alt: "Report prestazioni Meta ADS - 31.799 visualizzazioni",
+    label: "31.799 Views · CPC €0,07",
+    category: "Risultati ADS",
+    span: "md:col-span-1",
+  },
+  {
+    id: "fiera",
+    src: "/images/work-fiera.png",
+    alt: "Eugenio Ciullo in fiera professionale",
+    label: "Copertura Fiere",
+    category: "Sul Campo",
+    span: "md:col-span-1",
+  },
+  {
+    id: "meeting",
+    src: "/images/ap-tricosistem-meeting.png",
+    alt: "Incontro professionale AP TRICOSISTEM",
+    label: "AP TRICOSISTEM",
+    category: "Clienti",
+    span: "md:col-span-1",
+  },
+  {
+    id: "team",
+    src: "/images/ap-tricosistem-team.png",
+    alt: "Team AP TRICOSISTEM evento",
+    label: "Team & Networking",
+    category: "Eventi",
+    span: "md:col-span-1",
+  },
+  {
+    id: "stage",
+    src: "/images/work-event-stage.png",
+    alt: "Allestimento evento professionale",
+    label: "Allestimenti Evento",
+    category: "Event Management",
+    span: "md:col-span-1",
+  },
+  {
+    id: "antum",
+    src: "/images/antum-hotel-work.png",
+    alt: "Content creation Antum Hotel Benevento",
+    label: "Antum Hotel",
+    category: "Content Creation",
+    span: "md:col-span-1",
+  },
+  {
+    id: "thundervape-design",
+    src: "/images/thundervape-design.png",
+    alt: "Graphic design flyer Thunder Vape",
+    label: "Graphic Design",
+    category: "Progetti",
+    span: "md:col-span-1",
+  },
+  {
+    id: "thundervape-print",
+    src: "/images/thundervape-print.png",
+    alt: "Stampa flyer Thunder Vape",
+    label: "Print & Delivery",
+    category: "Progetti",
+    span: "md:col-span-1",
   },
 ] as const;
 

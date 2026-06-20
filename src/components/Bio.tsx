@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const bioCards = [
@@ -55,6 +56,20 @@ export default function Bio() {
             transition={{ duration: 0.7 }}
             className="space-y-5 sm:space-y-6"
           >
+            <div className="relative w-full max-w-sm aspect-[3/4] rounded-2xl overflow-hidden gradient-border lg:hidden mb-6">
+              <Image
+                src="/images/work-fiera.png"
+                alt="Eugenio Ciullo in fiera professionale"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 400px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <p className="absolute bottom-4 left-4 text-xs text-[#a3ff12] tracking-widest uppercase">
+                Sul campo
+              </p>
+            </div>
+
             <p className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug">
               Eugenio Ciullo<span className="text-[#a3ff12]">.</span>
             </p>
@@ -78,27 +93,48 @@ export default function Bio() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            {bioCards.map((card, i) => (
-              <motion.div
-                key={card.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className={`gradient-border rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:glow-accent transition-shadow duration-500 ${card.span} ${
-                  card.highlight ? "border-[#a3ff12]/30" : ""
-                }`}
-              >
-                <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 mb-2 sm:mb-3">
-                  {card.label}
-                </p>
-                <p className="text-lg sm:text-xl md:text-2xl font-black tracking-tight mb-1 break-words">
-                  {card.value}
-                </p>
-                <p className="text-xs sm:text-sm text-zinc-500 leading-snug">{card.sub}</p>
-              </motion.div>
-            ))}
+          <div className="space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative hidden lg:block w-full aspect-[16/10] rounded-2xl overflow-hidden gradient-border mb-4"
+            >
+              <Image
+                src="/images/work-fiera.png"
+                alt="Eugenio Ciullo in fiera professionale"
+                fill
+                className="object-cover"
+                sizes="50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <p className="absolute bottom-4 left-4 text-xs text-[#a3ff12] tracking-widest uppercase">
+                Sul campo · Fiere & Eventi
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {bioCards.map((card, i) => (
+                <motion.div
+                  key={card.label}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className={`gradient-border rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:glow-accent transition-shadow duration-500 ${card.span} ${
+                    card.highlight ? "border-[#a3ff12]/30" : ""
+                  }`}
+                >
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 mb-2 sm:mb-3">
+                    {card.label}
+                  </p>
+                  <p className="text-lg sm:text-xl md:text-2xl font-black tracking-tight mb-1 break-words">
+                    {card.value}
+                  </p>
+                  <p className="text-xs sm:text-sm text-zinc-500 leading-snug">{card.sub}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { BRANDS, WORK_COLLABORATION } from "@/lib/constants";
@@ -28,10 +29,12 @@ function BrandCard({
     >
       <div className="relative h-36 sm:h-40 bg-zinc-900/50 overflow-hidden flex items-center justify-center">
         {!failedLogos[brand.name] ? (
-          <img
+          <Image
             src={brand.logo}
-            alt={`Logo ${brand.name}`}
-            className="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-500"
+            alt={`${brand.name} - progetto Eugenio Ciullo`}
+            fill
+            className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+            sizes="(max-width: 768px) 100vw, 33vw"
             onError={() => onLogoError(brand.name)}
           />
         ) : (
@@ -95,10 +98,12 @@ export default function Brands() {
             <div className="grid md:grid-cols-5 gap-0">
               <div className="relative md:col-span-2 h-48 md:h-auto min-h-[12rem] bg-zinc-900/50 flex items-center justify-center overflow-hidden">
                 {!failedLogos[WORK_COLLABORATION.name] ? (
-                  <img
-                    src={WORK_COLLABORATION.logo}
-                    alt={`Logo ${WORK_COLLABORATION.name}`}
-                    className="w-full h-full object-cover opacity-70"
+                  <Image
+                    src="/images/work-fiera.png"
+                    alt="Eugenio Ciullo al lavoro con ZeroAgency"
+                    fill
+                    className="object-cover opacity-70"
+                    sizes="(max-width: 768px) 100vw, 40vw"
                     onError={() => handleLogoError(WORK_COLLABORATION.name)}
                   />
                 ) : (

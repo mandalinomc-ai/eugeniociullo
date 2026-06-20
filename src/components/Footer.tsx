@@ -43,6 +43,7 @@ export default function Footer() {
             <nav className="flex flex-col gap-2 mb-6">
               {[
                 { label: "Chi Sono", href: "#chi-sono" },
+                { label: "Lavori", href: "#lavori" },
                 { label: "Brand", href: "#brand" },
                 { label: "Servizi", href: "#servizi" },
                 { label: "Preventivo", href: "#preventivo" },

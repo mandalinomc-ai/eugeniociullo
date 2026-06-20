@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Bio from "@/components/Bio";
+import WorkGallery from "@/components/WorkGallery";
 import Brands from "@/components/Brands";
 import LanciDaZero from "@/components/LanciDaZero";
 import Services from "@/components/Services";
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Bio />
+      <WorkGallery />
       <Brands />
       <LanciDaZero />
       <Services />

@@ -1,13 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import Image from "next/image";
 import GlowButton from "@/components/ui/GlowButton";
 import { SITE } from "@/lib/constants";
 
 export default function Hero() {
-  const [videoError, setVideoError] = useState(false);
-
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
@@ -24,37 +22,24 @@ export default function Hero() {
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="absolute inset-0 flex items-center justify-center opacity-20">
-          {!videoError && (
-            <video
-              className="w-full h-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster="/images/hero-poster.jpg"
-              onError={() => setVideoError(true)}
-            >
-              <source src="/videos/hero-reel.mp4" type="video/mp4" />
-            </video>
-          )}
-          <img
-            src="/images/hero-background.jpg"
-            alt="Eugenio Ciullo - Digital Marketer hero background"
-            className={`absolute inset-0 w-full h-full object-cover ${videoError ? "opacity-100" : "opacity-0 -z-10"}`}
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = "none";
-            }}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/ap-tricosistem-cosmoprof.png"
+            alt="Eugenio Ciullo al lavoro - Cosmoprof"
+            fill
+            priority
+            className="object-cover opacity-25"
+            sizes="100vw"
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
         <div className="noise-overlay absolute inset-0 pointer-events-none" />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-16 sm:pb-20">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -94,8 +79,24 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.65 }}
-            className="lg:col-span-4 flex flex-col gap-3 sm:gap-4"
+            className="lg:col-span-5 flex flex-col gap-3 sm:gap-4"
           >
+            <div className="relative aspect-[4/5] max-h-72 sm:max-h-80 w-full rounded-2xl overflow-hidden gradient-border glow-accent mb-2">
+              <Image
+                src="/images/eugenio-portrait.png"
+                alt="Eugenio Ciullo - Digital Marketer"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 400px"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <p className="text-lg font-black tracking-tight">EUGENIO CIULLO</p>
+                <p className="text-xs text-[#a3ff12] tracking-widest uppercase">Digital · Content · ADS</p>
+              </div>
+            </div>
+
             <GlowButton href="#preventivo" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
               Richiedi Preventivo
             </GlowButton>
@@ -116,7 +117,7 @@ export default function Hero() {
               💬 WhatsApp · {SITE.whatsappDisplay}
             </a>
 
-            <div className="gradient-border rounded-2xl p-4 sm:p-5 mt-1 sm:mt-4">
+            <div className="gradient-border rounded-2xl p-4 sm:p-5">
               <p className="text-[10px] sm:text-xs text-zinc-500 uppercase tracking-widest mb-2">Assistenza</p>
               <p className="text-sm sm:text-base font-semibold text-white">{SITE.supportHoursLabel}</p>
               <p className="text-xs sm:text-sm text-zinc-500 mt-2">{SITE.email}</p>

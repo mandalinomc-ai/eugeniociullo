@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { LANCI_DA_ZERO } from "@/lib/constants";
 
 function AnimatedCounter({ target }: { target: number }) {
@@ -106,6 +107,53 @@ export default function LanciDaZero() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 sm:mt-16 gradient-border rounded-2xl sm:rounded-3xl overflow-hidden"
+        >
+          <div className="grid md:grid-cols-2 gap-0">
+            <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[320px] bg-zinc-900">
+              <Image
+                src="/images/analytics-meta-ads.png"
+                alt="Report Meta ADS - 31.799 visualizzazioni, CPC €0,07"
+                fill
+                className="object-contain p-4"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="p-6 sm:p-10 flex flex-col justify-center">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-[#a3ff12] mb-3">Prova dai dati</span>
+              <h3 className="text-xl sm:text-2xl font-black tracking-tight mb-4">
+                Performance reali da Meta ADS Manager
+              </h3>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                  <p className="text-2xl sm:text-3xl font-black text-[#a3ff12]">31.799</p>
+                  <p className="text-xs text-zinc-500 uppercase tracking-widest">Visualizzazioni</p>
+                </div>
+                <div>
+                  <p className="text-2xl sm:text-3xl font-black text-white">1.208</p>
+                  <p className="text-xs text-zinc-500 uppercase tracking-widest">Clic sul link</p>
+                </div>
+                <div>
+                  <p className="text-2xl sm:text-3xl font-black text-white">24.799</p>
+                  <p className="text-xs text-zinc-500 uppercase tracking-widest">Copertura</p>
+                </div>
+                <div>
+                  <p className="text-2xl sm:text-3xl font-black text-[#a3ff12]">€0,07</p>
+                  <p className="text-xs text-zinc-500 uppercase tracking-widest">CPC medio</p>
+                </div>
+              </div>
+              <p className="text-sm text-zinc-400 leading-relaxed">
+                Campagna ottimizzata in 10 giorni. Dati concreti, non promesse: ogni euro investito
+                tracciato e reportato.
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
