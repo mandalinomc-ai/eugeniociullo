@@ -25,7 +25,7 @@ Apri [http://localhost:3000](http://localhost:3000).
 Modifica `src/lib/constants.ts`:
 
 - `SITE.whatsapp` — numero in formato internazionale senza `+` (es. `393331234567`)
-- `SITE.calendlyUrl` — link Calendly per consulenze 1to1
+- `SITE.consultationUrl` — link WhatsApp per consulenze 1to1
 
 ### Immagini e video
 

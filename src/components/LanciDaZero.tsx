@@ -1,43 +1,8 @@
 "use client";
 
-import { motion, animate } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { LANCI_DA_ZERO } from "@/lib/constants";
-
-function AnimatedCounter({ target }: { target: number }) {
-  const [value, setValue] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          animate(0, target, {
-            duration: 2,
-            ease: "easeOut",
-            onUpdate: (v) => setValue(Math.round(v)),
-          });
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [target]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {value.toLocaleString("it-IT")}
-    </span>
-  );
-}
 
 export default function LanciDaZero() {
   return (
@@ -92,8 +57,8 @@ export default function LanciDaZero() {
                 <div className="space-y-6">
                   <div>
                     <p className="text-xs uppercase tracking-[0.3em] text-zinc-600 mb-2">Impression</p>
-                    <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#a3ff12] leading-none tracking-tighter break-words">
-                      <AnimatedCounter target={item.impressions} />
+                    <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#a3ff12] leading-none tracking-tighter">
+                      {item.impressions.toLocaleString("it-IT")}
                       <span className="text-2xl sm:text-3xl md:text-4xl">+</span>
                     </p>
                   </div>

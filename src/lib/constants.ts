@@ -8,7 +8,7 @@ export const SITE = {
   email: "eugeniociullo96@gmail.com",
   supportHours: "9:00 – 17:00",
   supportHoursLabel: "Assistenza Lun–Ven, 9:00 – 17:00",
-  calendlyUrl:
+  consultationUrl:
     "https://wa.me/393483470654?text=Ciao%20Eugenio!%20Vorrei%20prenotare%20una%20consulenza%201to1.",
 } as const;
 
@@ -32,12 +32,13 @@ export const BRANDS = [
     subtitle: "Personal Brand · Rap & Events",
     highlight:
       "Gestione strategica del personal brand: social media, content creation e identità visiva nel mondo rap ed eventi.",
-    logo: "/images/eugenio-portrait.png",
+    logo: "/images/work-event-stage.png",
     featured: true,
   },
   {
     name: "HEALTHYSAN",
     textOnly: true,
+    accent: "#22c55e",
   },
   {
     name: "AP TRICOSISTEM",
@@ -50,10 +51,12 @@ export const BRANDS = [
   {
     name: "LE SETTE REGIONI",
     textOnly: true,
+    accent: "#f59e0b",
   },
   {
     name: "MISS GRAND INTERNATIONAL",
     textOnly: true,
+    accent: "#ec4899",
   },
   {
     name: "THUNDERVAPE STORE",
@@ -72,10 +75,12 @@ export const BRANDS = [
   {
     name: "AMA EXPERIENCE",
     textOnly: true,
+    accent: "#8b5cf6",
   },
   {
     name: "THE LOBBY LOUNGE",
     textOnly: true,
+    accent: "#06b6d4",
   },
 ] as const;
 

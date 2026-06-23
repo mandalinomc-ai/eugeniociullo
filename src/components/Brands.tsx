@@ -18,7 +18,26 @@ function BrandVisual({
   const textOnly = "textOnly" in brand && brand.textOnly;
   const hasLogo = "logo" in brand && brand.logo;
 
-  if (textOnly || failed || !hasLogo) {
+  if (textOnly) {
+    const accent = "accent" in brand && brand.accent ? brand.accent : "#a3ff12";
+
+    return (
+      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-zinc-950 via-black to-zinc-900 overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-25 blur-3xl pointer-events-none"
+          style={{ background: `radial-gradient(circle at center, ${accent}, transparent 70%)` }}
+        />
+        <p
+          className="relative text-center px-4 text-sm sm:text-base font-black tracking-[0.15em] uppercase leading-snug"
+          style={{ color: accent }}
+        >
+          {brand.name}
+        </p>
+      </div>
+    );
+  }
+
+  if (failed || !hasLogo) {
     const initials = brand.name
       .split(" ")
       .slice(0, 2)

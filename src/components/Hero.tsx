@@ -101,12 +101,12 @@ export default function Hero() {
               Richiedi Preventivo
             </GlowButton>
             <GlowButton
-              href={SITE.calendlyUrl}
+              href={SITE.consultationUrl}
               variant="secondary"
               external
               className="w-full py-3.5 sm:py-4 text-sm sm:text-base"
             >
-              Prenota Consulenza 1to1
+              Prenota via WhatsApp
             </GlowButton>
             <a
               href={`https://wa.me/${SITE.whatsapp}`}

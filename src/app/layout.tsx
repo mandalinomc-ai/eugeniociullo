@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import JsonLd from "@/components/JsonLd";
 import { SITE } from "@/lib/constants";
 
 const geistSans = Geist({
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     images: ["/images/eugenio-portrait.png"],
   },
   icons: {
-    icon: "/images/eugenio-portrait.png",
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     apple: "/images/eugenio-portrait.png",
   },
 };
@@ -56,6 +57,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
         style={{ fontFamily: "var(--font-geist-sans)" }}
       >
+        <JsonLd />
         {children}
       </body>
     </html>

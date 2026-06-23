@@ -9,7 +9,7 @@ import { SERVICES, SITE } from "@/lib/constants";
 const serviceImages = [
   { src: "/images/ap-tricosistem-presentation.png", alt: "Event management AP TRICOSISTEM", label: "Eventi & Presentazioni" },
   { src: "/images/antum-hotel-work.png", alt: "Content creation Antum Hotel", label: "Content & Social" },
-  { src: "/images/thundervape-design.png", alt: "Graphic design Thunder Vape", label: "Graphic Design" },
+  { src: "/images/work-event-stage.png", alt: "Allestimento evento professionale", label: "Event Management" },
 ];
 
 export default function Services() {
@@ -60,8 +60,8 @@ export default function Services() {
 
                 {"featured" in service && service.featured && (
                   <div className="mt-6 sm:mt-8">
-                    <GlowButton href={SITE.calendlyUrl} variant="outline" external className="w-full sm:w-auto">
-                      Prenota Consulenza →
+                    <GlowButton href={SITE.consultationUrl} variant="outline" external className="w-full sm:w-auto">
+                      Prenota via WhatsApp →
                     </GlowButton>
                   </div>
                 )}

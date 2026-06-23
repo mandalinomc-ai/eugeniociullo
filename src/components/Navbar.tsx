@@ -69,12 +69,12 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <GlowButton
-              href={SITE.calendlyUrl}
+              href={SITE.consultationUrl}
               variant="primary"
               external
               className="hidden sm:inline-flex text-xs md:text-sm px-4 sm:px-6"
             >
-              Prenota Consulenza
+              Prenota via WhatsApp
             </GlowButton>
 
             <button
@@ -147,8 +147,8 @@ export default function Navbar() {
               </div>
 
               <div className="px-6 py-6 border-t border-white/5 space-y-4">
-                <GlowButton href={SITE.calendlyUrl} variant="primary" external className="w-full py-4">
-                  Prenota Consulenza
+                <GlowButton href={SITE.consultationUrl} variant="primary" external className="w-full py-4">
+                  Prenota via WhatsApp
                 </GlowButton>
                 <a
                   href={`https://wa.me/${SITE.whatsapp}`}

@@ -57,8 +57,8 @@ export default function Footer() {
                 </a>
               ))}
             </nav>
-            <GlowButton href={SITE.calendlyUrl} variant="primary" external className="w-full sm:w-auto">
-              Prenota Consulenza
+            <GlowButton href={SITE.consultationUrl} variant="primary" external className="w-full sm:w-auto">
+              Prenota via WhatsApp
             </GlowButton>
           </div>
         </div>
