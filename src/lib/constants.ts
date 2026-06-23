@@ -265,9 +265,9 @@ export const CONTENT_CREATOR = {
     },
   ],
   gear: [
-    { label: "iPhone 16 Pro", detail: "Reels, Stories, UGC mobile-first" },
-    { label: "Macchina fotografica", detail: "Eventi, ritratti, prodotti" },
-    { label: "Riprese con Drone", detail: "Disponibili · Location, fiere, hotel, eventi", highlight: true },
+    { label: "iPhone 16 Pro", detail: "Reels, Stories, UGC mobile-first", highlight: false as const },
+    { label: "Macchina fotografica", detail: "Eventi, ritratti, prodotti", highlight: false as const },
+    { label: "Riprese con Drone", detail: "Disponibili · Location, fiere, hotel, eventi", highlight: true as const },
   ],
   process: [
     { step: "01", title: "Brief & Strategia", text: "Obiettivo, tone of voice, piattaforme e KPI definiti insieme." },
