@@ -19,10 +19,10 @@ export default function Services() {
         <SectionHeading
           label="I Miei Servizi"
           title="Tutto ciò che serve per farti sentire."
-          subtitle="Quattro pilastri per costruire presenza, contenuti e risultati misurabili."
+          subtitle="Cinque pilastri — siti web, social, content, consulenza ed eventi — per costruire presenza e risultati misurabili."
         />
 
-        <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {SERVICES.map((service, i) => (
             <motion.div
               key={service.id}
@@ -60,8 +60,13 @@ export default function Services() {
 
                 {"featured" in service && service.featured && (
                   <div className="mt-6 sm:mt-8">
-                    <GlowButton href={SITE.consultationUrl} variant="outline" external className="w-full sm:w-auto">
-                      Prenota via WhatsApp →
+                    <GlowButton
+                      href={service.id === "websites" ? "#ai-sito" : SITE.consultationUrl}
+                      variant="outline"
+                      external={service.id !== "websites"}
+                      className="w-full sm:w-auto"
+                    >
+                      {service.id === "websites" ? "Progetta con AI →" : "Prenota via WhatsApp →"}
                     </GlowButton>
                   </div>
                 )}

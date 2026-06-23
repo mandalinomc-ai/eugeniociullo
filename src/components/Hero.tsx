@@ -70,8 +70,9 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-zinc-400 max-w-2xl leading-relaxed font-light"
             >
-              Strategia, Content &amp; ADS per brand che vogliono{" "}
-              <span className="text-white font-medium">farsi sentire</span>.
+              Strategia, Content, ADS &amp;{" "}
+              <span className="text-white font-medium">Siti Web Premium</span>{" "}
+              per brand che vogliono farsi sentire.
             </motion.p>
           </div>
 
@@ -97,16 +98,11 @@ export default function Hero() {
               </div>
             </div>
 
-            <GlowButton href="#preventivo" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
-              Richiedi Preventivo
+            <GlowButton href="#ai-sito" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
+              Crea il Tuo Sito con AI
             </GlowButton>
-            <GlowButton
-              href={SITE.consultationUrl}
-              variant="secondary"
-              external
-              className="w-full py-3.5 sm:py-4 text-sm sm:text-base"
-            >
-              Prenota via WhatsApp
+            <GlowButton href="#preventivo" variant="secondary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
+              Richiedi Preventivo
             </GlowButton>
             <a
               href={`https://wa.me/${SITE.whatsapp}`}

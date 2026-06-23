@@ -186,6 +186,16 @@ export const LANCI_DA_ZERO = [
 
 export const SERVICES = [
   {
+    id: "websites",
+    title: "Creazione Siti Web Premium",
+    badge: "NUOVO",
+    description:
+      "Siti veloci, SEO-ready e mobile-first. Design su misura, integrazione social/ADS e funnel di conversione integrato.",
+    icon: "🌐",
+    gradient: "from-cyan-500/20 to-blue-600/10",
+    featured: true,
+  },
+  {
     id: "social",
     title: "Social Media Management & ADS",
     description:
@@ -205,7 +215,7 @@ export const SERVICES = [
     id: "consulting",
     title: "Consulenza Strategica 1to1",
     description:
-      "Il focus principale di vendita: sessioni personalizzate per sbloccare la crescita del tuo brand.",
+      "Sessioni personalizzate per sbloccare la crescita del tuo brand con piano d'azione concreto.",
     icon: "🎯",
     gradient: "from-amber-500/20 to-orange-500/10",
     featured: true,
@@ -221,7 +231,95 @@ export const SERVICES = [
   },
 ] as const;
 
+export const TRUST_STATS = [
+  { value: "170K+", label: "Impression generate" },
+  { value: "31.799", label: "Views campagna Meta" },
+  { value: "€0,07", label: "CPC medio ottimizzato" },
+  { value: "10+", label: "Brand gestiti" },
+  { value: "2", label: "Lanci sold-out da zero" },
+  { value: "<5min", label: "Risposta assistente AI" },
+] as const;
+
+export const PAYMENT_PLANS = {
+  headline: "Pagamenti flessibili disponibili",
+  description:
+    "Per siti web, pacchetti social e progetti eventi puoi dilazionare il pagamento in 2–3 rate senza interessi, previo accordo.",
+  eligible: ["Creazione Siti Web", "Social Management (3+ mesi)", "Event Management", "Pacchetti Combo"],
+} as const;
+
+export const SITE_BUILDER = {
+  businessTypes: [
+    "Ristorante / Bar",
+    "Hotel / B&B",
+    "E-commerce",
+    "Personal Brand",
+    "Professionista / Studio",
+    "Agenzia / Servizi",
+    "Altro",
+  ],
+  goals: [
+    "Generare lead e contatti",
+    "Vendere online",
+    "Prenotazioni / Booking",
+    "Portfolio e credibilità",
+    "Lancio nuovo brand",
+  ],
+  pages: [
+    "Home impattante",
+    "Chi Siamo / Story",
+    "Servizi / Menu",
+    "Gallery / Portfolio",
+    "Testimonial",
+    "Blog / News",
+    "Shop / Catalogo",
+    "Contatti + Mappa",
+    "FAQ",
+  ],
+  styles: [
+    { id: "luxury-dark", label: "Luxury Dark", accent: "#a3ff12", bg: "#0a0a0a" },
+    { id: "minimal", label: "Minimal Premium", accent: "#ffffff", bg: "#111111" },
+    { id: "bold", label: "Bold Creativo", accent: "#f472b6", bg: "#0f0a14" },
+    { id: "corporate", label: "Corporate Clean", accent: "#3b82f6", bg: "#0c1222" },
+  ],
+  timelines: ["Urgente (2–3 settimane)", "Standard (1 mese)", "Flessibile (2+ mesi)", "Sto esplorando"],
+  budgets: [
+    "Fino a €800",
+    "€800 – €2.000",
+    "€2.000 – €5.000",
+    "Oltre €5.000",
+    "Da definire in consulenza",
+  ],
+} as const;
+
+export const AI_AUTOMATION = [
+  {
+    id: "qualify",
+    title: "Qualifica Lead Automatica",
+    description: "Ogni richiesta viene analizzata, classificata e instradata verso consulenza o preventivo in meno di 5 minuti.",
+    icon: "⚡",
+  },
+  {
+    id: "site-brief",
+    title: "Brief Sito con AI",
+    description: "Il cliente descrive l'idea e riceve subito struttura pagine, stile consigliato e stima orientativa.",
+    icon: "🤖",
+  },
+  {
+    id: "assist",
+    title: "Assistente 24/7",
+    description: "Risposte su servizi, orari e disponibilità anche fuori orario — zero lead persi.",
+    icon: "💬",
+  },
+  {
+    id: "audit",
+    title: "Audit Social Express",
+    description: "Analisi rapida profilo social del prospect per personalizzare la prima consulenza gratuita.",
+    icon: "🔍",
+  },
+] as const;
+
 export const FORM_OBJECTIVES = [
+  { id: "website", label: "Creazione Sito Web" },
   { id: "social", label: "Social / ADS" },
   { id: "content", label: "Content Creation" },
   { id: "events", label: "Organizzazione Eventi" },
@@ -233,4 +331,5 @@ export const BUDGET_OPTIONS = [
   { id: "growth", label: "€500 – €1.500/mese" },
   { id: "scale", label: "€1.500 – €5.000/mese" },
   { id: "enterprise", label: "Oltre €5.000/mese" },
+  { id: "website", label: "Progetto sito web (una tantum)" },
 ] as const;

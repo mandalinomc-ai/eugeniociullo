@@ -85,4 +85,48 @@ body {
   .safe-bottom-offset {
     bottom: calc(5.5rem + var(--safe-bottom));
   }
+
+  .marquee-track {
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee-track-reverse {
+    animation: marquee-reverse 35s linear infinite;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(163, 255, 18, 0.08) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .typing-cursor::after {
+    content: "|";
+    animation: blink 1s step-end infinite;
+    color: var(--color-accent);
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }

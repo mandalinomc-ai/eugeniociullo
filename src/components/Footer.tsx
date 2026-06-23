@@ -46,6 +46,7 @@ export default function Footer() {
                 { label: "Lavori", href: "#lavori" },
                 { label: "Brand", href: "#brand" },
                 { label: "Servizi", href: "#servizi" },
+                { label: "AI Sito", href: "#ai-sito" },
                 { label: "Preventivo", href: "#preventivo" },
               ].map((item) => (
                 <a
