@@ -66,7 +66,7 @@ export default function Services() {
                       external={service.id !== "websites"}
                       className="w-full sm:w-auto"
                     >
-                      {service.id === "websites" ? "Progetta con AI →" : "Prenota via WhatsApp →"}
+                      {service.id === "websites" ? "CREA IL TUO SITO →" : "Prenota via WhatsApp →"}
                     </GlowButton>
                   </div>
                 )}

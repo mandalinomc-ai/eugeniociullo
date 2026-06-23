@@ -113,7 +113,7 @@ export default function ChatBot() {
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
                   <div className="bg-white/5 text-sm px-4 py-3 rounded-2xl rounded-bl-sm">
                     {wantsWebsite
-                      ? "Perfetto! Usa il Site Builder AI per il brief completo, oppure scrivimi su WhatsApp."
+                      ? "Perfetto! Vai su CREA IL TUO SITO per il brief completo, oppure scrivimi su WhatsApp."
                       : "Ottimo! Eugenio è pronto. Scegli come procedere 👇"}
                   </div>
 
@@ -123,7 +123,7 @@ export default function ChatBot() {
                       onClick={closeChat}
                       className="block w-full text-center py-3 rounded-xl bg-[#a3ff12] text-black font-bold text-sm hover:brightness-110 transition-all"
                     >
-                      🌐 Apri AI Site Builder
+                      🌐 CREA IL TUO SITO
                     </a>
                   )}
 

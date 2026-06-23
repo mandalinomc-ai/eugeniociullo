@@ -99,7 +99,7 @@ export default function Hero() {
             </div>
 
             <GlowButton href="#ai-sito" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
-              Crea il Tuo Sito con AI
+              CREA IL TUO SITO
             </GlowButton>
             <GlowButton href="#preventivo" variant="secondary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
               Richiedi Preventivo

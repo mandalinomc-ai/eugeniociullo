@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import GlowButton from "@/components/ui/GlowButton";
 import { SITE, SITE_BUILDER, whatsappUrl } from "@/lib/constants";
 
 type BuilderData = {
@@ -19,6 +18,8 @@ type BuilderData = {
 
 type StepId = "business" | "goal" | "pages" | "style" | "timeline" | "budget" | "contact" | "done";
 
+const AUTO_LABEL = "Non lo so, scegli tu";
+
 const STEPS: { id: StepId; question: string }[] = [
   { id: "business", question: "Ciao! 👋 Sono l'AI di Eugenio. Che tipo di attività hai?" },
   { id: "goal", question: "Perfetto. Qual è l'obiettivo principale del tuo sito?" },
@@ -28,6 +29,63 @@ const STEPS: { id: StepId; question: string }[] = [
   { id: "budget", question: "Budget indicativo per il progetto?" },
   { id: "contact", question: "Ultimo step: come posso contattarti?" },
 ];
+
+function pickGoal(business: string): string {
+  if (business.includes("Ristorante") || business.includes("Hotel")) return "Prenotazioni / Booking";
+  if (business.includes("E-commerce")) return "Vendere online";
+  if (business.includes("Personal Brand")) return "Portfolio e credibilità";
+  if (business.includes("Professionista")) return "Generare lead e contatti";
+  if (business.includes("Agenzia")) return "Portfolio e credibilità";
+  return "Generare lead e contatti";
+}
+
+function pickPages(business: string, goal: string): string[] {
+  const pages = new Set<string>(["Home impattante", "Contatti + Mappa"]);
+
+  if (business.includes("Ristorante") || business.includes("Hotel")) {
+    pages.add("Servizi / Menu");
+    pages.add("Gallery / Portfolio");
+    pages.add("Testimonial");
+  } else if (business.includes("E-commerce")) {
+    pages.add("Shop / Catalogo");
+    pages.add("FAQ");
+  } else if (business.includes("Personal Brand") || business.includes("Professionista")) {
+    pages.add("Chi Siamo / Story");
+    pages.add("Gallery / Portfolio");
+    pages.add("Testimonial");
+  } else {
+    pages.add("Servizi / Menu");
+    pages.add("Chi Siamo / Story");
+  }
+
+  if (goal.includes("Blog") || goal.includes("Portfolio")) pages.add("Blog / News");
+  if (goal.includes("Vendere")) pages.add("Shop / Catalogo");
+
+  return Array.from(pages).slice(0, 6);
+}
+
+function autoPick(stepId: StepId, data: BuilderData): { text: string; update: Partial<BuilderData> } {
+  switch (stepId) {
+    case "business":
+      return { text: AUTO_LABEL, update: { business: "Professionista / Studio" } };
+    case "goal":
+      return { text: AUTO_LABEL, update: { goal: pickGoal(data.business || "Professionista / Studio") } };
+    case "pages": {
+      const business = data.business || "Professionista / Studio";
+      const goal = data.goal || pickGoal(business);
+      const pages = pickPages(business, goal);
+      return { text: AUTO_LABEL, update: { pages } };
+    }
+    case "style":
+      return { text: AUTO_LABEL, update: { style: SITE_BUILDER.styles[0] } };
+    case "timeline":
+      return { text: AUTO_LABEL, update: { timeline: "Standard (1 mese)" } };
+    case "budget":
+      return { text: AUTO_LABEL, update: { budget: "Da definire in consulenza" } };
+    default:
+      return { text: AUTO_LABEL, update: {} };
+  }
+}
 
 function buildBrief(data: BuilderData): string {
   const styleLabel = data.style?.label ?? "Premium";
@@ -54,70 +112,251 @@ function buildBrief(data: BuilderData): string {
     .join("\n");
 }
 
-function SitePreview({ style, pages }: { style: BuilderData["style"]; pages: string[] }) {
-  const accent = style?.accent ?? "#a3ff12";
-  const bg = style?.bg ?? "#0a0a0a";
+function getBrandName(business: string): string {
+  if (!business || business === AUTO_LABEL) return "TUOBRAND";
+  const word = business.split(/[/·]/)[0].trim().split(" ").pop() ?? "Brand";
+  return word.toUpperCase().slice(0, 12);
+}
+
+function getHeroLine(goal: string, business: string): string {
+  if (goal.includes("Prenotazioni")) return "Prenota la tua esperienza";
+  if (goal.includes("Vendere")) return "Scopri e acquista ora";
+  if (goal.includes("Portfolio")) return "Il tuo brand, al top";
+  if (goal.includes("Lancio")) return "Il lancio che meriti";
+  if (business.includes("Ristorante")) return "Sapori autentici, online";
+  if (business.includes("Hotel")) return "Il tuo soggiorno ideale";
+  return "Fatti sentire online";
+}
+
+function getCtaLabel(goal: string): string {
+  if (goal.includes("Prenotazioni")) return "Prenota ora";
+  if (goal.includes("Vendere")) return "Acquista";
+  if (goal.includes("lead")) return "Richiedi info";
+  return "Contattaci";
+}
+
+function getBusinessIcon(business: string): string {
+  if (business.includes("Ristorante")) return "🍽️";
+  if (business.includes("Hotel")) return "🏨";
+  if (business.includes("E-commerce")) return "🛒";
+  if (business.includes("Personal Brand")) return "⭐";
+  if (business.includes("Professionista")) return "💼";
+  if (business.includes("Agenzia")) return "🚀";
+  return "✦";
+}
+
+function SitePreview({ data }: { data: BuilderData }) {
+  const accent = data.style?.accent ?? "#a3ff12";
+  const bg = data.style?.bg ?? "#0a0a0a";
+  const isMinimal = data.style?.id === "minimal";
+  const isBold = data.style?.id === "bold";
+  const isCorporate = data.style?.id === "corporate";
+
+  const brandName = getBrandName(data.business);
+  const heroLine = getHeroLine(data.goal, data.business);
+  const ctaLabel = getCtaLabel(data.goal);
+  const icon = getBusinessIcon(data.business);
+
+  const navItems =
+    data.pages.length > 0
+      ? data.pages.slice(0, 4).map((p) => p.split(" ")[0])
+      : ["Home", "Servizi", "Contatti"];
+
+  const progress = [
+    data.business,
+    data.goal,
+    data.pages.length,
+    data.style,
+    data.timeline,
+    data.budget,
+  ].filter(Boolean).length;
 
   return (
-    <div className="gradient-border rounded-2xl overflow-hidden shadow-2xl">
-      <div className="flex items-center gap-2 px-4 py-3 bg-zinc-900 border-b border-white/5">
+    <div className="gradient-border rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(163,255,18,0.08)]">
+      {/* Browser chrome */}
+      <div className="flex items-center gap-2 px-4 py-3 bg-zinc-900/95 border-b border-white/5 backdrop-blur-sm">
         <div className="flex gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+          <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
         </div>
-        <div className="flex-1 mx-2 h-5 rounded-md bg-white/5 flex items-center px-3">
-          <span className="text-[9px] text-zinc-600 truncate">tuobrand.it</span>
+        <div className="flex-1 mx-2 h-6 rounded-lg bg-black/40 border border-white/5 flex items-center px-3 gap-2">
+          <span className="text-[8px] text-zinc-600">🔒</span>
+          <span className="text-[10px] text-zinc-500 truncate">
+            {brandName.toLowerCase()}.it
+          </span>
         </div>
-        <span className="text-[9px] text-[#a3ff12] font-bold uppercase tracking-widest">Live Preview</span>
+        <motion.span
+          key={progress}
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
+          style={{ backgroundColor: `${accent}20`, color: accent }}
+        >
+          {Math.round((progress / 6) * 100)}%
+        </motion.span>
       </div>
 
-      <div className="p-4 sm:p-6 space-y-3 min-h-[280px] sm:min-h-[320px]" style={{ backgroundColor: bg }}>
-        <div className="h-16 sm:h-20 rounded-xl shimmer border border-white/5 flex items-end p-3">
-          <div>
-            <div className="h-2 w-24 rounded-full mb-2" style={{ backgroundColor: accent, opacity: 0.8 }} />
-            <div className="h-1.5 w-16 rounded-full bg-white/20" />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-3 gap-2">
-          {[0, 1, 2].map((i) => (
-            <div
-              key={i}
-              className="h-8 rounded-lg border border-white/5 flex items-center justify-center"
-              style={{ backgroundColor: i === 0 ? `${accent}15` : "transparent" }}
-            >
-              <span className="text-[8px] text-zinc-600 uppercase tracking-wider">
-                {pages[i]?.split(" ")[0] ?? ["Home", "Servizi", "Contatti"][i]}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-2 gap-2">
-          <div className="h-20 rounded-xl border border-white/5 bg-white/[0.02]" />
-          <div className="h-20 rounded-xl border border-white/5 bg-white/[0.02]" />
-        </div>
-
+      {/* Preview canvas */}
+      <div
+        className="relative overflow-hidden min-h-[340px] sm:min-h-[380px]"
+        style={{ backgroundColor: bg }}
+      >
+        {/* Ambient glow */}
         <div
-          className="h-8 rounded-full flex items-center justify-center text-[10px] font-bold text-black"
+          className="absolute top-0 right-0 w-40 h-40 rounded-full blur-[80px] opacity-30 pointer-events-none"
           style={{ backgroundColor: accent }}
-        >
-          CTA · Contattaci
-        </div>
-
-        {pages.length > 3 && (
-          <div className="flex flex-wrap gap-1">
-            {pages.slice(3, 6).map((p) => (
-              <span
-                key={p}
-                className="text-[8px] px-2 py-0.5 rounded-full border border-white/10 text-zinc-500"
-              >
-                + {p.split(" ")[0]}
-              </span>
-            ))}
-          </div>
+        />
+        {isBold && (
+          <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full blur-[60px] opacity-20 pointer-events-none bg-fuchsia-500" />
         )}
+
+        <div className="relative p-4 sm:p-5 space-y-3">
+          {/* Navbar preview */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={navItems.join("-")}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-center justify-between"
+            >
+              <div className="flex items-center gap-2">
+                <span
+                  className="w-7 h-7 rounded-lg flex items-center justify-center text-sm"
+                  style={{ backgroundColor: `${accent}25` }}
+                >
+                  {icon}
+                </span>
+                <span
+                  className="text-[11px] font-black tracking-tight"
+                  style={{ color: isMinimal ? "#fff" : accent }}
+                >
+                  {brandName}
+                </span>
+              </div>
+              <div className="flex gap-1">
+                {navItems.map((item, i) => (
+                  <span
+                    key={item}
+                    className="text-[7px] px-1.5 py-0.5 rounded uppercase tracking-wider"
+                    style={{
+                      color: i === 0 ? accent : "#71717a",
+                      backgroundColor: i === 0 ? `${accent}15` : "transparent",
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Hero block */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${data.business}-${data.goal}-${data.style?.id}`}
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              className={`relative rounded-2xl overflow-hidden border border-white/5 ${
+                isCorporate ? "bg-blue-950/30" : isBold ? "bg-fuchsia-950/20" : "bg-white/[0.03]"
+              }`}
+              style={{ minHeight: isBold ? 120 : 100 }}
+            >
+              <div
+                className="absolute inset-0 opacity-40"
+                style={{
+                  background: isMinimal
+                    ? "linear-gradient(135deg, transparent, rgba(255,255,255,0.05))"
+                    : `linear-gradient(135deg, ${accent}15, transparent 60%)`,
+                }}
+              />
+              <div className="relative p-4 flex flex-col justify-end h-full min-h-[100px]">
+                <motion.p
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="text-[9px] uppercase tracking-[0.2em] mb-1"
+                  style={{ color: `${accent}99` }}
+                >
+                  {data.business || "La tua attività"}
+                </motion.p>
+                <motion.h4
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 }}
+                  className={`font-black leading-tight mb-3 ${
+                    isBold ? "text-lg" : "text-base"
+                  } ${isMinimal ? "text-white" : ""}`}
+                  style={{ color: isMinimal ? undefined : accent }}
+                >
+                  {heroLine}
+                </motion.h4>
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex self-start px-4 py-1.5 rounded-full text-[10px] font-bold text-black"
+                  style={{ backgroundColor: accent }}
+                >
+                  {ctaLabel}
+                </motion.div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Content sections grid */}
+          <div className="grid grid-cols-2 gap-2">
+            {(data.pages.length > 0 ? data.pages.slice(0, 4) : ["Servizi", "Gallery", "About", "Contatti"]).map(
+              (page, i) => (
+                <motion.div
+                  key={page}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.07 }}
+                  className="rounded-xl border border-white/5 p-2.5 bg-white/[0.02]"
+                >
+                  <div
+                    className="h-1.5 w-8 rounded-full mb-2"
+                    style={{ backgroundColor: i === 0 ? accent : "rgba(255,255,255,0.15)" }}
+                  />
+                  <p className="text-[8px] text-zinc-500 uppercase tracking-wider truncate">
+                    {page.split(" ")[0]}
+                  </p>
+                  <div className="mt-2 space-y-1">
+                    <div className="h-1 w-full rounded-full bg-white/5" />
+                    <div className="h-1 w-3/4 rounded-full bg-white/5" />
+                  </div>
+                </motion.div>
+              )
+            )}
+          </div>
+
+          {/* Style + goal badge row */}
+          <motion.div
+            layout
+            className="flex flex-wrap gap-1.5 pt-1"
+          >
+            {data.style && (
+              <span
+                className="text-[8px] px-2 py-0.5 rounded-full border font-medium"
+                style={{ borderColor: `${accent}40`, color: accent }}
+              >
+                {data.style.label}
+              </span>
+            )}
+            {data.goal && (
+              <span className="text-[8px] px-2 py-0.5 rounded-full border border-white/10 text-zinc-500">
+                {data.goal.split(" ")[0]}
+              </span>
+            )}
+            {data.timeline && (
+              <span className="text-[8px] px-2 py-0.5 rounded-full border border-white/10 text-zinc-600">
+                ⏱ {data.timeline.split(" ")[0]}
+              </span>
+            )}
+          </motion.div>
+        </div>
       </div>
     </div>
   );
@@ -160,6 +399,11 @@ export default function SiteBuilderAI() {
     setMessages((prev) => [...prev, { role: "user", text: userText }]);
     setData((prev) => ({ ...prev, ...update }));
     setTimeout(() => setStepIndex((i) => i + 1), 400);
+  };
+
+  const handleAutoPick = (stepId: StepId) => {
+    const picked = autoPick(stepId, data);
+    advance(picked.text, picked.update);
   };
 
   useEffect(() => {
@@ -223,9 +467,9 @@ export default function SiteBuilderAI() {
 
       <div className="max-w-7xl mx-auto relative">
         <SectionHeading
-          label="AI Site Builder"
-          title="Costruisci la tua idea di sito."
-          subtitle="Rispondi alle domande dell'assistente AI e ricevi un brief personalizzato + consulenza gratuita o preventivo su misura."
+          label="Web Design Premium"
+          title="CREA IL TUO SITO"
+          subtitle="Rispondi alle domande — o lascia scegliere all'AI — e guarda l'anteprima prendere forma in tempo reale."
           align="center"
         />
 
@@ -244,7 +488,7 @@ export default function SiteBuilderAI() {
                 <p className="text-sm font-bold">Eugenio Site Architect</p>
                 <p className="text-[10px] text-[#a3ff12] flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#a3ff12] animate-pulse" />
-                  {typing ? "Sta scrivendo..." : "Online · Brief in tempo reale"}
+                  {typing ? "Sta scrivendo..." : "Online · Anteprima live attiva"}
                 </p>
               </div>
             </div>
@@ -291,19 +535,31 @@ export default function SiteBuilderAI() {
                     exit={{ opacity: 0 }}
                     className="pt-2"
                   >
-                    {currentStep.id === "business" &&
-                      SITE_BUILDER.businessTypes.map((opt) => (
-                        <OptionBtn key={opt} onClick={() => advance(opt, { business: opt })}>
-                          {opt}
+                    {currentStep.id === "business" && (
+                      <>
+                        {SITE_BUILDER.businessTypes.map((opt) => (
+                          <OptionBtn key={opt} onClick={() => advance(opt, { business: opt })}>
+                            {opt}
+                          </OptionBtn>
+                        ))}
+                        <OptionBtn onClick={() => handleAutoPick("business")} variant="auto">
+                          ✨ {AUTO_LABEL}
                         </OptionBtn>
-                      ))}
+                      </>
+                    )}
 
-                    {currentStep.id === "goal" &&
-                      SITE_BUILDER.goals.map((opt) => (
-                        <OptionBtn key={opt} onClick={() => advance(opt, { goal: opt })}>
-                          {opt}
+                    {currentStep.id === "goal" && (
+                      <>
+                        {SITE_BUILDER.goals.map((opt) => (
+                          <OptionBtn key={opt} onClick={() => advance(opt, { goal: opt })}>
+                            {opt}
+                          </OptionBtn>
+                        ))}
+                        <OptionBtn onClick={() => handleAutoPick("goal")} variant="auto">
+                          ✨ {AUTO_LABEL}
                         </OptionBtn>
-                      ))}
+                      </>
+                    )}
 
                     {currentStep.id === "pages" && (
                       <div className="space-y-3">
@@ -327,43 +583,69 @@ export default function SiteBuilderAI() {
                           type="button"
                           onClick={() =>
                             advance(
-                              data.pages.length
-                                ? data.pages.join(", ")
-                                : "Home, Servizi, Contatti",
-                              { pages: data.pages.length ? data.pages : ["Home impattante", "Servizi / Menu", "Contatti + Mappa"] }
+                              data.pages.length ? data.pages.join(", ") : pickPages(data.business, data.goal).join(", "),
+                              {
+                                pages: data.pages.length
+                                  ? data.pages
+                                  : pickPages(data.business || "Professionista / Studio", data.goal || pickGoal(data.business)),
+                              }
                             )
                           }
                           className="w-full py-3 rounded-xl bg-[#a3ff12] text-black font-bold text-sm hover:brightness-110 transition-all"
                         >
                           Continua →
                         </button>
+                        <OptionBtn
+                          onClick={() => handleAutoPick("pages")}
+                          variant="auto"
+                        >
+                          ✨ {AUTO_LABEL}
+                        </OptionBtn>
                       </div>
                     )}
 
-                    {currentStep.id === "style" &&
-                      SITE_BUILDER.styles.map((opt) => (
-                        <OptionBtn
-                          key={opt.id}
-                          onClick={() => advance(opt.label, { style: opt })}
-                          accent={opt.accent}
-                        >
-                          {opt.label}
+                    {currentStep.id === "style" && (
+                      <>
+                        {SITE_BUILDER.styles.map((opt) => (
+                          <OptionBtn
+                            key={opt.id}
+                            onClick={() => advance(opt.label, { style: opt })}
+                            accent={opt.accent}
+                          >
+                            {opt.label}
+                          </OptionBtn>
+                        ))}
+                        <OptionBtn onClick={() => handleAutoPick("style")} variant="auto">
+                          ✨ {AUTO_LABEL}
                         </OptionBtn>
-                      ))}
+                      </>
+                    )}
 
-                    {currentStep.id === "timeline" &&
-                      SITE_BUILDER.timelines.map((opt) => (
-                        <OptionBtn key={opt} onClick={() => advance(opt, { timeline: opt })}>
-                          {opt}
+                    {currentStep.id === "timeline" && (
+                      <>
+                        {SITE_BUILDER.timelines.map((opt) => (
+                          <OptionBtn key={opt} onClick={() => advance(opt, { timeline: opt })}>
+                            {opt}
+                          </OptionBtn>
+                        ))}
+                        <OptionBtn onClick={() => handleAutoPick("timeline")} variant="auto">
+                          ✨ {AUTO_LABEL}
                         </OptionBtn>
-                      ))}
+                      </>
+                    )}
 
-                    {currentStep.id === "budget" &&
-                      SITE_BUILDER.budgets.map((opt) => (
-                        <OptionBtn key={opt} onClick={() => advance(opt, { budget: opt })}>
-                          {opt}
+                    {currentStep.id === "budget" && (
+                      <>
+                        {SITE_BUILDER.budgets.map((opt) => (
+                          <OptionBtn key={opt} onClick={() => advance(opt, { budget: opt })}>
+                            {opt}
+                          </OptionBtn>
+                        ))}
+                        <OptionBtn onClick={() => handleAutoPick("budget")} variant="auto">
+                          ✨ {AUTO_LABEL}
                         </OptionBtn>
-                      ))}
+                      </>
+                    )}
 
                     {currentStep.id === "contact" && (
                       <div className="space-y-3">
@@ -403,9 +685,7 @@ export default function SiteBuilderAI() {
                     <div className="bg-white/5 rounded-2xl p-4 text-xs text-zinc-400 font-mono whitespace-pre-wrap leading-relaxed max-h-40 overflow-y-auto border border-[#a3ff12]/20">
                       {brief}
                     </div>
-                    <p className="text-sm text-zinc-300">
-                      Il tuo brief è pronto! Scegli come procedere:
-                    </p>
+                    <p className="text-sm text-zinc-300">Il tuo brief è pronto! Scegli come procedere:</p>
                     <a
                       href={consultationHref}
                       target="_blank"
@@ -441,7 +721,11 @@ export default function SiteBuilderAI() {
             viewport={{ once: true }}
             className="space-y-4 lg:sticky lg:top-24"
           >
-            <SitePreview style={data.style} pages={data.pages} />
+            <div className="flex items-center justify-between px-1">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-600">Anteprima live</p>
+              <p className="text-[10px] text-zinc-700">Si aggiorna ad ogni scelta</p>
+            </div>
+            <SitePreview data={data} />
 
             <div className="gradient-border rounded-2xl p-5 space-y-3">
               <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-600">Cosa include</p>
@@ -468,11 +752,25 @@ function OptionBtn({
   children,
   onClick,
   accent,
+  variant = "default",
 }: {
   children: React.ReactNode;
   onClick: () => void;
   accent?: string;
+  variant?: "default" | "auto";
 }) {
+  if (variant === "auto") {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        className="block w-full text-left px-4 py-3 mb-2 text-sm font-medium rounded-xl border border-dashed border-[#a3ff12]/30 text-[#a3ff12]/80 hover:bg-[#a3ff12]/10 hover:border-[#a3ff12]/50 transition-all active:scale-[0.98]"
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
     <button
       type="button"
