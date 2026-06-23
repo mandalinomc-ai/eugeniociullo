@@ -207,9 +207,10 @@ export const SERVICES = [
     id: "content",
     title: "Content Creation",
     description:
-      "Foto e Video professionali con iPhone 16 Pro e macchina fotografica dedicata per eventi ad alto impatto.",
+      "Remote, UGC, on-site o team dedicato. Foto, video, drone e editing pro per brand e personal brand.",
     icon: "🎬",
     gradient: "from-emerald-500/20 to-cyan-500/10",
+    link: "#content-creator",
   },
   {
     id: "consulting",
@@ -225,11 +226,118 @@ export const SERVICES = [
     title: "Event Management & Booking",
     badge: "NUOVO",
     description:
-      "Organizzazione eventi chiavi in mano. Barman, Deejay, Vocalist, Ballerine, Allestimenti party, Selfie 360 e Pirotecnica.",
+      "Allestimenti, DJ, stand fiera, proiezioni video/PDF e consulenza. Feste private, corporate e showroom.",
     icon: "🎉",
     gradient: "from-pink-500/20 to-rose-500/10",
+    link: "#eventi",
   },
 ] as const;
+
+export const CONTENT_CREATOR = {
+  headline: "Seguo il tuo brand ovunque sia.",
+  subheadline:
+    "Content creation flessibile: a distanza, con UGC, sul campo con me o con il mio team di operatori. Per brand e personal brand che vogliono contenuti autentici e strategia dietro ogni frame.",
+  modes: [
+    {
+      id: "remote",
+      title: "Gestione a Distanza",
+      icon: "🌍",
+      description:
+        "Briefing, direzione creativa, editing e pubblicazione. Coordino tutto da remoto: tu produci o invii materiale, io trasformo in contenuti che convertono.",
+      tags: ["Briefing video", "Editing pro", "Calendario editoriale", "Report mensile"],
+    },
+    {
+      id: "ugc",
+      title: "Campagne UGC",
+      icon: "📱",
+      badge: "Trend",
+      description:
+        "User Generated Content autentico: guido clienti e creator nel produrre video e foto on-brand, poi li ottimizzo per ADS e social con hook testati.",
+      tags: ["Script & storyboard", "Format TikTok/Reels", "Ottimizzazione ADS", "A/B test creativi"],
+    },
+    {
+      id: "onsite",
+      title: "Sul Campo · Io o il Team",
+      icon: "🎥",
+      description:
+        "Per clienti locali vado personalmente. Per eventi più grandi o multi-location mando un team di operatori fidati con cui lavoro da anni.",
+      tags: ["Copertura eventi", "Team dedicato", "Multi-camera", "Consegna rapida"],
+    },
+  ],
+  gear: [
+    { label: "iPhone 16 Pro", detail: "Reels, Stories, UGC mobile-first" },
+    { label: "Macchina fotografica", detail: "Eventi, ritratti, prodotti" },
+    { label: "Riprese con Drone", detail: "Disponibili · Location, fiere, hotel, eventi", highlight: true },
+  ],
+  process: [
+    { step: "01", title: "Brief & Strategia", text: "Obiettivo, tone of voice, piattaforme e KPI definiti insieme." },
+    { step: "02", title: "Produzione", text: "Remote, UGC, on-site o team — scegliamo il modello giusto per te." },
+    { step: "03", title: "Post & Pubblicazione", text: "Editing, copy, hashtag, scheduling e ottimizzazione format." },
+    { step: "04", title: "Analisi & Scale", text: "Report performance, iterazione creativa e boost ADS sui winner." },
+  ],
+  image: "/images/ap-tricosistem-team.png",
+  imageAlt: "Eugenio Ciullo e team content creation AP TRICOSISTEM",
+} as const;
+
+export const EVENT_PRODUCTION = {
+  headline: "Eventi che si ricordano.",
+  subheadline:
+    "Allestimento chiavi in mano, booking artisti e tecnologia per ogni occasione: festa privata, meeting aziendale, stand in fiera o showroom. Un unico referente, zero stress.",
+  categories: [
+    { id: "private", label: "Festa Privata", icon: "🥂" },
+    { id: "corporate", label: "Meeting Aziendale", icon: "🏢" },
+    { id: "fair", label: "Stand Fiera", icon: "🎪" },
+    { id: "showroom", label: "Showroom & Launch", icon: "✨" },
+  ],
+  services: [
+    {
+      id: "dj",
+      title: "Booking DJ & Intrattenimento",
+      description: "DJ set per feste private, eventi corporate e party brand. Deejay, vocalist, ballerine e performer su misura.",
+      icon: "🎧",
+    },
+    {
+      id: "setup",
+      title: "Allestimento Eventi",
+      description: "Setup completo: luci, audio, palco, decorazioni, photo booth, Selfie 360, pirotecnica e allestimenti party.",
+      icon: "🎪",
+    },
+    {
+      id: "stand",
+      title: "Stand Fiera & Expo",
+      description: "Progettazione, allestimento stand, materiali promo, hostess e copertura social live da fiere come Cosmoprof.",
+      icon: "📐",
+    },
+    {
+      id: "projection",
+      title: "Proiezione Video & PDF",
+      description: "Schermi, proiettori e supporto tecnico per presentazioni aziendali, lancio prodotti, showroom e convention.",
+      icon: "📽️",
+    },
+    {
+      id: "consulting",
+      title: "Consulenza Event Strategy",
+      description: "Concept, timeline, budget, fornitori e coordinamento. Dalla idea alla consegna, con un piano chiaro.",
+      icon: "🎯",
+    },
+    {
+      id: "extra",
+      title: "Servizi Aggiuntivi",
+      description: "Barman, catering drink, hostess, security, transfer e tutto ciò che serve per un evento completo.",
+      icon: "➕",
+    },
+  ],
+  extras: [
+    "Selfie 360°",
+    "Pirotecnica",
+    "Barman & Cocktail",
+    "Vocalist live",
+    "Ballerine & Performer",
+    "Copertura foto/video",
+  ],
+  image: "/images/work-event-stage.png",
+  imageSecondary: "/images/ap-tricosistem-presentation.png",
+} as const;
 
 export const TRUST_STATS = [
   { value: "170K+", label: "Impression generate" },
@@ -244,7 +352,7 @@ export const PAYMENT_PLANS = {
   headline: "Pagamenti flessibili disponibili",
   description:
     "Per siti web, pacchetti social e progetti eventi puoi dilazionare il pagamento in 2–3 rate senza interessi, previo accordo.",
-  eligible: ["Creazione Siti Web", "Social Management (3+ mesi)", "Event Management", "Pacchetti Combo"],
+  eligible: ["Creazione Siti Web", "Content & UGC", "Social Management (3+ mesi)", "Event Management", "Pacchetti Combo"],
 } as const;
 
 export const SITE_BUILDER = {
@@ -321,8 +429,8 @@ export const AI_AUTOMATION = [
 export const FORM_OBJECTIVES = [
   { id: "website", label: "Creazione Sito Web" },
   { id: "social", label: "Social / ADS" },
-  { id: "content", label: "Content Creation" },
-  { id: "events", label: "Organizzazione Eventi" },
+  { id: "content", label: "Content Creation / UGC" },
+  { id: "events", label: "Allestimento Eventi / DJ" },
   { id: "consulting", label: "Consulenza 1to1" },
 ] as const;
 

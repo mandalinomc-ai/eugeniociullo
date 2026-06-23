@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import TrustMarquee from "@/components/TrustMarquee";
 import Bio from "@/components/Bio";
 import WorkGallery from "@/components/WorkGallery";
+import ContentCreator from "@/components/ContentCreator";
+import EventProduction from "@/components/EventProduction";
 import Brands from "@/components/Brands";
 import LanciDaZero from "@/components/LanciDaZero";
 import Services from "@/components/Services";
@@ -21,6 +23,8 @@ export default function Home() {
       <TrustMarquee />
       <Bio />
       <WorkGallery />
+      <ContentCreator />
+      <EventProduction />
       <Brands />
       <LanciDaZero />
       <Services />

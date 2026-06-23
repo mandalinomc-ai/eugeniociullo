@@ -10,7 +10,7 @@ const QUESTIONS = [
   {
     id: "q1",
     bot: "Ciao! 👋 Sono l'assistente AI di Eugenio. Che tipo di servizio ti interessa?",
-    options: ["Creazione Sito Web", "Social / ADS", "Content Creation", "Eventi", "Consulenza 1to1"],
+    options: ["Creazione Sito Web", "Content / UGC", "Social / ADS", "Eventi / DJ", "Consulenza 1to1"],
   },
   {
     id: "q2",
@@ -49,6 +49,8 @@ export default function ChatBot() {
   };
 
   const wantsWebsite = answers[0] === "Creazione Sito Web";
+  const wantsContent = answers[0] === "Content / UGC";
+  const wantsEvents = answers[0] === "Eventi / DJ";
 
   const whatsappHref = useMemo(() => {
     if (answers.length < 3) return whatsappUrl();
@@ -114,7 +116,11 @@ export default function ChatBot() {
                   <div className="bg-white/5 text-sm px-4 py-3 rounded-2xl rounded-bl-sm">
                     {wantsWebsite
                       ? "Perfetto! Vai su CREA IL TUO SITO per il brief completo, oppure scrivimi su WhatsApp."
-                      : "Ottimo! Eugenio è pronto. Scegli come procedere 👇"}
+                      : wantsContent
+                        ? "Ottimo! Scopri la sezione Content Creator con remote, UGC e team on-site."
+                        : wantsEvents
+                          ? "Perfetto! Nella sezione Eventi trovi DJ, allestimenti, stand fiera e proiezioni."
+                          : "Ottimo! Eugenio è pronto. Scegli come procedere 👇"}
                   </div>
 
                   {wantsWebsite && (
@@ -127,13 +133,33 @@ export default function ChatBot() {
                     </a>
                   )}
 
+                  {wantsContent && (
+                    <a
+                      href="#content-creator"
+                      onClick={closeChat}
+                      className="block w-full text-center py-3 rounded-xl bg-[#a3ff12] text-black font-bold text-sm hover:brightness-110 transition-all"
+                    >
+                      🎬 Content Creator
+                    </a>
+                  )}
+
+                  {wantsEvents && (
+                    <a
+                      href="#eventi"
+                      onClick={closeChat}
+                      className="block w-full text-center py-3 rounded-xl bg-[#a3ff12] text-black font-bold text-sm hover:brightness-110 transition-all"
+                    >
+                      🎉 Eventi & Allestimenti
+                    </a>
+                  )}
+
                   <a
                     href={whatsappHref}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full text-center py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-sm hover:brightness-110 transition-all active:scale-[0.98]"
                   >
-                    💬 {wantsWebsite ? "Consulenza Gratuita WhatsApp" : "Scrivi su WhatsApp"}
+                    💬 Scrivi su WhatsApp
                   </a>
 
                   <a

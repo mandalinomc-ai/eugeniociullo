@@ -44,6 +44,8 @@ export default function Footer() {
               {[
                 { label: "Chi Sono", href: "#chi-sono" },
                 { label: "Lavori", href: "#lavori" },
+                { label: "Content", href: "#content-creator" },
+                { label: "Eventi", href: "#eventi" },
                 { label: "Brand", href: "#brand" },
                 { label: "Servizi", href: "#servizi" },
                 { label: "Crea Sito", href: "#ai-sito" },

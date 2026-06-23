@@ -58,6 +58,14 @@ export default function Services() {
                 </h3>
                 <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">{service.description}</p>
 
+                {"link" in service && service.link && (
+                  <div className="mt-5">
+                    <GlowButton href={service.link} variant="outline" className="w-full sm:w-auto text-xs sm:text-sm">
+                      Scopri di più →
+                    </GlowButton>
+                  </div>
+                )}
+
                 {"featured" in service && service.featured && (
                   <div className="mt-6 sm:mt-8">
                     <GlowButton

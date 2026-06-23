@@ -8,6 +8,8 @@ import { SITE } from "@/lib/constants";
 const navLinks = [
   { href: "#chi-sono", label: "Chi Sono" },
   { href: "#lavori", label: "Lavori" },
+  { href: "#content-creator", label: "Content" },
+  { href: "#eventi", label: "Eventi" },
   { href: "#brand", label: "Brand" },
   { href: "#servizi", label: "Servizi" },
   { href: "#ai-sito", label: "Crea Sito" },
