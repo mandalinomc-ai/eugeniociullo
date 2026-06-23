@@ -7,8 +7,12 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import GlowButton from "@/components/ui/GlowButton";
 import { EVENT_PRODUCTION, whatsappUrl } from "@/lib/constants";
 
+type EventCategoryId = (typeof EVENT_PRODUCTION.categories)[number]["id"];
+
 export default function EventProduction() {
-  const [activeCategory, setActiveCategory] = useState(EVENT_PRODUCTION.categories[0].id);
+  const [activeCategory, setActiveCategory] = useState<EventCategoryId>(
+    EVENT_PRODUCTION.categories[0].id
+  );
 
   const whatsappMessage = (() => {
     const cat = EVENT_PRODUCTION.categories.find((c) => c.id === activeCategory)?.label ?? "Evento";
