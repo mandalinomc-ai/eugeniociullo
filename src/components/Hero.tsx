@@ -7,25 +7,44 @@ import { SITE } from "@/lib/constants";
 
 function PortraitCard({ className = "" }: { className?: string }) {
   return (
-    <div
-      className={`relative overflow-hidden gradient-border rounded-2xl ${className}`}
-    >
+    <div className={`relative overflow-hidden gradient-border rounded-2xl ${className}`}>
       <MediaImage
         src="/images/eugenio-portrait.png"
         alt="Eugenio Ciullo - Digital Marketer"
         fit="cover-center"
         position="50% 18%"
-        className="scale-[1.15]"
+        className="scale-[1.12]"
         priority
-        sizes="(max-width: 1024px) 120px, 360px"
+        sizes="(max-width: 1024px) 160px, 320px"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
-      <div className="absolute bottom-3 left-3 right-3 hidden sm:block">
-        <p className="text-sm sm:text-lg font-black tracking-tight">EUGENIO CIULLO</p>
-        <p className="text-[10px] sm:text-xs text-[#a3ff12] tracking-widest uppercase">
+      <div className="absolute bottom-3 left-3 right-3">
+        <p className="text-xs sm:text-sm font-black tracking-tight">EUGENIO CIULLO</p>
+        <p className="text-[9px] sm:text-[10px] text-[#a3ff12] tracking-widest uppercase">
           Digital · Content · ADS · Team
         </p>
       </div>
+    </div>
+  );
+}
+
+function HeroCtas({ className = "" }: { className?: string }) {
+  return (
+    <div className={`flex flex-col gap-3 sm:gap-4 ${className}`}>
+      <GlowButton href="#ai-sito" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
+        CREA IL TUO SITO
+      </GlowButton>
+      <GlowButton href="#preventivo" variant="secondary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
+        Richiedi Preventivo
+      </GlowButton>
+      <a
+        href={`https://wa.me/${SITE.whatsapp}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full text-center py-2 text-sm text-zinc-400 hover:text-[#25D366] transition-colors"
+      >
+        💬 WhatsApp · {SITE.whatsappDisplay}
+      </a>
     </div>
   );
 }
@@ -64,26 +83,25 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-6 pt-[4.5rem] sm:pt-28 pb-10 sm:pb-16">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex items-center gap-4 mb-6 sm:mb-8"
-            >
-              <PortraitCard className="h-[4.5rem] w-[4.5rem] shrink-0 rounded-full sm:h-20 sm:w-20 lg:hidden" />
-              <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] sm:text-xs tracking-widest uppercase text-zinc-400">
-                <span className="w-2 h-2 rounded-full bg-[#a3ff12] animate-pulse shrink-0" />
-                Eugenio Ciullo & Team · ZeroAgency
-              </span>
-            </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-5 sm:mb-6"
+        >
+          <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] sm:text-xs tracking-widest uppercase text-zinc-400">
+            <span className="w-2 h-2 rounded-full bg-[#a3ff12] animate-pulse shrink-0" />
+            Eugenio Ciullo & Team · ZeroAgency
+          </span>
+        </motion.div>
 
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_10.5rem] lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
+          <div className="flex flex-col justify-center space-y-4 sm:space-y-5 min-w-0">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35 }}
-              className="text-[1.75rem] leading-[0.95] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-4 sm:mb-6 text-balance-safe"
+              className="text-[1.75rem] leading-[1] sm:text-5xl md:text-6xl lg:text-[3.25rem] xl:text-7xl font-black tracking-tighter text-balance-safe"
             >
               Digital Marketing
               <br />
@@ -96,7 +114,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-zinc-400 max-w-2xl leading-relaxed font-light"
+              className="text-[15px] sm:text-lg md:text-xl text-zinc-400 max-w-xl leading-relaxed font-light"
             >
               Strategia, Content, ADS &amp;{" "}
               <span className="text-white font-medium">Siti Web Premium</span>{" "}
@@ -107,52 +125,27 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.65 }}
-              className="mt-8 flex flex-col gap-3 sm:gap-4 lg:hidden"
+              className="lg:hidden pt-1"
             >
-              <GlowButton href="#ai-sito" variant="primary" className="w-full py-3.5 text-sm sm:text-base">
-                CREA IL TUO SITO
-              </GlowButton>
-              <GlowButton href="#preventivo" variant="secondary" className="w-full py-3.5 text-sm sm:text-base">
-                Richiedi Preventivo
-              </GlowButton>
-              <a
-                href={`https://wa.me/${SITE.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full text-center py-2 text-sm text-zinc-400 hover:text-[#25D366] transition-colors"
-              >
-                💬 WhatsApp · {SITE.whatsappDisplay}
-              </a>
+              <HeroCtas />
             </motion.div>
           </div>
 
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.65 }}
-            className="hidden lg:flex lg:col-span-5 flex-col gap-4"
+            transition={{ duration: 0.8, delay: 0.45 }}
+            className="flex flex-col items-center sm:items-end justify-center gap-5 sm:gap-6"
           >
-            <PortraitCard className="aspect-[3/4] max-h-[22rem] w-full max-w-[18rem] ml-auto" />
+            <PortraitCard className="aspect-[3/4] w-full max-w-[9.5rem] sm:max-w-[10.5rem] lg:max-w-[17rem] xl:max-w-[19rem]" />
 
-            <GlowButton href="#ai-sito" variant="primary" className="w-full py-4 text-sm sm:text-base">
-              CREA IL TUO SITO
-            </GlowButton>
-            <GlowButton href="#preventivo" variant="secondary" className="w-full py-4 text-sm sm:text-base">
-              Richiedi Preventivo
-            </GlowButton>
-            <a
-              href={`https://wa.me/${SITE.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center py-2 text-sm text-zinc-400 hover:text-[#25D366] transition-colors"
-            >
-              💬 WhatsApp · {SITE.whatsappDisplay}
-            </a>
-
-            <div className="card-surface rounded-2xl p-5">
-              <p className="text-[10px] sm:text-xs text-zinc-500 uppercase tracking-widest mb-2">Assistenza</p>
-              <p className="text-sm sm:text-base font-semibold text-white">{SITE.supportHoursLabel}</p>
-              <p className="text-xs sm:text-sm text-zinc-500 mt-2">{SITE.email}</p>
+            <div className="hidden lg:flex flex-col w-full max-w-[17rem] xl:max-w-[19rem] gap-4">
+              <HeroCtas />
+              <div className="card-surface rounded-2xl p-4 sm:p-5">
+                <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-1.5">Assistenza</p>
+                <p className="text-sm font-semibold text-white">{SITE.supportHoursLabel}</p>
+                <p className="text-xs text-zinc-500 mt-1.5">{SITE.email}</p>
+              </div>
             </div>
           </motion.div>
         </div>
