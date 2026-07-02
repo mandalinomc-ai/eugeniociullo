@@ -11,6 +11,7 @@ const navLinks = [
   { href: "#content-creator", label: "Content" },
   { href: "#eventi", label: "Eventi" },
   { href: "#brand", label: "Brand" },
+  { href: "#lanci", label: "Risultati" },
   { href: "#servizi", label: "Servizi" },
   { href: "#ai-sito", label: "Crea Sito" },
   { href: "#preventivo", label: "Preventivo" },

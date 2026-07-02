@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MediaImage from "@/components/ui/MediaImage";
 import SectionHeading from "@/components/ui/SectionHeading";
+import SectionShell from "@/components/ui/SectionShell";
 import GlowButton from "@/components/ui/GlowButton";
 import { EVENT_PRODUCTION, whatsappUrl } from "@/lib/constants";
 
@@ -22,15 +23,13 @@ export default function EventProduction() {
   })();
 
   return (
-    <section id="eventi" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 scroll-mt-24 overflow-hidden">
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-fuchsia-500/5 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-rose-500/5 blur-[100px] rounded-full pointer-events-none" />
-
+    <SectionShell id="eventi" tone="warm">
       <div className="max-w-7xl mx-auto relative">
         <SectionHeading
           label="Eventi & Allestimenti"
           title={EVENT_PRODUCTION.headline}
           subtitle={EVENT_PRODUCTION.subheadline}
+          tone="warm"
         />
 
         {/* Category selector */}
@@ -47,7 +46,7 @@ export default function EventProduction() {
               onClick={() => setActiveCategory(cat.id)}
               className={`flex items-center gap-2 px-4 sm:px-6 py-3 rounded-full border text-sm font-semibold transition-all duration-300 ${
                 activeCategory === cat.id
-                  ? "border-[#a3ff12] bg-[#a3ff12]/15 text-white glow-accent"
+                  ? "border-amber-400/60 bg-amber-500/10 text-white"
                   : "border-white/10 text-zinc-400 hover:border-white/25"
               }`}
             >
@@ -75,19 +74,15 @@ export default function EventProduction() {
                 className="absolute inset-0"
               >
                 <MediaImage
-                  src={
-                    activeCategory === "fair" || activeCategory === "corporate"
-                      ? EVENT_PRODUCTION.imageSecondary
-                      : EVENT_PRODUCTION.image
-                  }
-                  alt="Allestimento evento professionale Eugenio Ciullo"
+                  src={EVENT_PRODUCTION.categoryImages[activeCategory]}
+                  alt={`Allestimento evento - ${EVENT_PRODUCTION.categories.find((c) => c.id === activeCategory)?.label ?? "Evento"}`}
                   fit="cover-top"
                   position="center 30%"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5">
-                  <span className="inline-block px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-[#a3ff12] text-black rounded-full mb-2">
+                  <span className="inline-block px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-amber-400 text-black rounded-full mb-2">
                     {EVENT_PRODUCTION.categories.find((c) => c.id === activeCategory)?.label}
                   </span>
                   <p className="text-lg font-black tracking-tight">
@@ -109,10 +104,10 @@ export default function EventProduction() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.45, delay: i * 0.06 }}
-                className="group gradient-border rounded-2xl p-5 sm:p-6 hover:glow-accent transition-all duration-500"
+                className="group card-surface-hover rounded-2xl p-5 sm:p-6"
               >
                 <span className="text-2xl mb-3 block">{service.icon}</span>
-                <h3 className="text-base sm:text-lg font-black tracking-tight mb-2 group-hover:text-[#a3ff12] transition-colors">
+                <h3 className="text-base sm:text-lg font-black tracking-tight mb-2 group-hover:text-amber-100 transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed">{service.description}</p>
@@ -126,7 +121,7 @@ export default function EventProduction() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="gradient-border rounded-2xl sm:rounded-3xl p-6 sm:p-10"
+          className="card-surface rounded-2xl sm:rounded-3xl p-6 sm:p-10"
         >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -163,6 +158,6 @@ export default function EventProduction() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </SectionShell>
   );
 }

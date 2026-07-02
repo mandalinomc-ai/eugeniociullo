@@ -21,7 +21,9 @@ export default function MediaImage({
         ? "object-cover object-top"
         : fit === "cover-center"
           ? "object-cover object-center"
-          : "object-cover";
+          : fit === "cover-bottom"
+            ? "object-cover"
+            : "object-cover";
 
   return (
     <div className={`absolute inset-0 ${bg} ${padding}`}>

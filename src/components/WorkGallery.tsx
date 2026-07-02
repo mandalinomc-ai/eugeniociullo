@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
+import SectionShell from "@/components/ui/SectionShell";
 import MediaImage from "@/components/ui/MediaImage";
 import { WORK_GALLERY } from "@/lib/constants";
 import type { MediaFit } from "@/lib/media";
@@ -21,12 +22,13 @@ const GALLERY_MEDIA: Record<string, { fit: MediaFit; position: string; bg?: stri
 
 export default function WorkGallery() {
   return (
-    <section id="lavori" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 scroll-mt-20">
+    <SectionShell id="lavori" tone="base">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           label="Portfolio Visivo"
           title="Sul campo. Con i dati. Con i risultati."
           subtitle="Foto dal lavoro quotidiano: fiere, eventi, content creation, graphic design e performance ADS."
+          tone="neutral"
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 auto-rows-[180px] sm:auto-rows-[200px]">
@@ -60,7 +62,7 @@ export default function WorkGallery() {
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-                  <p className="text-sm sm:text-base font-bold group-hover:text-[#a3ff12] transition-colors">
+                  <p className="text-sm sm:text-base font-bold group-hover:text-white transition-colors">
                     {item.label}
                   </p>
                 </div>
@@ -69,6 +71,6 @@ export default function WorkGallery() {
           })}
         </div>
       </div>
-    </section>
+    </SectionShell>
   );
 }

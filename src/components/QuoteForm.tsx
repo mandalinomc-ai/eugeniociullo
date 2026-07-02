@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
+import SectionShell from "@/components/ui/SectionShell";
 import GlowButton from "@/components/ui/GlowButton";
 import { FORM_OBJECTIVES, BUDGET_OPTIONS, SITE, whatsappUrl } from "@/lib/constants";
 
@@ -41,22 +42,21 @@ export default function QuoteForm() {
   };
 
   return (
-    <section id="preventivo" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 scroll-mt-24">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#a3ff12]/[0.02] to-transparent pointer-events-none" />
-
+    <SectionShell id="preventivo" tone="cta">
       <div className="max-w-3xl mx-auto relative">
         <SectionHeading
           label="Preventivo"
           title="Inizia il tuo progetto."
           subtitle="Compila il form multi-step e ricevi una risposta personalizzata. Pagamenti dilazionabili su richiesta."
           align="center"
+          tone="accent"
         />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="gradient-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 bg-black/50 backdrop-blur-sm"
+          className="card-featured rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 bg-black/50 backdrop-blur-sm"
         >
           <div className="flex items-center gap-2 mb-8 sm:mb-10">
             {STEPS.map((s, i) => (
@@ -223,6 +223,6 @@ export default function QuoteForm() {
           </AnimatePresence>
         </motion.div>
       </div>
-    </section>
+    </SectionShell>
   );
 }

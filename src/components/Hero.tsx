@@ -24,8 +24,8 @@ export default function Hero() {
 
         <div className="absolute inset-0">
           <MediaImage
-            src="/images/ap-tricosistem-cosmoprof.png"
-            alt="Eugenio Ciullo al lavoro - Cosmoprof"
+            src="/images/hero-background.png"
+            alt="Eugenio Ciullo - digital marketing e content creation"
             fit="cover-top"
             position="center 20%"
             className="opacity-25"
@@ -60,7 +60,7 @@ export default function Hero() {
             >
               Digital Marketing
               <br />
-              <span className="text-gradient">con l&apos;anima</span>
+              <span className="text-gradient-accent">con l&apos;anima</span>
               <br />
               da Creator.
             </motion.h1>
@@ -83,16 +83,18 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.65 }}
             className="lg:col-span-5 flex flex-col gap-3 sm:gap-4"
           >
-            <div className="relative aspect-[4/5] max-h-72 sm:max-h-80 w-full rounded-2xl overflow-hidden gradient-border glow-accent mb-2">
+            <div className="relative aspect-[3/4] max-h-[26rem] sm:max-h-[30rem] w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden gradient-border mb-2">
               <MediaImage
                 src="/images/eugenio-portrait.png"
                 alt="Eugenio Ciullo - Digital Marketer"
-                fit="cover-top"
-                position="center top"
+                fit="cover-center"
+                position="50% 18%"
+                className="scale-[1.12]"
                 priority
                 sizes="(max-width: 768px) 100vw, 400px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4">
                 <p className="text-lg font-black tracking-tight">EUGENIO CIULLO</p>
                 <p className="text-xs text-[#a3ff12] tracking-widest uppercase">Digital · Content · ADS</p>

@@ -47,6 +47,7 @@ export default function Footer() {
                 { label: "Content", href: "#content-creator" },
                 { label: "Eventi", href: "#eventi" },
                 { label: "Brand", href: "#brand" },
+                { label: "Lanci da Zero", href: "#lanci" },
                 { label: "Servizi", href: "#servizi" },
                 { label: "Crea Sito", href: "#ai-sito" },
                 { label: "Preventivo", href: "#preventivo" },

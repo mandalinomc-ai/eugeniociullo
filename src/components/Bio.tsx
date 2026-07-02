@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import MediaImage from "@/components/ui/MediaImage";
 import SectionHeading from "@/components/ui/SectionHeading";
+import SectionShell from "@/components/ui/SectionShell";
 
 const bioCards = [
   {
@@ -40,12 +41,13 @@ const bioCards = [
 
 export default function Bio() {
   return (
-    <section id="chi-sono" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 scroll-mt-20">
+    <SectionShell id="chi-sono" tone="raised">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           label="Chi Sono"
           title="Dati, visual e street culture."
           subtitle="La mia esperienza unisce marketing digitale e creatività sul campo."
+          tone="neutral"
         />
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
@@ -58,14 +60,16 @@ export default function Bio() {
           >
             <div className="relative w-full max-w-sm aspect-[3/4] rounded-2xl overflow-hidden gradient-border lg:hidden mb-6">
               <MediaImage
-                src="/images/work-fiera.png"
-                alt="Eugenio Ciullo in fiera professionale"
-                fit="cover-top"
-                position="center 30%"
+                src="/images/eugenio-portrait.png"
+                alt="Eugenio Ciullo - Digital Marketer"
+                fit="cover-center"
+                position="50% 18%"
+                className="scale-[1.12]"
                 sizes="(max-width: 1024px) 100vw, 400px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <p className="absolute bottom-4 left-4 text-xs text-[#a3ff12] tracking-widest uppercase">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
+              <p className="absolute bottom-4 left-4 text-xs text-zinc-400 tracking-widest uppercase">
                 Sul campo
               </p>
             </div>
@@ -76,7 +80,7 @@ export default function Bio() {
             <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
               Opero ufficialmente nel digital e social marketing da{" "}
               <span className="text-white font-medium">gennaio 2025</span>, in{" "}
-              <span className="text-[#a3ff12] font-medium">collaborazione lavorativa con ZeroAgency</span>{" "}
+              <span className="text-white font-medium">collaborazione lavorativa con ZeroAgency</span>{" "}
               (nota agenzia offline di Benevento) e con molteplici brand come consulente e content creator.
             </p>
             <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
@@ -101,14 +105,14 @@ export default function Bio() {
               className="relative hidden lg:block w-full aspect-[16/10] rounded-2xl overflow-hidden gradient-border mb-4"
             >
               <MediaImage
-                src="/images/work-fiera.png"
-                alt="Eugenio Ciullo in fiera professionale"
+                src="/images/ap-tricosistem-cosmoprof.png"
+                alt="Eugenio Ciullo a Cosmoprof Bologna"
                 fit="cover-top"
-                position="center 25%"
+                position="center 20%"
                 sizes="50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <p className="absolute bottom-4 left-4 text-xs text-[#a3ff12] tracking-widest uppercase">
+              <p className="absolute bottom-4 left-4 text-xs text-zinc-400 tracking-widest uppercase">
                 Sul campo · Fiere & Eventi
               </p>
             </motion.div>
@@ -121,8 +125,8 @@ export default function Bio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className={`gradient-border rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:glow-accent transition-shadow duration-500 ${card.span} ${
-                    card.highlight ? "border-[#a3ff12]/30" : ""
+                  className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-colors duration-300 ${card.span} ${
+                    card.highlight ? "card-featured" : "card-surface-hover"
                   }`}
                 >
                   <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 mb-2 sm:mb-3">
@@ -138,6 +142,6 @@ export default function Bio() {
           </div>
         </div>
       </div>
-    </section>
+    </SectionShell>
   );
 }

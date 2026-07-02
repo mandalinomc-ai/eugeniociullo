@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
+import SectionShell from "@/components/ui/SectionShell";
 import { SITE, SITE_BUILDER, whatsappUrl } from "@/lib/constants";
 
 type BuilderData = {
@@ -172,7 +173,7 @@ function SitePreview({ data }: { data: BuilderData }) {
   ].filter(Boolean).length;
 
   return (
-    <div className="gradient-border rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(163,255,18,0.08)]">
+    <div className="card-featured rounded-2xl overflow-hidden">
       {/* Browser chrome */}
       <div className="flex items-center gap-2 px-4 py-3 bg-zinc-900/95 border-b border-white/5 backdrop-blur-sm">
         <div className="flex gap-1.5">
@@ -462,15 +463,14 @@ export default function SiteBuilderAI() {
   };
 
   return (
-    <section id="ai-sito" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 scroll-mt-24 overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#a3ff12]/5 blur-[180px] rounded-full pointer-events-none" />
-
+    <SectionShell id="ai-sito" tone="cool">
       <div className="max-w-7xl mx-auto relative">
         <SectionHeading
           label="Web Design Premium"
           title="CREA IL TUO SITO"
           subtitle="Rispondi alle domande — o lascia scegliere all'AI — e guarda l'anteprima prendere forma in tempo reale."
           align="center"
+          tone="cool"
         />
 
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-start">
@@ -478,7 +478,7 @@ export default function SiteBuilderAI() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="gradient-border rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 backdrop-blur-sm flex flex-col h-[520px] sm:h-[580px]"
+            className="card-featured rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 backdrop-blur-sm flex flex-col h-[520px] sm:h-[580px]"
           >
             <div className="px-5 py-4 border-b border-white/5 flex items-center gap-3 bg-zinc-950">
               <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#a3ff12] to-emerald-400 flex items-center justify-center text-black text-xs font-black">
@@ -727,7 +727,7 @@ export default function SiteBuilderAI() {
             </div>
             <SitePreview data={data} />
 
-            <div className="gradient-border rounded-2xl p-5 space-y-3">
+            <div className="card-surface rounded-2xl p-5 space-y-3">
               <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-600">Cosa include</p>
               {[
                 "Design premium mobile-first",
@@ -744,7 +744,7 @@ export default function SiteBuilderAI() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </SectionShell>
   );
 }
 

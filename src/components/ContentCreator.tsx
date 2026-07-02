@@ -2,21 +2,20 @@
 
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
+import SectionShell from "@/components/ui/SectionShell";
 import GlowButton from "@/components/ui/GlowButton";
 import MediaImage from "@/components/ui/MediaImage";
 import { CONTENT_CREATOR, whatsappUrl } from "@/lib/constants";
 
 export default function ContentCreator() {
   return (
-    <section id="content-creator" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 scroll-mt-24 overflow-hidden">
-      <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-emerald-500/5 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
-
+    <SectionShell id="content-creator" tone="cool">
       <div className="max-w-7xl mx-auto relative">
         <SectionHeading
           label="Content Creator"
           title={CONTENT_CREATOR.headline}
           subtitle={CONTENT_CREATOR.subheadline}
+          tone="cool"
         />
 
         {/* Three delivery modes */}
@@ -28,7 +27,7 @@ export default function ContentCreator() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group gradient-border rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:glow-accent transition-all duration-500"
+              className="group card-surface-hover rounded-2xl sm:rounded-3xl p-6 sm:p-8"
             >
               <div className="flex items-start justify-between mb-4">
                 <span className="text-3xl">{mode.icon}</span>
@@ -38,7 +37,7 @@ export default function ContentCreator() {
                   </span>
                 )}
               </div>
-              <h3 className="text-xl font-black tracking-tight mb-3 group-hover:text-[#a3ff12] transition-colors">
+              <h3 className="text-xl font-black tracking-tight mb-3 group-hover:text-cyan-100 transition-colors">
                 {mode.title}
               </h3>
               <p className="text-sm text-zinc-400 leading-relaxed mb-5">{mode.description}</p>
@@ -68,8 +67,8 @@ export default function ContentCreator() {
             {CONTENT_CREATOR.gear.map((item) => (
               <div
                 key={item.label}
-                className={`gradient-border rounded-2xl p-5 flex items-start gap-4 ${
-                  item.highlight ? "ring-1 ring-[#a3ff12]/20 glow-accent" : ""
+                className={`card-surface rounded-2xl p-5 flex items-start gap-4 ${
+                  item.highlight ? "card-featured" : ""
                 }`}
               >
                 <span className="text-2xl shrink-0">{item.highlight ? "🚁" : "📷"}</span>
@@ -77,7 +76,7 @@ export default function ContentCreator() {
                   <p className="font-black tracking-tight text-lg">{item.label}</p>
                   <p className="text-sm text-zinc-500 mt-1">{item.detail}</p>
                   {item.highlight && (
-                    <span className="inline-block mt-2 text-[10px] font-bold tracking-widest uppercase text-[#a3ff12]">
+                    <span className="inline-block mt-2 text-[10px] font-bold tracking-widest uppercase text-cyan-400/90">
                       Disponibile su richiesta
                     </span>
                   )}
@@ -111,7 +110,7 @@ export default function ContentCreator() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <p className="absolute bottom-4 left-4 text-xs text-[#a3ff12] tracking-widest uppercase">
+              <p className="absolute bottom-4 left-4 text-xs text-zinc-400 tracking-widest uppercase">
                 Team · On-site · Fiere
               </p>
             </div>
@@ -124,9 +123,9 @@ export default function ContentCreator() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="gradient-border rounded-xl p-4"
+                  className="card-surface rounded-xl p-4"
                 >
-                  <span className="text-[10px] font-black text-[#a3ff12] tracking-widest">{step.step}</span>
+                  <span className="text-[10px] font-black text-cyan-400/80 tracking-widest">{step.step}</span>
                   <p className="text-sm font-bold mt-1 mb-1">{step.title}</p>
                   <p className="text-xs text-zinc-500 leading-relaxed">{step.text}</p>
                 </motion.div>
@@ -140,7 +139,7 @@ export default function ContentCreator() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 sm:mt-16 gradient-border rounded-2xl p-6 sm:p-8 text-center"
+          className="mt-12 sm:mt-16 card-surface rounded-2xl p-6 sm:p-8 text-center"
         >
           <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-600 mb-4">Perfetto per</p>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
@@ -154,7 +153,7 @@ export default function ContentCreator() {
             ].map((label) => (
               <span
                 key={label}
-                className="px-4 py-2 rounded-full border border-white/10 text-sm text-zinc-400 hover:border-[#a3ff12]/30 hover:text-white transition-colors"
+                className="px-4 py-2 rounded-full border border-white/10 text-sm text-zinc-400 hover:border-white/20 hover:text-white transition-colors"
               >
                 {label}
               </span>
@@ -162,6 +161,6 @@ export default function ContentCreator() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </SectionShell>
   );
 }

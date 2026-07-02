@@ -19,16 +19,18 @@ export default function LaunchReports() {
         viewport={{ once: true }}
         className="text-center mb-8 sm:mb-10"
       >
-        <span className="inline-block text-[#a3ff12] text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase mb-3">
+        <span className="inline-block text-amber-400/80 text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase mb-3">
           Report reali · Instagram Insights
         </span>
         <h3 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight">
-          Prove dal lancio locale
+          Prove dai lanci da zero
         </h3>
         <p className="text-zinc-500 mt-3 text-sm sm:text-base max-w-2xl mx-auto">
-          Screenshot autentici da Instagram Professional Dashboard: follower, visualizzazioni,
-          interazioni e vetrina Reels.
+          Screenshot da <strong className="text-zinc-300 font-medium">Instagram Professional Dashboard</strong> per
+          Parisio e ITTICO — follower, visualizzazioni e interazioni al lancio.{" "}
+          <span className="text-pink-300/90">Solo Instagram</span>.
         </p>
+
       </motion.div>
 
       <div className="flex flex-wrap justify-center gap-2 mb-8">
@@ -39,7 +41,7 @@ export default function LaunchReports() {
             onClick={() => setActive(item.id)}
             className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border transition-all ${
               active === item.id
-                ? "border-[#a3ff12] bg-[#a3ff12]/15 text-white"
+                ? "border-amber-400/50 bg-amber-500/10 text-white"
                 : "border-white/10 text-zinc-500 hover:border-white/25"
             }`}
           >
@@ -55,7 +57,7 @@ export default function LaunchReports() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -16 }}
           transition={{ duration: 0.35 }}
-          className="gradient-border rounded-2xl sm:rounded-3xl overflow-hidden"
+          className="card-surface rounded-2xl sm:rounded-3xl overflow-hidden"
         >
           <div className="p-5 sm:p-8 border-b border-white/5 bg-zinc-950/50">
             <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-600 mb-1">{report.period}</p>
@@ -68,13 +70,13 @@ export default function LaunchReports() {
                   key={stat.label}
                   className={`rounded-xl p-3 border ${
                     "highlight" in stat && stat.highlight
-                      ? "border-[#a3ff12]/30 bg-[#a3ff12]/5"
+                      ? "border-amber-500/30 bg-amber-500/5"
                       : "border-white/5 bg-white/[0.02]"
                   }`}
                 >
                   <p
                     className={`text-lg sm:text-xl font-black tracking-tight ${
-                      "highlight" in stat && stat.highlight ? "text-[#a3ff12]" : "text-white"
+                      "highlight" in stat && stat.highlight ? "text-amber-300" : "text-white"
                     }`}
                   >
                     {stat.value}

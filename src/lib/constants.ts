@@ -28,16 +28,6 @@ export const WORK_COLLABORATION = {
 
 export const BRANDS = [
   {
-    name: "LIL MANDA",
-    subtitle: "Personal Brand · Rap & Events",
-    highlight:
-      "Gestione strategica del personal brand: social media, content creation e identità visiva nel mondo rap ed eventi.",
-    logo: "/images/logos/lil-manda.png",
-    logoFit: "contain" as const,
-    logoBg: "bg-black",
-    featured: true,
-  },
-  {
     name: "HEALTHYSAN",
     subtitle: "Beauty & Spa",
     highlight: "Identità visiva e presenza social per il centro benessere.",
@@ -67,6 +57,7 @@ export const BRANDS = [
   {
     name: "MISS GRAND INTERNATIONAL",
     subtitle: "Beauty Pageant · International",
+    highlight: "Comunicazione visiva e content per eventi beauty pageant di livello internazionale.",
     logo: "/images/logos/miss-grand.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
@@ -77,26 +68,30 @@ export const BRANDS = [
     highlight: "Flyer promozionali, branding visivo e gestione social per il punto vendita di Benevento.",
     logo: "/images/logos/thundervape.png",
     logoFit: "contain" as const,
-    logoBg: "bg-zinc-900",
+    logoBg: "bg-black",
     featured: true,
   },
   {
     name: "ANTUM HOTEL",
     subtitle: "Benevento · Hospitality",
-    highlight: "Content creation e promozione social per l'hotel, inclusi format Instagram e materiali evento.",
+    highlight:
+      "Gestione in essere: content, Reels e strategia social — media views e interazioni alzate rispetto al profilo precedente.",
     logo: "/images/logos/antum-hotel.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
     featured: true,
+    management: "ongoing" as const,
   },
   {
     name: "AMA EXPERIENCE",
     subtitle: "Ristorante · Antum Hotel",
-    highlight: "Gestione social e content creation per il ristorante gourmet: Reels, eventi e crescita organica.",
+    highlight:
+      "Gestione in essere: format Reels chef + host, picchi fino a 72.800 views e profilo che converte in prenotazioni.",
     logo: "/images/logos/ama-experience.png",
     logoFit: "contain" as const,
-    logoBg: "bg-zinc-900",
+    logoBg: "bg-white",
     featured: true,
+    management: "ongoing" as const,
   },
   {
     name: "THE LOBBY LOUNGE",
@@ -121,7 +116,7 @@ export const BRANDS = [
     highlight: "119.111 visualizzazioni in 30 giorni, +84% follower e locale sold-out dal lancio.",
     logo: "/images/logos/ittico.png",
     logoFit: "contain" as const,
-    logoBg: "bg-[#f5e6d3]",
+    logoBg: "bg-[#1a3d5c]",
     featured: true,
   },
 ] as const;
@@ -214,17 +209,154 @@ export const LANCI_DA_ZERO = [
     id: "parisio",
     name: "PARISIO TRATTORIA CONTEMPORANEA",
     impressions: 70000,
+    metricLabel: "Visualizzazioni Instagram",
+    platform: "Instagram",
     timeframe: "3 settimane",
     result: "Locale SOLD OUT tutti i giorni",
     tag: "Lanciato da zero",
+    preAnalysis:
+      "Fase di pre-analisi: audit competitor locali, benchmark food, tone of voice e piano editoriale prima della pubblicazione del primo contenuto.",
+    instagramRef: "Dato da Instagram Professional Dashboard · solo piattaforma Instagram",
   },
   {
     id: "ittico",
     name: "ITTICO LOCANDA DI MARE",
-    impressions: 100000,
+    impressions: 119111,
+    metricLabel: "Visualizzazioni Instagram",
+    platform: "Instagram",
     timeframe: "16 giorni",
     result: "Locale SOLD OUT tutti i giorni",
     tag: "Lanciato da zero",
+    preAnalysis:
+      "Fase di pre-analisi: studio del mercato Telese, analisi target ristorazione di pesce e definizione format Reels prima del go-live.",
+    instagramRef: "Dato da Instagram Insights · ultimi 30 giorni · solo Instagram",
+  },
+] as const;
+
+export const WHATSAPP_BUSINESS_SETUP = {
+  title: "WhatsApp Business · Setup operativo",
+  subtitle:
+    "Oltre al lancio Instagram: configurazione completa WhatsApp Business per gestire prenotazioni e lead senza perdere messaggi.",
+  badge: "Post-lancio · Operatività",
+  features: [
+    { icon: "💬", label: "Frasi rapide preimpostate", detail: "Benvenuto, prenotazione, menu, conferma e follow-up" },
+    { icon: "🏷️", label: "Etichette clienti", detail: "Nuovi lead, prenotazioni, VIP ed eventi per segmentare le chat" },
+    { icon: "👋", label: "Messaggio di benvenuto", detail: "Risposta automatica ai primi contatti fuori orario" },
+    { icon: "📋", label: "Catalogo & info business", detail: "Orari, indirizzo e servizi sempre a portata del cliente" },
+  ],
+  image: "/images/whatsapp-business-setup.svg",
+  imageAlt: "Mockup WhatsApp Business con frasi rapide ed etichette clienti configurate",
+  appliesTo: ["PARISIO", "ITTICO", "AMA Experience", "Antum Hotel"],
+} as const;
+
+export const ONGOING_MANAGEMENT = [
+  {
+    id: "antum",
+    name: "ANTUM HOTEL",
+    handle: "@antumhotel",
+    subtitle: "Benevento · Hotel 4 stelle · Hospitality & eventi",
+    badge: "Gestione in essere",
+    scope: "Content creation · Reels · Stories · Eventi corporate",
+    before: {
+      title: "Prima della gestione",
+      description:
+        "Profilo già attivo ma con reach irregolare: contenuti non coordinati, reel sotto i 2.000 views e poca coerenza tra food, room e eventi.",
+      metrics: [
+        { label: "Media views/reel", value: "~1.200" },
+        { label: "Reel sotto 2.000 views", value: "Frequenti" },
+        { label: "Interazioni", value: "Sporadiche" },
+        { label: "Profilo", value: "Poco convertente" },
+      ],
+      screens: [
+        {
+          src: "/images/report-antum-reels-1.png",
+          alt: "Vetrina Reels Antum Hotel prima del restyling editoriale",
+          label: "Screenshot Reels · situazione iniziale",
+        },
+      ],
+    },
+    after: {
+      title: "Con la mia gestione",
+      description:
+        "Piano editoriale hospitality: food, cocktail, room tour ed eventi. Media views moltiplicate e vetrina che guida verso prenotazioni e corporate.",
+      metrics: [
+        { label: "Media views/reel", value: "~5.200", highlight: true },
+        { label: "Picco singolo reel", value: "9.969", highlight: true },
+        { label: "Interazioni", value: "In crescita" },
+        { label: "Conversione contenuti", value: "Format coerenti" },
+      ],
+      screens: [
+        {
+          src: "/images/report-antum-reels-3.png",
+          alt: "Reels Antum Hotel con media views elevate sotto gestione Eugenio Ciullo",
+          label: "Dopo · media e picchi elevati",
+        },
+        {
+          src: "/images/report-antum-reels-2.png",
+          alt: "Format eventi e storytelling Antum Hotel",
+          label: "Dopo · eventi & storytelling",
+        },
+      ],
+    },
+    deltas: [
+      { label: "Media views/reel", value: "+330%" },
+      { label: "Picco contenuto", value: "9.969 views" },
+      { label: "Coerenza profilo", value: "Vetrina Reels" },
+    ],
+  },
+  {
+    id: "ama",
+    name: "AMA EXPERIENCE",
+    handle: "@ama_experience_",
+    subtitle: "Ristorante gourmet · Antum Hotel",
+    badge: "Gestione in essere",
+    scope: "Social management · Format Reels · Eventi & food content",
+    before: {
+      title: "Prima della gestione",
+      description:
+        "Contenuti food spot senza format ricorrente: views tra 1.000 e 8.000, senza un filo narrativo che legasse chef, sala e brand.",
+      metrics: [
+        { label: "Media views/reel", value: "~3.600" },
+        { label: "Format ricorrente", value: "Assente" },
+        { label: "Picco reel", value: "~7.900" },
+        { label: "Conversione profilo", value: "Limitata" },
+      ],
+      screens: [
+        {
+          src: "/images/report-ama-reels-1.png",
+          alt: "Vetrina Reels AMA Experience prima del format chef + host",
+          label: "Screenshot Reels · contenuti spot",
+        },
+      ],
+    },
+    after: {
+      title: "Con la mia gestione",
+      description:
+        "Format chef + presentatrice in cucina: reel virali da 50.000 a 72.800 views, profilo che converte in prenotazioni ed eventi stagionali.",
+      metrics: [
+        { label: "Media format top", value: "~61.000", highlight: true },
+        { label: "Picco singolo reel", value: "72.800", highlight: true },
+        { label: "Interazioni", value: "Moltiplicate" },
+        { label: "Conversione profilo", value: "Prenotazioni & eventi" },
+      ],
+      screens: [
+        {
+          src: "/images/report-ama-reels-3.png",
+          alt: "Reels AMA Experience con picchi 62K-72K views sotto gestione Eugenio Ciullo",
+          label: "Dopo · format chef + host (fino a 72,8K)",
+        },
+        {
+          src: "/images/report-ama-reels-2.png",
+          alt: "Content corporate e food AMA Experience",
+          label: "Dopo · corporate & food premium",
+        },
+      ],
+    },
+    deltas: [
+      { label: "Picco reel", value: "72.800 views" },
+      { label: "Format top", value: "~61K media" },
+      { label: "Reach format", value: "+1.600%" },
+    ],
   },
 ] as const;
 
@@ -235,7 +367,7 @@ export const LAUNCH_REPORTS = [
     subtitle: "Ittico Telese · Lancio locale Instagram",
     period: "2 giu – 1 lug · Ultimi 30 giorni",
     stats: [
-      { label: "Visualizzazioni", value: "119.111", highlight: true },
+      { label: "Visualizzazioni IG", value: "119.111", highlight: true },
       { label: "Nuovi follower", value: "224" },
       { label: "Interazioni", value: "1.877" },
       { label: "Crescita follower", value: "+84,1%" },
@@ -243,6 +375,16 @@ export const LAUNCH_REPORTS = [
       { label: "Contenuti", value: "276" },
     ],
     frames: [
+      {
+        src: "/images/logos/ittico.png",
+        alt: "Logo ITTICO Locanda di Mare",
+        fit: "contain" as const,
+        position: "center",
+        bg: "bg-[#1a3d5c]",
+        padding: "p-6 sm:p-8",
+        aspect: "aspect-[9/16] max-w-xs mx-auto",
+        label: "Brand identity",
+      },
       {
         src: "/images/report-ittico-followers.png",
         alt: "Report follower ITTICO +84,1% in 30 giorni",
@@ -281,7 +423,7 @@ export const LAUNCH_REPORTS = [
     subtitle: "Benevento · Lancio trattoria contemporanea",
     period: "Prime 3 settimane dal lancio",
     stats: [
-      { label: "Impression", value: "70.000+", highlight: true },
+      { label: "Visualizzazioni IG", value: "70.000+", highlight: true },
       { label: "Tempo", value: "3 settimane" },
       { label: "Risultato", value: "SOLD OUT giornaliero" },
       { label: "Settore", value: "Food & Hospitality" },
@@ -315,94 +457,6 @@ export const LAUNCH_REPORTS = [
         padding: "p-2",
         aspect: "aspect-[9/16] max-w-xs mx-auto",
         label: "Vetrina social",
-      },
-    ],
-  },
-  {
-    id: "antum",
-    title: "ANTUM HOTEL",
-    subtitle: "Benevento · Content & crescita profilo",
-    period: "Report Instagram · Vetrina Reels",
-    stats: [
-      { label: "Format", value: "Reels & Stories" },
-      { label: "Focus", value: "Hospitality" },
-      { label: "Reach", value: "Views fino a 72K" },
-      { label: "Engagement", value: "Alto su food & room" },
-    ],
-    frames: [
-      {
-        src: "/images/report-antum-reels-1.png",
-        alt: "Vetrina Reels Antum Hotel - contenuti hospitality",
-        fit: "contain" as const,
-        position: "center top",
-        bg: "bg-black",
-        padding: "p-2",
-        aspect: "aspect-[9/16] max-w-xs mx-auto",
-        label: "Reels grid 1",
-      },
-      {
-        src: "/images/report-antum-reels-2.png",
-        alt: "Antum Hotel Reels - San Valentino e food content",
-        fit: "contain" as const,
-        position: "center top",
-        bg: "bg-black",
-        padding: "p-2",
-        aspect: "aspect-[9/16] max-w-xs mx-auto",
-        label: "Reels grid 2",
-      },
-      {
-        src: "/images/report-antum-reels-3.png",
-        alt: "Antum Hotel Reels - cocktail e chef content",
-        fit: "contain" as const,
-        position: "center top",
-        bg: "bg-black",
-        padding: "p-2",
-        aspect: "aspect-[9/16] max-w-xs mx-auto",
-        label: "Reels grid 3",
-      },
-    ],
-  },
-  {
-    id: "ama",
-    title: "AMA EXPERIENCE",
-    subtitle: "Ristorante gourmet · Antum Hotel",
-    period: "Report Instagram · Performance Reels",
-    stats: [
-      { label: "Top view", value: "72.800" },
-      { label: "Format", value: "Food & eventi" },
-      { label: "Copertura", value: "Multi-format" },
-      { label: "Brand", value: "Casual dining premium" },
-    ],
-    frames: [
-      {
-        src: "/images/report-ama-reels-3.png",
-        alt: "AMA Experience Reels - chef e pasta format",
-        fit: "contain" as const,
-        position: "center top",
-        bg: "bg-black",
-        padding: "p-2",
-        aspect: "aspect-[9/16] max-w-xs mx-auto",
-        label: "Chef & kitchen",
-      },
-      {
-        src: "/images/report-ama-reels-1.png",
-        alt: "AMA Experience Reels - eventi corporate e food",
-        fit: "contain" as const,
-        position: "center top",
-        bg: "bg-black",
-        padding: "p-2",
-        aspect: "aspect-[9/16] max-w-xs mx-auto",
-        label: "Eventi & corporate",
-      },
-      {
-        src: "/images/report-ama-reels-2.png",
-        alt: "AMA Experience Reels - Ferragosto e pool event",
-        fit: "contain" as const,
-        position: "center top",
-        bg: "bg-black",
-        padding: "p-2",
-        aspect: "aspect-[9/16] max-w-xs mx-auto",
-        label: "Eventi stagionali",
       },
     ],
   },
@@ -499,8 +553,8 @@ export const CONTENT_CREATOR = {
     { step: "03", title: "Post & Pubblicazione", text: "Editing, copy, hashtag, scheduling e ottimizzazione format." },
     { step: "04", title: "Analisi & Scale", text: "Report performance, iterazione creativa e boost ADS sui winner." },
   ],
-  image: "/images/ap-tricosistem-team.png",
-  imageAlt: "Eugenio Ciullo e team content creation AP TRICOSISTEM",
+  image: "/images/antum-hotel-work.png",
+  imageAlt: "Content creation on-site - Antum Hotel Benevento",
 } as const;
 
 export const EVENT_PRODUCTION = {
@@ -559,8 +613,12 @@ export const EVENT_PRODUCTION = {
     "Ballerine & Performer",
     "Copertura foto/video",
   ],
-  image: "/images/work-event-stage.png",
-  imageSecondary: "/images/ap-tricosistem-presentation.png",
+  categoryImages: {
+    private: "/images/work-event-stage.png",
+    corporate: "/images/ap-tricosistem-meeting.png",
+    fair: "/images/work-fiera.png",
+    showroom: "/images/parisio-hero.jpg",
+  } as const,
 } as const;
 
 export const TRUST_STATS = [

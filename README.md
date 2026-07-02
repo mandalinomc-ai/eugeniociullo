@@ -1,6 +1,6 @@
 # Eugenio Ciullo — Portfolio Digitale
 
-Portfolio/vetrina premium per **Eugenio Ciullo**, Digital Marketer & Content Creator (Lil Manda).
+Portfolio/vetrina premium per **Eugenio Ciullo**, Digital Marketer & Content Creator.
 
 ## Stack
 

@@ -1,4 +1,4 @@
-export type MediaFit = "cover" | "contain" | "cover-top" | "cover-center";
+export type MediaFit = "cover" | "contain" | "cover-top" | "cover-center" | "cover-bottom";
 
 export type MediaImageProps = {
   src: string;

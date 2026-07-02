@@ -2,27 +2,36 @@
 
 import { motion } from "framer-motion";
 import MediaImage from "@/components/ui/MediaImage";
-import { LANCI_DA_ZERO } from "@/lib/constants";
+import SectionHeading from "@/components/ui/SectionHeading";
+import SectionShell from "@/components/ui/SectionShell";
+import { LANCI_DA_ZERO, WHATSAPP_BUSINESS_SETUP } from "@/lib/constants";
 import LaunchReports from "@/components/LaunchReports";
+import GestioneInEssere from "@/components/GestioneInEssere";
+
+function InstagramBadge() {
+  return (
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#f58529]/20 via-[#dd2a7b]/20 to-[#8134af]/20 border border-[#dd2a7b]/30 text-[10px] font-bold tracking-wide text-pink-200">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" strokeWidth="2" />
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="2" />
+        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+      </svg>
+      Solo Instagram
+    </span>
+  );
+}
 
 export default function LanciDaZero() {
   return (
-    <section id="lanci" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 scroll-mt-24">
+    <SectionShell id="lanci" tone="results">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10 sm:mb-16"
-        >
-          <span className="inline-block text-[#a3ff12] text-xs font-bold tracking-[0.3em] uppercase mb-4">
-            Case Study Premium
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter">
-            I LANCI DA ZERO
-          </h2>
-          <p className="text-zinc-500 mt-4 text-base sm:text-lg">Numeri che parlano da soli.</p>
-        </motion.div>
+        <SectionHeading
+          label="Case Study · Lanci & Gestione"
+          title="Risultati reali su Instagram"
+          subtitle="Lanci da zero (Parisio, ITTICO) e gestioni in essere (Antum, AMA) — numeri e screenshot dalla vetrina Reels."
+          align="center"
+          tone="results"
+        />
 
         <div className="grid md:grid-cols-2 gap-5 sm:gap-8">
           {LANCI_DA_ZERO.map((item, i) => (
@@ -32,35 +41,49 @@ export default function LanciDaZero() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="relative group"
+              className="relative"
             >
-              <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-[#a3ff12]/40 via-transparent to-violet-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
-
-              <div className="relative gradient-border rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 bg-black overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.03] font-mono text-[8px] leading-tight text-[#a3ff12] overflow-hidden pointer-events-none select-none">
-                  {Array.from({ length: 20 }).map((_, row) => (
-                    <div key={row} className="whitespace-nowrap">
-                      {Array.from({ length: 30 }).map((_, col) => (
-                        <span key={col}>{(row + col) % 2 === 0 ? "1" : "0"}</span>
-                      ))}
-                    </div>
-                  ))}
+              <div className="relative card-featured rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 bg-black overflow-hidden">
+                <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
+                  <span className="inline-block px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase border border-amber-500/30 text-amber-300/90 rounded-full">
+                    {item.tag}
+                  </span>
+                  <InstagramBadge />
                 </div>
 
-                <span className="inline-block px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase border border-[#a3ff12]/30 text-[#a3ff12] rounded-full mb-6 sm:mb-8">
-                  {item.tag}
-                </span>
-
-                <h3 className="text-lg sm:text-xl md:text-2xl font-black tracking-tight mb-8 sm:mb-10 leading-tight">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-black tracking-tight mb-4 leading-tight">
                   {item.name}
                 </h3>
 
+                <div className="mb-6 rounded-xl border border-violet-500/20 bg-violet-500/5 p-4">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-violet-300 mb-2">
+                    Fase 1 · Pre-analisi
+                  </p>
+                  <p className="text-sm text-zinc-400 leading-relaxed">{item.preAnalysis}</p>
+                </div>
+
                 <div className="space-y-6">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-zinc-600 mb-2">Impression</p>
-                    <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#a3ff12] leading-none tracking-tighter">
+                    <div className="flex items-center gap-2 mb-2">
+                      <p className="text-xs uppercase tracking-[0.3em] text-zinc-600">{item.metricLabel}</p>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        className="text-pink-400/80"
+                        aria-hidden
+                      >
+                        <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" strokeWidth="1.5" />
+                        <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
+                      </svg>
+                    </div>
+                    <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-amber-300 leading-none tracking-tighter">
                       {item.impressions.toLocaleString("it-IT")}
                       <span className="text-2xl sm:text-3xl md:text-4xl">+</span>
+                    </p>
+                    <p className="text-[11px] text-zinc-500 mt-3 leading-relaxed border-l-2 border-pink-500/40 pl-3">
+                      {item.instagramRef}
                     </p>
                   </div>
 
@@ -80,13 +103,62 @@ export default function LanciDaZero() {
           ))}
         </div>
 
+        <GestioneInEssere />
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-8 sm:mt-12 card-surface rounded-2xl sm:rounded-3xl overflow-hidden"
+        >
+          <div className="grid lg:grid-cols-2 gap-0">
+            <div className="relative aspect-[9/16] max-h-[520px] lg:max-h-none lg:aspect-auto lg:min-h-[400px] bg-[#0b141a]">
+              <MediaImage
+                src={WHATSAPP_BUSINESS_SETUP.image}
+                alt={WHATSAPP_BUSINESS_SETUP.imageAlt}
+                fit="contain"
+                position="center top"
+                bg="bg-[#0b141a]"
+                padding="p-4"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute top-4 left-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#25D366]/20 border border-[#25D366]/40 text-[10px] font-bold text-[#25D366] tracking-wide">
+                  WhatsApp Business
+                </span>
+              </div>
+            </div>
+            <div className="p-6 sm:p-10 flex flex-col justify-center bg-zinc-950/80">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-[#25D366] mb-3">
+                {WHATSAPP_BUSINESS_SETUP.badge}
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black tracking-tight mb-3">
+                {WHATSAPP_BUSINESS_SETUP.title}
+              </h3>
+              <p className="text-sm text-zinc-400 leading-relaxed mb-6">{WHATSAPP_BUSINESS_SETUP.subtitle}</p>
+              <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                {WHATSAPP_BUSINESS_SETUP.features.map((f) => (
+                  <div key={f.label} className="rounded-xl border border-white/5 bg-white/[0.02] p-4">
+                    <span className="text-xl mb-2 block">{f.icon}</span>
+                    <p className="text-sm font-bold text-white mb-1">{f.label}</p>
+                    <p className="text-xs text-zinc-500 leading-relaxed">{f.detail}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[11px] text-zinc-600">
+                Applicato a: {WHATSAPP_BUSINESS_SETUP.appliesTo.join(" · ")}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
         <LaunchReports />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 sm:mt-16 gradient-border rounded-2xl sm:rounded-3xl overflow-hidden"
+          className="mt-12 sm:mt-16 card-surface rounded-2xl sm:rounded-3xl overflow-hidden"
         >
           <div className="grid md:grid-cols-2 gap-0">
             <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[320px]">
@@ -101,13 +173,18 @@ export default function LanciDaZero() {
               />
             </div>
             <div className="p-6 sm:p-10 flex flex-col justify-center">
-              <span className="text-[10px] uppercase tracking-[0.3em] text-[#a3ff12] mb-3">Prova dai dati</span>
-              <h3 className="text-xl sm:text-2xl font-black tracking-tight mb-4">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-3">
+                Prova dai dati · Meta ADS
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black tracking-tight mb-2">
                 Performance reali da Meta ADS Manager
               </h3>
+              <p className="text-xs text-zinc-500 mb-4">
+                Separato dai numeri Instagram organici sopra — campagne a pagamento.
+              </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div>
-                  <p className="text-2xl sm:text-3xl font-black text-[#a3ff12]">31.799</p>
+                  <p className="text-2xl sm:text-3xl font-black text-white">31.799</p>
                   <p className="text-xs text-zinc-500 uppercase tracking-widest">Visualizzazioni</p>
                 </div>
                 <div>
@@ -119,7 +196,7 @@ export default function LanciDaZero() {
                   <p className="text-xs text-zinc-500 uppercase tracking-widest">Copertura</p>
                 </div>
                 <div>
-                  <p className="text-2xl sm:text-3xl font-black text-[#a3ff12]">€0,07</p>
+                  <p className="text-2xl sm:text-3xl font-black text-amber-300">€0,07</p>
                   <p className="text-xs text-zinc-500 uppercase tracking-widest">CPC medio</p>
                 </div>
               </div>
@@ -131,6 +208,6 @@ export default function LanciDaZero() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </SectionShell>
   );
 }
