@@ -19,7 +19,10 @@ function BrandVisual({
   const hasLogo = "logo" in brand && brand.logo;
 
   if (textOnly) {
-    const accent = "accent" in brand && brand.accent ? brand.accent : "#a3ff12";
+    const accent =
+      "accent" in brand && typeof brand.accent === "string"
+        ? brand.accent
+        : "#a3ff12";
 
     return (
       <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-zinc-950 via-black to-zinc-900 overflow-hidden">
