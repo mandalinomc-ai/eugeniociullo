@@ -58,14 +58,18 @@ export default function Bio() {
             transition={{ duration: 0.7 }}
             className="space-y-5 sm:space-y-6"
           >
-            <div className="relative w-full max-w-sm aspect-[3/4] rounded-2xl overflow-hidden gradient-border lg:hidden mb-6">
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug">
+              Eugenio Ciullo<span className="text-[#a3ff12]">.</span>
+            </p>
+
+            <div className="relative w-full max-w-xs aspect-[3/4] rounded-2xl overflow-hidden gradient-border lg:hidden">
               <MediaImage
                 src="/images/eugenio-portrait.png"
                 alt="Eugenio Ciullo - Digital Marketer"
                 fit="cover-center"
                 position="50% 18%"
                 className="scale-[1.12]"
-                sizes="(max-width: 1024px) 100vw, 400px"
+                sizes="(max-width: 1024px) 100vw, 320px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
@@ -74,9 +78,6 @@ export default function Bio() {
               </p>
             </div>
 
-            <p className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug">
-              Eugenio Ciullo<span className="text-[#a3ff12]">.</span>
-            </p>
             <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
               Opero ufficialmente nel digital e social marketing da{" "}
               <span className="text-white font-medium">gennaio 2025</span>, in{" "}

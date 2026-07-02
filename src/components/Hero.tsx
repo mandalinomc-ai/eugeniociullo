@@ -5,6 +5,31 @@ import MediaImage from "@/components/ui/MediaImage";
 import GlowButton from "@/components/ui/GlowButton";
 import { SITE } from "@/lib/constants";
 
+function PortraitCard({ className = "" }: { className?: string }) {
+  return (
+    <div
+      className={`relative overflow-hidden gradient-border rounded-2xl ${className}`}
+    >
+      <MediaImage
+        src="/images/eugenio-portrait.png"
+        alt="Eugenio Ciullo - Digital Marketer"
+        fit="cover-center"
+        position="50% 18%"
+        className="scale-[1.15]"
+        priority
+        sizes="(max-width: 1024px) 120px, 360px"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
+      <div className="absolute bottom-3 left-3 right-3 hidden sm:block">
+        <p className="text-sm sm:text-lg font-black tracking-tight">EUGENIO CIULLO</p>
+        <p className="text-[10px] sm:text-xs text-[#a3ff12] tracking-widest uppercase">
+          Digital · Content · ADS
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
@@ -38,15 +63,17 @@ export default function Hero() {
         <div className="noise-overlay absolute inset-0 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-16 sm:pb-20">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-28 pb-12 sm:pb-16">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex items-center gap-4 mb-6 sm:mb-8"
             >
-              <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] sm:text-xs tracking-widest uppercase text-zinc-400 mb-6 sm:mb-8">
+              <PortraitCard className="h-[4.5rem] w-[4.5rem] shrink-0 rounded-full sm:h-20 sm:w-20 lg:hidden" />
+              <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] sm:text-xs tracking-widest uppercase text-zinc-400">
                 <span className="w-2 h-2 rounded-full bg-[#a3ff12] animate-pulse shrink-0" />
                 Digital Marketer · Content Creator
               </span>
@@ -56,7 +83,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35 }}
-              className="text-[2.25rem] leading-[0.95] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-6 sm:mb-8"
+              className="text-[2.25rem] leading-[0.95] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-5 sm:mb-6"
             >
               Digital Marketing
               <br />
@@ -75,48 +102,54 @@ export default function Hero() {
               <span className="text-white font-medium">Siti Web Premium</span>{" "}
               per brand che vogliono farsi sentire.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.65 }}
+              className="mt-8 flex flex-col gap-3 sm:gap-4 lg:hidden"
+            >
+              <GlowButton href="#ai-sito" variant="primary" className="w-full py-3.5 text-sm sm:text-base">
+                CREA IL TUO SITO
+              </GlowButton>
+              <GlowButton href="#preventivo" variant="secondary" className="w-full py-3.5 text-sm sm:text-base">
+                Richiedi Preventivo
+              </GlowButton>
+              <a
+                href={`https://wa.me/${SITE.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full text-center py-2 text-sm text-zinc-400 hover:text-[#25D366] transition-colors"
+              >
+                💬 WhatsApp · {SITE.whatsappDisplay}
+              </a>
+            </motion.div>
           </div>
 
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.65 }}
-            className="lg:col-span-5 flex flex-col gap-3 sm:gap-4"
+            className="hidden lg:flex lg:col-span-5 flex-col gap-4"
           >
-            <div className="relative aspect-[3/4] max-h-[26rem] sm:max-h-[30rem] w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden gradient-border mb-2">
-              <MediaImage
-                src="/images/eugenio-portrait.png"
-                alt="Eugenio Ciullo - Digital Marketer"
-                fit="cover-center"
-                position="50% 18%"
-                className="scale-[1.12]"
-                priority
-                sizes="(max-width: 768px) 100vw, 400px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4">
-                <p className="text-lg font-black tracking-tight">EUGENIO CIULLO</p>
-                <p className="text-xs text-[#a3ff12] tracking-widest uppercase">Digital · Content · ADS</p>
-              </div>
-            </div>
+            <PortraitCard className="aspect-[3/4] max-h-[22rem] w-full max-w-[18rem] ml-auto" />
 
-            <GlowButton href="#ai-sito" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
+            <GlowButton href="#ai-sito" variant="primary" className="w-full py-4 text-sm sm:text-base">
               CREA IL TUO SITO
             </GlowButton>
-            <GlowButton href="#preventivo" variant="secondary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
+            <GlowButton href="#preventivo" variant="secondary" className="w-full py-4 text-sm sm:text-base">
               Richiedi Preventivo
             </GlowButton>
             <a
               href={`https://wa.me/${SITE.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center py-3 text-sm text-zinc-400 hover:text-[#25D366] transition-colors"
+              className="w-full text-center py-2 text-sm text-zinc-400 hover:text-[#25D366] transition-colors"
             >
               💬 WhatsApp · {SITE.whatsappDisplay}
             </a>
 
-            <div className="gradient-border rounded-2xl p-4 sm:p-5">
+            <div className="card-surface rounded-2xl p-5">
               <p className="text-[10px] sm:text-xs text-zinc-500 uppercase tracking-widest mb-2">Assistenza</p>
               <p className="text-sm sm:text-base font-semibold text-white">{SITE.supportHoursLabel}</p>
               <p className="text-xs sm:text-sm text-zinc-500 mt-2">{SITE.email}</p>
