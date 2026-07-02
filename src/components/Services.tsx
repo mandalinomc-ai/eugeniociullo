@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import MediaImage from "@/components/ui/MediaImage";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlowButton from "@/components/ui/GlowButton";
-import GlowButton from "@/components/ui/GlowButton";
 import { SERVICES, SITE } from "@/lib/constants";
 
 const serviceImages = [
