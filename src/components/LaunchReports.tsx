@@ -25,7 +25,7 @@ function PlatformBadge({ platforms }: { platforms?: string }) {
 export default function LaunchReports() {
   const [active, setActive] = useState<ReportId>("parisio");
   const report = LAUNCH_REPORTS.find((r) => r.id === active) ?? LAUNCH_REPORTS[0];
-  const isParisio = report.id === "parisio";
+  const isMultiPlatform = report.id === "parisio" || report.id === "ittico";
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -76,7 +76,7 @@ export default function LaunchReports() {
         >
           <div className="p-4 sm:p-8 border-b border-white/5 bg-zinc-950/50">
             <div className="flex flex-wrap items-center gap-2 mb-2">
-              <PlatformBadge platforms={isParisio ? "TikTok + Instagram" : "Instagram"} />
+              <PlatformBadge platforms={isMultiPlatform ? "TikTok + Instagram" : "Instagram"} />
             </div>
             <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-600 mb-1">{report.period}</p>
             <h4 className="text-lg sm:text-xl font-black tracking-tight">{report.title}</h4>
@@ -144,24 +144,16 @@ export default function LaunchReports() {
 
           <div className="p-4 sm:p-8 bg-black/40">
             <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-600 mb-4 text-center sm:text-left">
-              {isParisio ? "Screenshot reali · IG & TikTok" : "Screenshot reali · Instagram"}
+              {isMultiPlatform ? "Screenshot reali · IG & TikTok" : "Screenshot reali · Instagram"}
             </p>
-            <div
-              className={
-                isParisio
-                  ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto"
-                  : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-6xl mx-auto"
-              }
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
               {report.frames.map((frame, i) => (
                 <motion.div
                   key={frame.src}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className={`gradient-border rounded-xl sm:rounded-2xl overflow-hidden w-full ${
-                    isParisio ? "max-w-[340px] mx-auto" : "max-w-[300px] mx-auto"
-                  }`}
+                  className="gradient-border rounded-xl sm:rounded-2xl overflow-hidden w-full max-w-[340px] mx-auto"
                 >
                   <div className="relative w-full aspect-[9/16]">
                     <MediaImage
@@ -170,8 +162,8 @@ export default function LaunchReports() {
                       fit={frame.fit ?? "contain"}
                       position={frame.position ?? "center top"}
                       bg={frame.bg ?? "bg-black"}
-                      padding={isParisio ? "p-0.5 sm:p-1" : "padding" in frame ? frame.padding : "p-2"}
-                      sizes={isParisio ? "(max-width: 640px) 88vw, 340px" : "(max-width: 640px) 88vw, 300px"}
+                      padding="p-0.5 sm:p-1"
+                      sizes="(max-width: 640px) 88vw, 340px"
                     />
                   </div>
                   {"label" in frame && frame.label && (
