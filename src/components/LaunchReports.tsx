@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import MediaImage from "@/components/ui/MediaImage";
 import { LAUNCH_REPORTS } from "@/lib/constants";
 
+type ReportId = (typeof LAUNCH_REPORTS)[number]["id"];
+
 export default function LaunchReports() {
-  const [active, setActive] = useState(LAUNCH_REPORTS[0].id);
+  const [active, setActive] = useState<ReportId>(LAUNCH_REPORTS[0].id);
   const report = LAUNCH_REPORTS.find((r) => r.id === active) ?? LAUNCH_REPORTS[0];
 
   return (
