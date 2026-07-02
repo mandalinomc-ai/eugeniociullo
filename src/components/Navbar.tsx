@@ -6,7 +6,7 @@ import GlowButton from "@/components/ui/GlowButton";
 import { SITE } from "@/lib/constants";
 
 const navLinks = [
-  { href: "#chi-sono", label: "Chi Sono" },
+  { href: "#chi-sono", label: "Chi Siamo" },
   { href: "#lavori", label: "Lavori" },
   { href: "#content-creator", label: "Content" },
   { href: "#eventi", label: "Eventi" },

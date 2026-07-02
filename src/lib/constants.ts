@@ -2,7 +2,7 @@ export const SITE = {
   name: "Eugenio Ciullo",
   title: "Eugenio Ciullo | Digital Marketer & Content Creator",
   description:
-    "Digital Marketing con l'anima da Creator. Strategia, Content & ADS per brand che vogliono farsi sentire.",
+    "Digital Marketing con l'anima da Creator. Noi di Eugenio Ciullo & Team — con ZeroAgency — portiamo strategia, content e ADS ai brand che vogliono farsi sentire.",
   whatsapp: "393483470654",
   whatsappDisplay: "348 347 0654",
   email: "eugeniociullo96@gmail.com",
@@ -17,11 +17,19 @@ export function whatsappUrl(message?: string) {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
+export const TEAM = {
+  lead: "Eugenio Ciullo",
+  name: "Eugenio Ciullo & Team",
+  partner: "ZeroAgency",
+  partnerSubtitle: "Agenzia · Benevento",
+  shortTagline: "Io in prima linea, team ZeroAgency al fianco.",
+} as const;
+
 export const WORK_COLLABORATION = {
   name: "ZeroAgency",
-  subtitle: "Agenzia Offline · Benevento",
+  subtitle: "Agenzia · Benevento · Il nostro team operativo",
   description:
-    "Collaborazione lavorativa attuale. Opero all'interno della struttura su digital marketing, social media e content per i progetti dell'agenzia.",
+    "Collaborazione lavorativa attuale. Operiamo all'interno della struttura su digital marketing, social media e content: io coordino, il team ZeroAgency supporta produzione ed eventi.",
   logo: "/images/work-fiera.png",
   badge: "Collaborazione attuale",
 } as const;
@@ -276,9 +284,9 @@ export const ONGOING_MANAGEMENT = [
       ],
     },
     after: {
-      title: "Con la mia gestione",
+      title: "Con la nostra gestione",
       description:
-        "Piano editoriale hospitality: food, cocktail, room tour ed eventi. Media views moltiplicate e vetrina che guida verso prenotazioni e corporate.",
+        "Piano editoriale hospitality: food, cocktail, room tour ed eventi. Media views moltiplicate e vetrina che guida verso prenotazioni e corporate — curata da noi con il team.",
       metrics: [
         { label: "Media views/reel", value: "~5.200", highlight: true },
         { label: "Picco singolo reel", value: "9.969", highlight: true },
@@ -288,7 +296,7 @@ export const ONGOING_MANAGEMENT = [
       screens: [
         {
           src: "/images/report-antum-reels-3.png",
-          alt: "Reels Antum Hotel con media views elevate sotto gestione Eugenio Ciullo",
+          alt: "Reels Antum Hotel con media views elevate sotto gestione Eugenio Ciullo & Team",
           label: "Dopo · media e picchi elevati",
         },
         {
@@ -330,9 +338,9 @@ export const ONGOING_MANAGEMENT = [
       ],
     },
     after: {
-      title: "Con la mia gestione",
+      title: "Con la nostra gestione",
       description:
-        "Format chef + presentatrice in cucina: reel virali da 50.000 a 72.800 views, profilo che converte in prenotazioni ed eventi stagionali.",
+        "Format chef + presentatrice in cucina: reel virali da 50.000 a 72.800 views, profilo che converte in prenotazioni ed eventi — produzione e strategia del nostro team.",
       metrics: [
         { label: "Media format top", value: "~61.000", highlight: true },
         { label: "Picco singolo reel", value: "72.800", highlight: true },
@@ -342,7 +350,7 @@ export const ONGOING_MANAGEMENT = [
       screens: [
         {
           src: "/images/report-ama-reels-3.png",
-          alt: "Reels AMA Experience con picchi 62K-72K views sotto gestione Eugenio Ciullo",
+          alt: "Reels AMA Experience con picchi 62K-72K views sotto gestione Eugenio Ciullo & Team",
           label: "Dopo · format chef + host (fino a 72,8K)",
         },
         {
@@ -494,7 +502,7 @@ export const SERVICES = [
     id: "consulting",
     title: "Consulenza Strategica 1to1",
     description:
-      "Sessioni personalizzate per sbloccare la crescita del tuo brand con piano d'azione concreto.",
+      "Sessioni personalizzate con Eugenio e il team per sbloccare la crescita del tuo brand con piano d'azione concreto.",
     icon: "🎯",
     gradient: "from-amber-500/20 to-orange-500/10",
     featured: true,
@@ -504,7 +512,7 @@ export const SERVICES = [
     title: "Event Management & Booking",
     badge: "NUOVO",
     description:
-      "Allestimenti, DJ, stand fiera, proiezioni video/PDF e consulenza. Feste private, corporate e showroom.",
+      "Allestimenti, DJ, stand fiera, proiezioni video/PDF e consulenza. Feste private, corporate e showroom — organizzati dal nostro team.",
     icon: "🎉",
     gradient: "from-pink-500/20 to-rose-500/10",
     link: "#eventi",
@@ -512,16 +520,16 @@ export const SERVICES = [
 ] as const;
 
 export const CONTENT_CREATOR = {
-  headline: "Seguo il tuo brand ovunque sia.",
+  headline: "Seguiamo il tuo brand ovunque sia.",
   subheadline:
-    "Content creation flessibile: a distanza, con UGC, sul campo con me o con il mio team di operatori. Per brand e personal brand che vogliono contenuti autentici e strategia dietro ogni frame.",
+    "Content creation flessibile: a distanza, con UGC, sul campo con noi o con il nostro team di operatori ZeroAgency. Per brand e personal brand che vogliono contenuti autentici e strategia dietro ogni frame.",
   modes: [
     {
       id: "remote",
       title: "Gestione a Distanza",
       icon: "🌍",
       description:
-        "Briefing, direzione creativa, editing e pubblicazione. Coordino tutto da remoto: tu produci o invii materiale, io trasformo in contenuti che convertono.",
+        "Briefing, direzione creativa, editing e pubblicazione. Coordiniamo tutto da remoto: tu produci o invii materiale, noi lo trasformiamo in contenuti che convertono.",
       tags: ["Briefing video", "Editing pro", "Calendario editoriale", "Report mensile"],
     },
     {
@@ -530,15 +538,15 @@ export const CONTENT_CREATOR = {
       icon: "📱",
       badge: "Trend",
       description:
-        "User Generated Content autentico: guido clienti e creator nel produrre video e foto on-brand, poi li ottimizzo per ADS e social con hook testati.",
+        "User Generated Content autentico: guidiamo clienti e creator nel produrre video e foto on-brand, poi li ottimizziamo per ADS e social con hook testati.",
       tags: ["Script & storyboard", "Format TikTok/Reels", "Ottimizzazione ADS", "A/B test creativi"],
     },
     {
       id: "onsite",
-      title: "Sul Campo · Io o il Team",
+      title: "Sul Campo · Noi o il Team",
       icon: "🎥",
       description:
-        "Per clienti locali vado personalmente. Per eventi più grandi o multi-location mando un team di operatori fidati con cui lavoro da anni.",
+        "Per clienti locali ci spostiamo personalmente io e il team. Per eventi più grandi o multi-location mandiamo operatori ZeroAgency con cui lavoriamo ogni giorno.",
       tags: ["Copertura eventi", "Team dedicato", "Multi-camera", "Consegna rapida"],
     },
   ],
@@ -560,7 +568,7 @@ export const CONTENT_CREATOR = {
 export const EVENT_PRODUCTION = {
   headline: "Eventi che si ricordano.",
   subheadline:
-    "Allestimento chiavi in mano, booking artisti e tecnologia per ogni occasione: festa privata, meeting aziendale, stand in fiera o showroom. Un unico referente, zero stress.",
+    "Allestimento chiavi in mano, booking artisti e tecnologia per ogni occasione: festa privata, meeting aziendale, stand in fiera o showroom. Un unico referente — noi e il team ZeroAgency — zero stress.",
   categories: [
     { id: "private", label: "Festa Privata", icon: "🥂" },
     { id: "corporate", label: "Meeting Aziendale", icon: "🏢" },
@@ -703,7 +711,7 @@ export const AI_AUTOMATION = [
   {
     id: "audit",
     title: "Audit Social Express",
-    description: "Analisi rapida profilo social del prospect per personalizzare la prima consulenza gratuita.",
+    description: "Analisi rapida profilo social del prospect per personalizzare la prima consulenza gratuita con il team.",
     icon: "🔍",
   },
 ] as const;

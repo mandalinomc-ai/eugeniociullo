@@ -9,7 +9,7 @@ type ChatStep = "closed" | "q1" | "q2" | "q3" | "done";
 const QUESTIONS = [
   {
     id: "q1",
-    bot: "Ciao! 👋 Sono l'assistente AI di Eugenio. Che tipo di servizio ti interessa?",
+    bot: "Ciao! 👋 Siamo l'assistente AI di Eugenio Ciullo & Team. Che tipo di servizio ti interessa?",
     options: ["Creazione Sito Web", "Content / UGC", "Social / ADS", "Eventi / DJ", "Consulenza 1to1"],
   },
   {
@@ -94,7 +94,7 @@ export default function ChatBot() {
                 AI
               </div>
               <div className="min-w-0">
-                <p className="text-sm font-bold">Assistente Eugenio</p>
+                <p className="text-sm font-bold">Assistente Team Eugenio</p>
                 <p className="text-[10px] text-[#a3ff12] flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#a3ff12] animate-pulse shrink-0" />
                   Qualifica lead · {SITE.supportHours}
@@ -120,7 +120,7 @@ export default function ChatBot() {
                         ? "Ottimo! Scopri la sezione Content Creator con remote, UGC e team on-site."
                         : wantsEvents
                           ? "Perfetto! Nella sezione Eventi trovi DJ, allestimenti, stand fiera e proiezioni."
-                          : "Ottimo! Eugenio è pronto. Scegli come procedere 👇"}
+                          : "Perfetto! Eugenio e il team sono pronti. Scegli come procedere 👇"}
                   </div>
 
                   {wantsWebsite && (

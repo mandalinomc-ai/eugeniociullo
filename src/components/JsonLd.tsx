@@ -6,6 +6,15 @@ export default function JsonLd() {
     "@type": "Person",
     name: SITE.name,
     jobTitle: "Digital Marketer & Content Creator",
+    worksFor: {
+      "@type": "Organization",
+      name: "ZeroAgency",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Benevento",
+        addressCountry: "IT",
+      },
+    },
     email: SITE.email,
     telephone: `+${SITE.whatsapp}`,
     url: "https://eugeniociullo.vercel.app",

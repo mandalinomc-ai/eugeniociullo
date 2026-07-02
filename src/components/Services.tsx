@@ -18,9 +18,9 @@ export default function Services() {
     <SectionShell id="servizi" tone="raised">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
-          label="I Miei Servizi"
-          title="Tutto ciò che serve per farti sentire."
-          subtitle="Cinque pilastri — siti web, social, content, consulenza ed eventi — per costruire presenza e risultati misurabili."
+          label="I Nostri Servizi"
+          title="Tutto ciò che serve per farvi sentire."
+          subtitle="Cinque pilastri — siti web, social, content, consulenza ed eventi — che gestiamo noi con il team ZeroAgency per costruire presenza e risultati misurabili."
           tone="neutral"
         />
 

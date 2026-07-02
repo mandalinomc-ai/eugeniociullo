@@ -23,7 +23,7 @@ function PortraitCard({ className = "" }: { className?: string }) {
       <div className="absolute bottom-3 left-3 right-3 hidden sm:block">
         <p className="text-sm sm:text-lg font-black tracking-tight">EUGENIO CIULLO</p>
         <p className="text-[10px] sm:text-xs text-[#a3ff12] tracking-widest uppercase">
-          Digital · Content · ADS
+          Digital · Content · ADS · Team
         </p>
       </div>
     </div>
@@ -75,7 +75,7 @@ export default function Hero() {
               <PortraitCard className="h-[4.5rem] w-[4.5rem] shrink-0 rounded-full sm:h-20 sm:w-20 lg:hidden" />
               <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] sm:text-xs tracking-widest uppercase text-zinc-400">
                 <span className="w-2 h-2 rounded-full bg-[#a3ff12] animate-pulse shrink-0" />
-                Digital Marketer · Content Creator
+                Eugenio Ciullo & Team · ZeroAgency
               </span>
             </motion.div>
 
@@ -100,7 +100,7 @@ export default function Hero() {
             >
               Strategia, Content, ADS &amp;{" "}
               <span className="text-white font-medium">Siti Web Premium</span>{" "}
-              per brand che vogliono farsi sentire.
+              per brand che vogliono farsi sentire — con il nostro team al fianco.
             </motion.p>
 
             <motion.div

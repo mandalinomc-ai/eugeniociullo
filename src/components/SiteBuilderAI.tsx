@@ -22,7 +22,7 @@ type StepId = "business" | "goal" | "pages" | "style" | "timeline" | "budget" | 
 const AUTO_LABEL = "Non lo so, scegli tu";
 
 const STEPS: { id: StepId; question: string }[] = [
-  { id: "business", question: "Ciao! 👋 Sono l'AI di Eugenio. Che tipo di attività hai?" },
+  { id: "business", question: "Ciao! 👋 Siamo l'AI del team Eugenio Ciullo. Che tipo di attività hai?" },
   { id: "goal", question: "Perfetto. Qual è l'obiettivo principale del tuo sito?" },
   { id: "pages", question: "Quali sezioni ti servono? Seleziona tutte quelle utili." },
   { id: "style", question: "Che stile visivo ti rappresenta di più?" },
@@ -468,7 +468,7 @@ export default function SiteBuilderAI() {
         <SectionHeading
           label="Web Design Premium"
           title="CREA IL TUO SITO"
-          subtitle="Rispondi alle domande — o lascia scegliere all'AI — e guarda l'anteprima prendere forma in tempo reale."
+          subtitle="Rispondi alle domande — o lascia scegliere all'AI — e guarda l'anteprima prendere forma in tempo reale. Brief curato dal nostro team."
           align="center"
           tone="cool"
         />
@@ -485,7 +485,7 @@ export default function SiteBuilderAI() {
                 AI
               </div>
               <div>
-                <p className="text-sm font-bold">Eugenio Site Architect</p>
+                <p className="text-sm font-bold">Site Architect · Team Eugenio</p>
                 <p className="text-[10px] text-[#a3ff12] flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#a3ff12] animate-pulse" />
                   {typing ? "Sta scrivendo..." : "Online · Anteprima live attiva"}

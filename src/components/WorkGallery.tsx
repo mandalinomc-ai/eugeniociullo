@@ -27,7 +27,7 @@ export default function WorkGallery() {
         <SectionHeading
           label="Portfolio Visivo"
           title="Sul campo. Con i dati. Con i risultati."
-          subtitle="Foto dal lavoro quotidiano: fiere, eventi, content creation, graphic design e performance ADS."
+          subtitle="Foto dal lavoro quotidiano del nostro team: fiere, eventi, content creation, graphic design e performance ADS."
           tone="neutral"
         />
 

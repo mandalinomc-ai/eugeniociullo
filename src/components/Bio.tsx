@@ -15,7 +15,7 @@ const bioCards = [
   {
     label: "Collaborazione",
     value: "ZeroAgency",
-    sub: "Benevento · Partner lavorativo attuale",
+    sub: "Benevento · Team operativo con cui lavoriamo ogni giorno",
     span: "col-span-1",
     highlight: true,
   },
@@ -44,9 +44,9 @@ export default function Bio() {
     <SectionShell id="chi-sono" tone="raised">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
-          label="Chi Sono"
+          label="Chi Siamo"
           title="Dati, visual e street culture."
-          subtitle="La mia esperienza unisce marketing digitale e creatività sul campo."
+          subtitle="La nostra esperienza unisce marketing digitale, creatività sul campo e il team ZeroAgency."
           tone="neutral"
         />
 
@@ -59,7 +59,8 @@ export default function Bio() {
             className="space-y-5 sm:space-y-6"
           >
             <p className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug">
-              Eugenio Ciullo<span className="text-[#a3ff12]">.</span>
+              Eugenio Ciullo<span className="text-[#a3ff12]">.</span>{" "}
+              <span className="text-zinc-500 text-lg sm:text-xl font-semibold">& Team</span>
             </p>
 
             <div className="relative w-full max-w-xs aspect-[3/4] rounded-2xl overflow-hidden gradient-border lg:hidden">
@@ -79,22 +80,23 @@ export default function Bio() {
             </div>
 
             <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
-              Opero ufficialmente nel digital e social marketing da{" "}
+              Operiamo ufficialmente nel digital e social marketing da{" "}
               <span className="text-white font-medium">gennaio 2025</span>, in{" "}
-              <span className="text-white font-medium">collaborazione lavorativa con ZeroAgency</span>{" "}
-              (nota agenzia offline di Benevento) e con molteplici brand come consulente e content creator.
+              <span className="text-white font-medium">collaborazione con ZeroAgency</span>{" "}
+              (agenzia di Benevento) e con molteplici brand come consulenza e content creation.
+              Io coordino strategia e creatività, il team supporta produzione, eventi e delivery.
             </p>
             <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
-              La mia esperienza nasce molto prima, sperimentando sul campo con aziende e personal brand
-              nel settore musicale ed eventi. Gestisco strategicamente Facebook, Instagram e TikTok,
-              occupandomi di analisi, content creation, campagne Meta ADS, reportistica mensile e
+              La nostra esperienza nasce molto prima, sperimentando sul campo con aziende e personal brand
+              nel settore musicale ed eventi. Gestiamo strategicamente Facebook, Instagram e TikTok,
+              occupandoci di analisi, content creation, campagne Meta ADS, reportistica mensile e
               sviluppo web.
             </p>
             <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
-              Unisco la potenza dei dati alla forza del visual: realizzo foto per eventi con
-              macchina fotografica dedicata e produco contenuti foto/video ad alto impatto come
-              Content Creator utilizzando{" "}
-              <span className="text-white font-medium">iPhone 16 Pro</span>.
+              Uniamo la potenza dei dati alla forza del visual: realizziamo foto per eventi con
+              macchina fotografica dedicata e produciamo contenuti foto/video ad alto impatto come
+              team Content Creator utilizzando{" "}
+              <span className="text-white font-medium">iPhone 16 Pro</span> e attrezzatura pro.
             </p>
           </motion.div>
 

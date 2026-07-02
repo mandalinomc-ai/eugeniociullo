@@ -108,12 +108,13 @@ export default function GestioneInEssere() {
           Gestione in essere
         </span>
         <h3 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight">
-          Prima vs dopo — profili che gestisco oggi
+          Prima vs dopo — profili che gestiamo oggi con il team
         </h3>
         <p className="text-zinc-500 mt-3 text-sm sm:text-base max-w-3xl mx-auto">
           Antum Hotel e AMA Experience non sono lanci da zero: sono{" "}
-          <strong className="text-zinc-300 font-medium">gestioni attive</strong> dove ho alzato media
-          views, interazioni e conversione dei contenuti — con screenshot reali dalla vetrina Reels.
+          <strong className="text-zinc-300 font-medium">gestioni attive</strong> che curiamo noi,
+          con il team ZeroAgency — media views, interazioni e conversione dei contenuti alzate, con
+          screenshot reali dalla vetrina Reels.
         </p>
       </motion.div>
 
@@ -197,7 +198,7 @@ export default function GestioneInEssere() {
           <div className="px-5 sm:px-8 py-4 border-t border-white/5 bg-zinc-950/40">
             <p className="text-[11px] text-zinc-600 text-center leading-relaxed">
               Dati da screenshot Instagram Reels · views visibili sui contenuti · confronto periodo pre-gestione vs
-              contenuti prodotti sotto la mia direzione creativa e strategica.
+              contenuti prodotti sotto la nostra direzione creativa e strategica, con il team ZeroAgency.
             </p>
           </div>
         </motion.article>

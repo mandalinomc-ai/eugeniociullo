@@ -28,7 +28,7 @@ export default function LanciDaZero() {
         <SectionHeading
           label="Case Study · Lanci & Gestione"
           title="Risultati reali su Instagram"
-          subtitle="Lanci da zero (Parisio, ITTICO) e gestioni in essere (Antum, AMA) — numeri e screenshot dalla vetrina Reels."
+          subtitle="Lanci da zero (Parisio, ITTICO) e gestioni in essere (Antum, AMA) — numeri e screenshot dalla vetrina Reels, curati dal nostro team."
           align="center"
           tone="results"
         />

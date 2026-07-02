@@ -18,7 +18,7 @@ export default function EventProduction() {
   const whatsappMessage = (() => {
     const cat = EVENT_PRODUCTION.categories.find((c) => c.id === activeCategory)?.label ?? "Evento";
     return whatsappUrl(
-      `Ciao Eugenio! Mi interessa l'organizzazione di un evento: ${cat}. Vorrei un preventivo.`
+      `Ciao! Mi interessa l'organizzazione di un evento con il team Eugenio: ${cat}. Vorrei un preventivo.`
     );
   })();
 

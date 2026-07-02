@@ -12,7 +12,7 @@ export default function AutomationHub() {
         <SectionHeading
           label="AI Automation"
           title="Tecnologia che lavora mentre dormi."
-          subtitle="Sistema intelligente integrato nel sito: qualifica lead, genera brief, assiste clienti e prepara consulenze personalizzate."
+          subtitle="Sistema intelligente integrato nel sito: qualifichiamo lead, generiamo brief, assistiamo clienti e prepariamo consulenze personalizzate."
           align="center"
           tone="cool"
         />
@@ -46,7 +46,7 @@ export default function AutomationHub() {
           className="mt-10 text-center"
         >
           <p className="text-xs text-zinc-600 uppercase tracking-[0.25em]">
-            Powered by Eugenio Ciullo · AI + Strategia Umana
+            Powered by Eugenio Ciullo & Team · AI + Strategia Umana · ZeroAgency
           </p>
         </motion.div>
       </div>

@@ -47,7 +47,7 @@ export default function QuoteForm() {
         <SectionHeading
           label="Preventivo"
           title="Inizia il tuo progetto."
-          subtitle="Compila il form multi-step e ricevi una risposta personalizzata. Pagamenti dilazionabili su richiesta."
+          subtitle="Compila il form multi-step e ricevi una risposta personalizzata dal nostro team. Pagamenti dilazionabili su richiesta."
           align="center"
           tone="accent"
         />

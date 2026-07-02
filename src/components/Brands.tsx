@@ -166,7 +166,7 @@ export default function Brands() {
             Collaborazione Lavorativa
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight mb-8 sm:mb-10">
-            Dove opero ogni giorno.
+            Dove operiamo ogni giorno.
           </h2>
 
           <div className="card-featured rounded-2xl sm:rounded-3xl overflow-hidden">
@@ -200,9 +200,9 @@ export default function Brands() {
         </motion.div>
 
         <SectionHeading
-          label="I Successi"
-          title="Brand con cui ho lavorato"
-          subtitle="Clienti e progetti che uniscono strategia digitale e impatto visivo."
+          label="I Nostri Successi"
+          title="Brand con cui abbiamo lavorato"
+          subtitle="Clienti e progetti che uniscono strategia digitale, impatto visivo e il lavoro del nostro team."
           align="center"
           tone="neutral"
         />

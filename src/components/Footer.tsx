@@ -14,6 +14,8 @@ export default function Footer() {
             </p>
             <p className="text-zinc-500 text-sm leading-relaxed">
               Digital Marketer & Content Creator
+              <br />
+              <span className="text-zinc-600">con il team ZeroAgency · Benevento</span>
             </p>
           </div>
 
@@ -42,7 +44,7 @@ export default function Footer() {
             <p className="text-xs uppercase tracking-[0.3em] text-zinc-600 mb-4">Navigazione</p>
             <nav className="flex flex-col gap-2 mb-6">
               {[
-                { label: "Chi Sono", href: "#chi-sono" },
+                { label: "Chi Siamo", href: "#chi-sono" },
                 { label: "Lavori", href: "#lavori" },
                 { label: "Content", href: "#content-creator" },
                 { label: "Eventi", href: "#eventi" },
@@ -69,7 +71,7 @@ export default function Footer() {
 
         <div className="mt-12 sm:mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <p className="text-xs text-zinc-600">
-            © {new Date().getFullYear()} Eugenio Ciullo. Tutti i diritti riservati.
+            © {new Date().getFullYear()} Eugenio Ciullo & Team. Tutti i diritti riservati.
           </p>
           <p className="text-xs text-zinc-700 tracking-widest uppercase">
             Built with strategy & soul

@@ -85,7 +85,7 @@ export default function ContentCreator() {
             ))}
 
             <GlowButton
-              href={whatsappUrl("Ciao Eugenio! Mi interessa il servizio Content Creator. Vorrei saperne di più.")}
+              href={whatsappUrl("Ciao! Mi interessa il servizio Content Creator del team Eugenio Ciullo. Vorrei saperne di più.")}
               variant="primary"
               external
               className="w-full sm:w-auto mt-4"
