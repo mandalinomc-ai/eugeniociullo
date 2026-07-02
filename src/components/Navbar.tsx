@@ -84,11 +84,7 @@ export default function Navbar() {
         }`}
       >
         <nav className="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
-          <a
-            href="#"
-            className="group flex flex-col shrink-0 rounded-lg border border-transparent px-2 py-1 hover:border-white/10 hover:bg-white/[0.03] transition-colors"
-            onClick={closeMenu}
-          >
+          <a href="#" className="group flex flex-col shrink-0" onClick={closeMenu}>
             <span className="text-base sm:text-lg font-black tracking-tighter">
               EUGENIO<span className="text-[#a3ff12]">.</span>
             </span>
@@ -97,15 +93,16 @@ export default function Navbar() {
             </span>
           </a>
 
-          <div className="hidden xl:flex flex-1 flex-wrap items-center justify-center gap-1.5 px-2 max-w-3xl">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
-              <NavPill
+              <a
                 key={link.href}
                 href={link.href}
-                label={link.label}
-                accent={"accent" in link && link.accent}
-                size="sm"
-              />
+                className="text-sm text-zinc-400 hover:text-white transition-colors relative group whitespace-nowrap"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#a3ff12] group-hover:w-full transition-all duration-300" />
+              </a>
             ))}
           </div>
 
@@ -122,7 +119,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="xl:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] hover:border-[#a3ff12]/40 hover:bg-white/[0.08] transition-colors"
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] hover:border-[#a3ff12]/40 hover:bg-white/[0.08] transition-colors"
               aria-label={menuOpen ? "Chiudi menu" : "Apri menu"}
               aria-expanded={menuOpen}
             >
@@ -147,7 +144,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 xl:hidden"
+            className="fixed inset-0 z-40 md:hidden"
           >
             <div className="absolute inset-0 bg-black/95 backdrop-blur-xl" onClick={closeMenu} />
 
@@ -159,7 +156,7 @@ export default function Navbar() {
               className="absolute top-0 right-0 bottom-0 w-full max-w-sm bg-zinc-950 border-l border-white/10 flex flex-col safe-top safe-bottom shadow-[-8px_0_40px_rgba(0,0,0,0.5)]"
             >
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-zinc-900/50">
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-zinc-400">Navigazione</span>
+                <span className="text-xs font-bold tracking-[0.2em] uppercase text-zinc-400">Sezioni</span>
                 <button
                   type="button"
                   onClick={closeMenu}
@@ -173,7 +170,6 @@ export default function Navbar() {
               </div>
 
               <div className="flex-1 overflow-y-auto px-5 py-5">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-600 mb-3 px-1">Sezioni</p>
                 <div className="grid grid-cols-2 gap-2">
                   {navLinks.map((link, i) => (
                     <motion.div
