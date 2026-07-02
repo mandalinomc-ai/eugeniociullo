@@ -30,7 +30,7 @@ export default function LanciDaZero() {
         <SectionHeading
           label="Case Study · Lanci & Gestione"
           title="Risultati reali su Instagram"
-          subtitle="Lanci da zero (Parisio, ITTICO), ecosistema Antum/AMA/Lobby e campagne ADS — numeri e screenshot reali."
+          subtitle="Lanci da zero, ecosistema Antum/AMA/Lobby e campagne ADS — prove reali dal nostro lavoro."
           align="center"
           tone="results"
         />

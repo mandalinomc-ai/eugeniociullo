@@ -84,28 +84,28 @@ export const BRANDS = [
     name: "ANTUM HOTEL",
     subtitle: "Benevento · Hospitality",
     highlight:
-      "Gestione in essere: picchi fino a 72.800 views, format virali 50K–72K nell'ecosistema AMA & Lobby.",
+      "Case study: format influencer con @quelladelgitiale, picchi fino a 72.800 views nell'ecosistema AMA & Lobby.",
     logo: "/images/logos/antum-hotel.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
     featured: true,
-    management: "ongoing" as const,
+    management: "case-study" as const,
   },
   {
     name: "AMA EXPERIENCE",
     subtitle: "Ristorante · Antum Hotel",
     highlight:
-      "Ecosistema sinergico Antum: stessi format virali fino a 72.800 views e 50K su chef + host.",
+      "Accordo cross-brand Antum + Lobby: format chef + host con @quelladelgitiale, reel virali fino a 72K.",
     logo: "/images/logos/ama-experience.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
     featured: true,
-    management: "ongoing" as const,
+    management: "case-study" as const,
   },
   {
     name: "THE LOBBY LOUNGE",
     subtitle: "Lounge Bar · Eventi",
-    highlight: "Comunicazione visiva, content e lounge eventi nell'ecosistema Antum · gestione congiunta al team.",
+    highlight: "Parte dell'ecosistema Antum · AMA: eventi lounge e format condivisi con il team.",
     logo: "/images/logos/lobby-lounge.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
@@ -258,61 +258,41 @@ export const WHATSAPP_BUSINESS_SETUP = {
   appliesTo: ["PARISIO", "ITTICO", "AMA Experience", "Antum Hotel", "The Lobby Lounge"],
 } as const;
 
-/** Screen condivisi tra @antumhotel e @ama_experience_ (realtà sinergiche) */
-const ECOSYSTEM_SCREENS_BEFORE = [
-  {
-    src: "/images/report-antum-reels-baseline.png",
-    alt: "Vetrina Reels AMA Experience prima del format strategico",
-    label: "Prima · @ama_experience_",
-  },
-  {
-    src: "/images/report-ama-reels-grid.png",
-    alt: "Baseline Reels Antum Hotel — views 2K–8K",
-    label: "Prima · @antumhotel",
-  },
-] as const;
-
-const ECOSYSTEM_SCREENS_AFTER = [
+/** Screen ecosistema Antum · AMA · The Lobby — periodo di gestione */
+const ECOSYSTEM_SCREENS = [
   {
     src: "/images/report-antum-ama-reels-peak-2.png",
-    alt: "Reels Antum Hotel con picchi 62.500, 60.800 e 72.800 views",
-    label: "Dopo · picchi 62K–72K (chef + host)",
+    alt: "Reels format chef + host con picchi fino a 72.800 views",
+    label: "Format chef + host · fino a 72,8K",
   },
   {
     src: "/images/report-antum-ama-reels-peak-1.png",
-    alt: "Reels Antum con 50.000 e 20.600 views — Ferragosto e eventi",
-    label: "Dopo · 50K · Ferragosto & eventi",
+    alt: "Reels eventi Ferragosto e cross-brand Antum AMA",
+    label: "Eventi & Ferragosto · 50K+",
   },
   {
     src: "/images/report-antum-ama-reels-growth.png",
-    alt: "Reel evento Antum Hotel 44.000 views",
-    label: "Dopo · 44K · eventi & lifestyle",
+    alt: "Reel eventi e lifestyle Antum Hotel",
+    label: "Eventi & lifestyle · 44K",
   },
   {
     src: "/images/report-antum-ama-reels-mid.png",
-    alt: "Reel partnership Antum 58.800 views",
-    label: "Dopo · 58K · partnership & food",
+    alt: "Reel partnership food Antum AMA",
+    label: "Partnership & food · 58K",
   },
 ] as const;
 
-const ECOSYSTEM_BEFORE_METRICS = [
-  { label: "Media views/reel", value: "~4.500" },
-  { label: "Picco reel", value: "~8.000" },
-  { label: "Interazioni", value: "Sporadiche" },
-  { label: "Cross-brand", value: "Non coordinato" },
-] as const;
-
-const ECOSYSTEM_AFTER_METRICS = [
+const ECOSYSTEM_RESULT_METRICS = [
   { label: "Picco singolo reel", value: "72.800", highlight: true },
   { label: "Format virali", value: "50K–72K", highlight: true },
-  { label: "Media post-strategia", value: "~18.000" },
-  { label: "Ecosistema", value: "Antum + AMA + Lobby" },
+  { label: "Brand coinvolti", value: "3 realtà" },
+  { label: "Influencer", value: "@quelladelgitiale" },
 ] as const;
 
-const ECOSYSTEM_DELTAS = [
-  { label: "Picco reel", value: "72.800 views" },
-  { label: "Crescita picco", value: "+800%" },
-  { label: "Reel oltre 40K", value: "6+ contenuti" },
+const ECOSYSTEM_HIGHLIGHTS = [
+  { label: "Picco contenuto", value: "72.800 views" },
+  { label: "Accordo", value: "Antum + AMA + Lobby" },
+  { label: "Trend locale", value: "Influencer marketing HQ" },
 ] as const;
 
 export const META_ADS_SHOWCASE = [
@@ -336,52 +316,29 @@ export const META_ADS_SHOWCASE = [
 
 export const ONGOING_MANAGEMENT = [
   {
-    id: "antum",
-    name: "ANTUM HOTEL",
-    handle: "@antumhotel",
-    synergy: "Ecosistema sinergico con @ama_experience_ e The Lobby Lounge — stessi format, stesso team.",
-    subtitle: "Benevento · Hotel 4 stelle · Hospitality & eventi",
-    badge: "Gestione in essere",
-    scope: "Content creation · Reels · Stories · Eventi corporate · cross-promo AMA & Lobby",
-    before: {
-      title: "Prima della gestione",
+    id: "ecosistema-antum",
+    name: "ANTUM · AMA · THE LOBBY",
+    handles: ["@antumhotel", "@ama_experience_"],
+    subtitle: "Ecosistema hospitality sinergico · Benevento",
+    badge: "Case study hospitality",
+    period: "Gestione conclusa · inizio marzo 2025",
+    scope:
+      "Accordo cross-brand tra Antum Hotel, AMA Experience e The Lobby Lounge — content, Reels e influencer marketing.",
+    influencer: {
+      handle: "@quelladelgitiale",
+      title: "Influencer marketing · voce dei contenuti",
       description:
-        "Profili attivi ma disallineati: reel prevalentemente tra 2.000 e 8.000 views, senza format ricorrente né filo narrativo tra hotel, ristorante e lounge.",
-      metrics: ECOSYSTEM_BEFORE_METRICS,
-      screens: ECOSYSTEM_SCREENS_BEFORE,
+        "Abbiamo creato una campagna con influencer marketing insieme a @quelladelgitiale: in terza persona ha dato voce ai contenuti e ci ha messo la faccia, affiancando chef e brand in un format riconoscibile su tutti e tre i profili.",
     },
-    after: {
-      title: "Con la nostra gestione",
-      description:
-        "Format chef + host e storytelling cross-brand: picchi fino a 72.800 views, reel virali da 50K a 72K, eventi da 44K e Ferragosto a 20.600 — stesso piano editoriale su Antum, AMA e Lobby.",
-      metrics: ECOSYSTEM_AFTER_METRICS,
-      screens: ECOSYSTEM_SCREENS_AFTER,
-    },
-    deltas: ECOSYSTEM_DELTAS,
-  },
-  {
-    id: "ama",
-    name: "AMA EXPERIENCE",
-    handle: "@ama_experience_",
-    synergy: "Stesso ecosistema di @antumhotel e The Lobby Lounge — contenuti condivisi e strategia unica.",
-    subtitle: "Ristorante gourmet · Antum Hotel · Benevento",
-    badge: "Gestione in essere",
-    scope: "Social management · Format Reels · Food content · eventi sinergici Antum",
-    before: {
-      title: "Prima della gestione",
-      description:
-        "Contenuti food spot isolati: views tra 2.000 e 8.000, senza format chef + host né integrazione con l'hotel e il lounge.",
-      metrics: ECOSYSTEM_BEFORE_METRICS,
-      screens: ECOSYSTEM_SCREENS_BEFORE,
-    },
-    after: {
-      title: "Con la nostra gestione",
-      description:
-        "Gli stessi format virali dell'ecosistema Antum: 72.800, 62.500, 60.800 e 50.000 views su contenuti chef + host, con conversione su prenotazioni ed eventi.",
-      metrics: ECOSYSTEM_AFTER_METRICS,
-      screens: ECOSYSTEM_SCREENS_AFTER,
-    },
-    deltas: ECOSYSTEM_DELTAS,
+    story:
+      "Abbiamo strutturato un accordo unico tra AMA, Antum e The Lobby Lounge: stesso linguaggio visivo, stessi format, contenuti che viaggiano tra hotel, ristorante e lounge. Il risultato è stato un salto di qualità e reach su Instagram — con picchi fino a 72.800 views sui reel del format chef + host.",
+    legacy:
+      "Abbiamo portato a Benevento un trend che prima non c'era: influencer marketing con contenuti di qualità e persone preparate, non improvvisate. Anche i video già online hanno beneficiato del nuovo posizionamento una volta ripresa la gestione.",
+    exitNote:
+      "A inizio marzo 2025 siamo usciti dalla gestione operativa dei profili. Le prove restano in vetrina: format, picchi e metodo che abbiamo lasciato all'ecosistema.",
+    metrics: ECOSYSTEM_RESULT_METRICS,
+    screens: ECOSYSTEM_SCREENS,
+    highlights: ECOSYSTEM_HIGHLIGHTS,
   },
 ] as const;
 

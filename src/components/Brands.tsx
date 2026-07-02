@@ -110,8 +110,8 @@ function BrandCard({
 
         {"highlight" in brand && brand.highlight && (
           <span className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-bold tracking-widest uppercase bg-[#a3ff12] text-black rounded-full z-10">
-            {"management" in brand && brand.management === "ongoing"
-              ? "Gestione attiva"
+            {"management" in brand && brand.management === "case-study"
+              ? "Case study"
               : "featured" in brand && brand.featured
                 ? "Case Study"
                 : "Highlight"}
