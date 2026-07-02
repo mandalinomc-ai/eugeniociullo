@@ -7,6 +7,8 @@ import SectionShell from "@/components/ui/SectionShell";
 import { LANCI_DA_ZERO, WHATSAPP_BUSINESS_SETUP } from "@/lib/constants";
 import LaunchReports from "@/components/LaunchReports";
 import GestioneInEssere from "@/components/GestioneInEssere";
+import WhatsAppBusinessMockup from "@/components/WhatsAppBusinessMockup";
+import MetaAdsShowcase from "@/components/MetaAdsShowcase";
 
 function InstagramBadge() {
   return (
@@ -28,7 +30,7 @@ export default function LanciDaZero() {
         <SectionHeading
           label="Case Study · Lanci & Gestione"
           title="Risultati reali su Instagram"
-          subtitle="Lanci da zero (Parisio, ITTICO) e gestioni in essere (Antum, AMA) — numeri e screenshot dalla vetrina Reels, curati dal nostro team."
+          subtitle="Lanci da zero (Parisio, ITTICO), ecosistema Antum/AMA/Lobby e campagne ADS — numeri e screenshot reali."
           align="center"
           tone="results"
         />
@@ -112,21 +114,8 @@ export default function LanciDaZero() {
           className="mt-8 sm:mt-12 card-surface rounded-2xl sm:rounded-3xl overflow-hidden"
         >
           <div className="grid lg:grid-cols-2 gap-0">
-            <div className="relative aspect-[9/16] max-h-[520px] lg:max-h-none lg:aspect-auto lg:min-h-[400px] bg-[#0b141a]">
-              <MediaImage
-                src={WHATSAPP_BUSINESS_SETUP.image}
-                alt={WHATSAPP_BUSINESS_SETUP.imageAlt}
-                fit="contain"
-                position="center top"
-                bg="bg-[#0b141a]"
-                padding="p-4"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute top-4 left-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#25D366]/20 border border-[#25D366]/40 text-[10px] font-bold text-[#25D366] tracking-wide">
-                  WhatsApp Business
-                </span>
-              </div>
+            <div className="relative lg:min-h-[480px] bg-[#0b141a] overflow-hidden">
+              <WhatsAppBusinessMockup />
             </div>
             <div className="p-6 sm:p-10 flex flex-col justify-center bg-zinc-950/80">
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#25D366] mb-3">
@@ -153,6 +142,8 @@ export default function LanciDaZero() {
         </motion.div>
 
         <LaunchReports />
+
+        <MetaAdsShowcase />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}

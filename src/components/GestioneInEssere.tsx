@@ -64,15 +64,15 @@ function ScreenStrip({
   tone: "before" | "after";
 }) {
   return (
-    <div className={`grid gap-3 ${screens.length > 1 ? "sm:grid-cols-2" : "grid-cols-1"}`}>
+    <div className={`grid gap-3 ${screens.length > 2 ? "sm:grid-cols-2 lg:grid-cols-2" : screens.length > 1 ? "sm:grid-cols-2" : "grid-cols-1"}`}>
       {screens.map((screen) => (
         <div
-          key={screen.src}
+          key={`${screen.src}-${screen.label}`}
           className={`rounded-2xl overflow-hidden border ${
             tone === "before" ? "border-white/10 bg-zinc-950" : "border-amber-500/20 bg-black"
           }`}
         >
-          <div className="relative aspect-[9/16] max-w-[220px] mx-auto">
+          <div className="relative aspect-[9/16] w-full max-w-[200px] mx-auto sm:max-w-none">
             <MediaImage
               src={screen.src}
               alt={screen.alt}
@@ -111,10 +111,10 @@ export default function GestioneInEssere() {
           Prima vs dopo — profili che gestiamo oggi con il team
         </h3>
         <p className="text-zinc-500 mt-3 text-sm sm:text-base max-w-3xl mx-auto">
-          Antum Hotel e AMA Experience non sono lanci da zero: sono{" "}
-          <strong className="text-zinc-300 font-medium">gestioni attive</strong> che curiamo noi,
-          con il team ZeroAgency — media views, interazioni e conversione dei contenuti alzate, con
-          screenshot reali dalla vetrina Reels.
+          Antum Hotel, AMA Experience e The Lobby Lounge sono un{" "}
+          <strong className="text-zinc-300 font-medium">ecosistema sinergico</strong> che gestiamo
+          con il team ZeroAgency — stessi format, picchi fino a 72.800 views, screenshot reali dalla
+          vetrina Reels.
         </p>
       </motion.div>
 
@@ -154,6 +154,9 @@ export default function GestioneInEssere() {
             </div>
             <h4 className="text-xl sm:text-2xl font-black tracking-tight">{item.name}</h4>
             <p className="text-sm text-zinc-500 mt-1">{item.subtitle}</p>
+            {"synergy" in item && item.synergy && (
+              <p className="text-xs text-emerald-400/80 mt-2 leading-relaxed">{item.synergy}</p>
+            )}
             <p className="text-xs text-zinc-600 mt-2">{item.scope}</p>
 
             <div className="flex flex-wrap gap-3 mt-6">

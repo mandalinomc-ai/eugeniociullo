@@ -65,7 +65,8 @@ export const BRANDS = [
   {
     name: "MISS GRAND INTERNATIONAL",
     subtitle: "Beauty Pageant · International",
-    highlight: "Comunicazione visiva e content per eventi beauty pageant di livello internazionale.",
+    highlight:
+      "Meta ADS: 84.732 visualizzazioni, +432% conversazioni messaggi e +149% copertura in 60 giorni.",
     logo: "/images/logos/miss-grand.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
@@ -83,7 +84,7 @@ export const BRANDS = [
     name: "ANTUM HOTEL",
     subtitle: "Benevento · Hospitality",
     highlight:
-      "Gestione in essere: content, Reels e strategia social — media views e interazioni alzate rispetto al profilo precedente.",
+      "Gestione in essere: picchi fino a 72.800 views, format virali 50K–72K nell'ecosistema AMA & Lobby.",
     logo: "/images/logos/antum-hotel.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
@@ -94,7 +95,7 @@ export const BRANDS = [
     name: "AMA EXPERIENCE",
     subtitle: "Ristorante · Antum Hotel",
     highlight:
-      "Gestione in essere: format Reels chef + host, picchi fino a 72.800 views e profilo che converte in prenotazioni.",
+      "Ecosistema sinergico Antum: stessi format virali fino a 72.800 views e 50K su chef + host.",
     logo: "/images/logos/ama-experience.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
@@ -104,7 +105,7 @@ export const BRANDS = [
   {
     name: "THE LOBBY LOUNGE",
     subtitle: "Lounge Bar · Eventi",
-    highlight: "Comunicazione visiva e contenuti per il locale lounge e gli eventi in programma.",
+    highlight: "Comunicazione visiva, content e lounge eventi nell'ecosistema Antum · gestione congiunta al team.",
     logo: "/images/logos/lobby-lounge.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
@@ -254,117 +255,133 @@ export const WHATSAPP_BUSINESS_SETUP = {
   ],
   image: "/images/whatsapp-business-setup.svg",
   imageAlt: "Mockup WhatsApp Business con frasi rapide ed etichette clienti configurate",
-  appliesTo: ["PARISIO", "ITTICO", "AMA Experience", "Antum Hotel"],
+  appliesTo: ["PARISIO", "ITTICO", "AMA Experience", "Antum Hotel", "The Lobby Lounge"],
 } as const;
+
+/** Screen condivisi tra @antumhotel e @ama_experience_ (realtà sinergiche) */
+const ECOSYSTEM_SCREENS_BEFORE = [
+  {
+    src: "/images/report-antum-reels-baseline.png",
+    alt: "Vetrina Reels AMA Experience prima del format strategico",
+    label: "Prima · @ama_experience_",
+  },
+  {
+    src: "/images/report-ama-reels-grid.png",
+    alt: "Baseline Reels Antum Hotel — views 2K–8K",
+    label: "Prima · @antumhotel",
+  },
+] as const;
+
+const ECOSYSTEM_SCREENS_AFTER = [
+  {
+    src: "/images/report-antum-ama-reels-peak-2.png",
+    alt: "Reels Antum Hotel con picchi 62.500, 60.800 e 72.800 views",
+    label: "Dopo · picchi 62K–72K (chef + host)",
+  },
+  {
+    src: "/images/report-antum-ama-reels-peak-1.png",
+    alt: "Reels Antum con 50.000 e 20.600 views — Ferragosto e eventi",
+    label: "Dopo · 50K · Ferragosto & eventi",
+  },
+  {
+    src: "/images/report-antum-ama-reels-growth.png",
+    alt: "Reel evento Antum Hotel 44.000 views",
+    label: "Dopo · 44K · eventi & lifestyle",
+  },
+  {
+    src: "/images/report-antum-ama-reels-mid.png",
+    alt: "Reel partnership Antum 58.800 views",
+    label: "Dopo · 58K · partnership & food",
+  },
+] as const;
+
+const ECOSYSTEM_BEFORE_METRICS = [
+  { label: "Media views/reel", value: "~4.500" },
+  { label: "Picco reel", value: "~8.000" },
+  { label: "Interazioni", value: "Sporadiche" },
+  { label: "Cross-brand", value: "Non coordinato" },
+] as const;
+
+const ECOSYSTEM_AFTER_METRICS = [
+  { label: "Picco singolo reel", value: "72.800", highlight: true },
+  { label: "Format virali", value: "50K–72K", highlight: true },
+  { label: "Media post-strategia", value: "~18.000" },
+  { label: "Ecosistema", value: "Antum + AMA + Lobby" },
+] as const;
+
+const ECOSYSTEM_DELTAS = [
+  { label: "Picco reel", value: "72.800 views" },
+  { label: "Crescita picco", value: "+800%" },
+  { label: "Reel oltre 40K", value: "6+ contenuti" },
+] as const;
+
+export const META_ADS_SHOWCASE = [
+  {
+    id: "miss-grand",
+    title: "MISS GRAND INTERNATIONAL ITALY",
+    period: "1 mar – 29 apr 2025 · Ultimi 60 giorni",
+    spend: "€219,47 investiti",
+    adsCount: "2 annunci",
+    image: "/images/report-miss-grand-ads.png",
+    imageAlt: "Dashboard Meta ADS Miss Grand International Italy — visualizzazioni e conversioni messaggi",
+    stats: [
+      { label: "Visualizzazioni", value: "84.732", change: "↑ 25,1%" },
+      { label: "Copertura", value: "57.401", change: "↑ 149,7%" },
+      { label: "Interazioni post", value: "22.406", change: "↑ 100%" },
+      { label: "Conv. messaggi", value: "2.177", change: "↑ 432,3%", highlight: true },
+    ],
+    note: "Campagna Meta ADS gestita dal nostro team: crescita esponenziale delle conversazioni avviate via messaggio nel periodo finale.",
+  },
+] as const;
 
 export const ONGOING_MANAGEMENT = [
   {
     id: "antum",
     name: "ANTUM HOTEL",
     handle: "@antumhotel",
+    synergy: "Ecosistema sinergico con @ama_experience_ e The Lobby Lounge — stessi format, stesso team.",
     subtitle: "Benevento · Hotel 4 stelle · Hospitality & eventi",
     badge: "Gestione in essere",
-    scope: "Content creation · Reels · Stories · Eventi corporate",
+    scope: "Content creation · Reels · Stories · Eventi corporate · cross-promo AMA & Lobby",
     before: {
       title: "Prima della gestione",
       description:
-        "Profilo già attivo ma con reach irregolare: contenuti non coordinati, reel sotto i 2.000 views e poca coerenza tra food, room e eventi.",
-      metrics: [
-        { label: "Media views/reel", value: "~1.200" },
-        { label: "Reel sotto 2.000 views", value: "Frequenti" },
-        { label: "Interazioni", value: "Sporadiche" },
-        { label: "Profilo", value: "Poco convertente" },
-      ],
-      screens: [
-        {
-          src: "/images/report-antum-reels-1.png",
-          alt: "Vetrina Reels Antum Hotel prima del restyling editoriale",
-          label: "Screenshot Reels · situazione iniziale",
-        },
-      ],
+        "Profili attivi ma disallineati: reel prevalentemente tra 2.000 e 8.000 views, senza format ricorrente né filo narrativo tra hotel, ristorante e lounge.",
+      metrics: ECOSYSTEM_BEFORE_METRICS,
+      screens: ECOSYSTEM_SCREENS_BEFORE,
     },
     after: {
       title: "Con la nostra gestione",
       description:
-        "Piano editoriale hospitality: food, cocktail, room tour ed eventi. Media views moltiplicate e vetrina che guida verso prenotazioni e corporate — curata da noi con il team.",
-      metrics: [
-        { label: "Media views/reel", value: "~5.200", highlight: true },
-        { label: "Picco singolo reel", value: "9.969", highlight: true },
-        { label: "Interazioni", value: "In crescita" },
-        { label: "Conversione contenuti", value: "Format coerenti" },
-      ],
-      screens: [
-        {
-          src: "/images/report-antum-reels-3.png",
-          alt: "Reels Antum Hotel con media views elevate sotto gestione Eugenio Ciullo & Team",
-          label: "Dopo · media e picchi elevati",
-        },
-        {
-          src: "/images/report-antum-reels-2.png",
-          alt: "Format eventi e storytelling Antum Hotel",
-          label: "Dopo · eventi & storytelling",
-        },
-      ],
+        "Format chef + host e storytelling cross-brand: picchi fino a 72.800 views, reel virali da 50K a 72K, eventi da 44K e Ferragosto a 20.600 — stesso piano editoriale su Antum, AMA e Lobby.",
+      metrics: ECOSYSTEM_AFTER_METRICS,
+      screens: ECOSYSTEM_SCREENS_AFTER,
     },
-    deltas: [
-      { label: "Media views/reel", value: "+330%" },
-      { label: "Picco contenuto", value: "9.969 views" },
-      { label: "Coerenza profilo", value: "Vetrina Reels" },
-    ],
+    deltas: ECOSYSTEM_DELTAS,
   },
   {
     id: "ama",
     name: "AMA EXPERIENCE",
     handle: "@ama_experience_",
-    subtitle: "Ristorante gourmet · Antum Hotel",
+    synergy: "Stesso ecosistema di @antumhotel e The Lobby Lounge — contenuti condivisi e strategia unica.",
+    subtitle: "Ristorante gourmet · Antum Hotel · Benevento",
     badge: "Gestione in essere",
-    scope: "Social management · Format Reels · Eventi & food content",
+    scope: "Social management · Format Reels · Food content · eventi sinergici Antum",
     before: {
       title: "Prima della gestione",
       description:
-        "Contenuti food spot senza format ricorrente: views tra 1.000 e 8.000, senza un filo narrativo che legasse chef, sala e brand.",
-      metrics: [
-        { label: "Media views/reel", value: "~3.600" },
-        { label: "Format ricorrente", value: "Assente" },
-        { label: "Picco reel", value: "~7.900" },
-        { label: "Conversione profilo", value: "Limitata" },
-      ],
-      screens: [
-        {
-          src: "/images/report-ama-reels-1.png",
-          alt: "Vetrina Reels AMA Experience prima del format chef + host",
-          label: "Screenshot Reels · contenuti spot",
-        },
-      ],
+        "Contenuti food spot isolati: views tra 2.000 e 8.000, senza format chef + host né integrazione con l'hotel e il lounge.",
+      metrics: ECOSYSTEM_BEFORE_METRICS,
+      screens: ECOSYSTEM_SCREENS_BEFORE,
     },
     after: {
       title: "Con la nostra gestione",
       description:
-        "Format chef + presentatrice in cucina: reel virali da 50.000 a 72.800 views, profilo che converte in prenotazioni ed eventi — produzione e strategia del nostro team.",
-      metrics: [
-        { label: "Media format top", value: "~61.000", highlight: true },
-        { label: "Picco singolo reel", value: "72.800", highlight: true },
-        { label: "Interazioni", value: "Moltiplicate" },
-        { label: "Conversione profilo", value: "Prenotazioni & eventi" },
-      ],
-      screens: [
-        {
-          src: "/images/report-ama-reels-3.png",
-          alt: "Reels AMA Experience con picchi 62K-72K views sotto gestione Eugenio Ciullo & Team",
-          label: "Dopo · format chef + host (fino a 72,8K)",
-        },
-        {
-          src: "/images/report-ama-reels-2.png",
-          alt: "Content corporate e food AMA Experience",
-          label: "Dopo · corporate & food premium",
-        },
-      ],
+        "Gli stessi format virali dell'ecosistema Antum: 72.800, 62.500, 60.800 e 50.000 views su contenuti chef + host, con conversione su prenotazioni ed eventi.",
+      metrics: ECOSYSTEM_AFTER_METRICS,
+      screens: ECOSYSTEM_SCREENS_AFTER,
     },
-    deltas: [
-      { label: "Picco reel", value: "72.800 views" },
-      { label: "Format top", value: "~61K media" },
-      { label: "Reach format", value: "+1.600%" },
-    ],
+    deltas: ECOSYSTEM_DELTAS,
   },
 ] as const;
 
