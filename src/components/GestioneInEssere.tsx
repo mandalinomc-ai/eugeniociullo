@@ -227,6 +227,9 @@ export default function GestioneInEssere() {
           </div>
 
           <div className="mobile-card-pad">
+            <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-emerald-400/90 mb-3">
+              Picchi singoli · Reels
+            </p>
             <div className="grid grid-cols-2 gap-2 sm:gap-3">
               {caseStudy.screens.map((screen) => (
                 <div
@@ -250,6 +253,24 @@ export default function GestioneInEssere() {
                 </div>
               ))}
             </div>
+
+            {"amaReelsGrid" in caseStudy && caseStudy.amaReelsGrid && (
+              <div className="mt-4 sm:mt-6 rounded-xl sm:rounded-2xl overflow-hidden border border-amber-500/20 bg-black">
+                <div className="relative aspect-[2/1] sm:aspect-[16/9] w-full">
+                  <MediaImage
+                    src={caseStudy.amaReelsGrid.src}
+                    alt={caseStudy.amaReelsGrid.alt}
+                    fit="cover"
+                    position="center top"
+                    bg="bg-black"
+                    sizes="(max-width: 640px) 100vw, 500px"
+                  />
+                </div>
+                <p className="text-center text-[8px] sm:text-[10px] uppercase tracking-wide sm:tracking-widest text-zinc-500 py-2 sm:py-3 border-t border-white/5 px-1.5 leading-tight">
+                  {caseStudy.amaReelsGrid.label}
+                </p>
+              </div>
+            )}
           </div>
         </div>
 

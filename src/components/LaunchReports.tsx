@@ -23,7 +23,7 @@ function PlatformBadge({ platforms }: { platforms?: string }) {
 }
 
 export default function LaunchReports() {
-  const [active, setActive] = useState<ReportId>(LAUNCH_REPORTS[0].id);
+  const [active, setActive] = useState<ReportId>("parisio");
   const report = LAUNCH_REPORTS.find((r) => r.id === active) ?? LAUNCH_REPORTS[0];
   const isParisio = report.id === "parisio";
 
