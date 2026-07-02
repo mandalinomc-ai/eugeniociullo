@@ -50,7 +50,13 @@ export default function LanciDaZero() {
                   <span className="inline-block px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase border border-amber-500/30 text-amber-300/90 rounded-full">
                     {item.tag}
                   </span>
-                  <InstagramBadge />
+                  {item.platform.includes("+") ? (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-bold tracking-wide text-cyan-200">
+                      IG + TikTok · organico
+                    </span>
+                  ) : (
+                    <InstagramBadge />
+                  )}
                 </div>
 
                 <h3 className="text-lg sm:text-xl md:text-2xl font-black tracking-tight mb-4 leading-tight">
