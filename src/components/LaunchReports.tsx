@@ -97,14 +97,14 @@ export default function LaunchReports() {
                   transition={{ delay: i * 0.08 }}
                   className="gradient-border rounded-2xl overflow-hidden"
                 >
-                  <div className={`relative w-full ${frame.aspect ?? "aspect-[9/16]"}`}>
+                  <div className={`relative w-full ${"aspect" in frame && frame.aspect ? frame.aspect : "aspect-[9/16]"}`}>
                     <MediaImage
                       src={frame.src}
                       alt={frame.alt}
                       fit={frame.fit ?? "contain"}
                       position={frame.position ?? "center top"}
                       bg={frame.bg ?? "bg-black"}
-                      padding={frame.padding ?? "p-2"}
+                      padding={"padding" in frame ? frame.padding : "p-2"}
                       sizes="(max-width: 640px) 100vw, 33vw"
                     />
                   </div>
