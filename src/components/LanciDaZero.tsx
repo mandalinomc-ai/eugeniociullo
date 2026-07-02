@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import MediaImage from "@/components/ui/MediaImage";
 import { LANCI_DA_ZERO } from "@/lib/constants";
+import LaunchReports from "@/components/LaunchReports";
 
 export default function LanciDaZero() {
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6">
+    <section id="lanci" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 scroll-mt-24">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -26,7 +27,7 @@ export default function LanciDaZero() {
         <div className="grid md:grid-cols-2 gap-5 sm:gap-8">
           {LANCI_DA_ZERO.map((item, i) => (
             <motion.div
-              key={item.name}
+              key={item.id}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -79,6 +80,8 @@ export default function LanciDaZero() {
           ))}
         </div>
 
+        <LaunchReports />
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -86,12 +89,14 @@ export default function LanciDaZero() {
           className="mt-12 sm:mt-16 gradient-border rounded-2xl sm:rounded-3xl overflow-hidden"
         >
           <div className="grid md:grid-cols-2 gap-0">
-            <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[320px] bg-zinc-900">
-              <Image
+            <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[320px]">
+              <MediaImage
                 src="/images/analytics-meta-ads.png"
                 alt="Report Meta ADS - 31.799 visualizzazioni, CPC €0,07"
-                fill
-                className="object-contain p-4"
+                fit="contain"
+                position="center"
+                bg="bg-zinc-900"
+                padding="p-4 sm:p-6"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>

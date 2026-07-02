@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import SectionHeading from "@/components/ui/SectionHeading";
-import GlowButton from "@/components/ui/GlowButton";
+import MediaImage from "@/components/ui/MediaImage";
 import { EVENT_PRODUCTION, whatsappUrl } from "@/lib/constants";
 
 type EventCategoryId = (typeof EVENT_PRODUCTION.categories)[number]["id"];
@@ -74,15 +72,15 @@ export default function EventProduction() {
                 transition={{ duration: 0.3 }}
                 className="absolute inset-0"
               >
-                <Image
+                <MediaImage
                   src={
                     activeCategory === "fair" || activeCategory === "corporate"
                       ? EVENT_PRODUCTION.imageSecondary
                       : EVENT_PRODUCTION.image
                   }
                   alt="Allestimento evento professionale Eugenio Ciullo"
-                  fill
-                  className="object-cover opacity-75"
+                  fit="cover-top"
+                  position="center 30%"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />

@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlowButton from "@/components/ui/GlowButton";
+import MediaImage from "@/components/ui/MediaImage";
 import { CONTENT_CREATOR, whatsappUrl } from "@/lib/constants";
 
 export default function ContentCreator() {
@@ -103,11 +103,11 @@ export default function ContentCreator() {
             className="space-y-6"
           >
             <div className="relative aspect-[16/10] rounded-2xl overflow-hidden gradient-border">
-              <Image
+              <MediaImage
                 src={CONTENT_CREATOR.image}
                 alt={CONTENT_CREATOR.imageAlt}
-                fill
-                className="object-cover opacity-80"
+                fit="cover-top"
+                position="center 25%"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

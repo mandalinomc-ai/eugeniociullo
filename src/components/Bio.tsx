@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import MediaImage from "@/components/ui/MediaImage";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const bioCards = [
@@ -57,11 +57,11 @@ export default function Bio() {
             className="space-y-5 sm:space-y-6"
           >
             <div className="relative w-full max-w-sm aspect-[3/4] rounded-2xl overflow-hidden gradient-border lg:hidden mb-6">
-              <Image
+              <MediaImage
                 src="/images/work-fiera.png"
                 alt="Eugenio Ciullo in fiera professionale"
-                fill
-                className="object-cover"
+                fit="cover-top"
+                position="center 30%"
                 sizes="(max-width: 1024px) 100vw, 400px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
@@ -100,11 +100,11 @@ export default function Bio() {
               viewport={{ once: true }}
               className="relative hidden lg:block w-full aspect-[16/10] rounded-2xl overflow-hidden gradient-border mb-4"
             >
-              <Image
+              <MediaImage
                 src="/images/work-fiera.png"
                 alt="Eugenio Ciullo in fiera professionale"
-                fill
-                className="object-cover"
+                fit="cover-top"
+                position="center 25%"
                 sizes="50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

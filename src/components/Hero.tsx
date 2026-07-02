@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import MediaImage from "@/components/ui/MediaImage";
 import GlowButton from "@/components/ui/GlowButton";
 import { SITE } from "@/lib/constants";
 
@@ -23,12 +23,13 @@ export default function Hero() {
         />
 
         <div className="absolute inset-0">
-          <Image
+          <MediaImage
             src="/images/ap-tricosistem-cosmoprof.png"
             alt="Eugenio Ciullo al lavoro - Cosmoprof"
-            fill
+            fit="cover-top"
+            position="center 20%"
+            className="opacity-25"
             priority
-            className="object-cover opacity-25"
             sizes="100vw"
           />
         </div>
@@ -83,13 +84,13 @@ export default function Hero() {
             className="lg:col-span-5 flex flex-col gap-3 sm:gap-4"
           >
             <div className="relative aspect-[4/5] max-h-72 sm:max-h-80 w-full rounded-2xl overflow-hidden gradient-border glow-accent mb-2">
-              <Image
+              <MediaImage
                 src="/images/eugenio-portrait.png"
                 alt="Eugenio Ciullo - Digital Marketer"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 400px"
+                fit="cover-top"
+                position="center top"
                 priority
+                sizes="(max-width: 768px) 100vw, 400px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4">

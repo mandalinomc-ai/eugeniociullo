@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import MediaImage from "@/components/ui/MediaImage";
 import SectionHeading from "@/components/ui/SectionHeading";
+import GlowButton from "@/components/ui/GlowButton";
 import GlowButton from "@/components/ui/GlowButton";
 import { SERVICES, SITE } from "@/lib/constants";
 
 const serviceImages = [
-  { src: "/images/ap-tricosistem-presentation.png", alt: "Event management AP TRICOSISTEM", label: "Eventi & Presentazioni" },
-  { src: "/images/antum-hotel-work.png", alt: "Content creation Antum Hotel", label: "Content & Social" },
-  { src: "/images/work-event-stage.png", alt: "Allestimento evento professionale", label: "Event Management" },
+  { src: "/images/ap-tricosistem-presentation.png", alt: "Event management AP TRICOSISTEM", label: "Eventi & Presentazioni", fit: "cover-top" as const, position: "center 25%" },
+  { src: "/images/antum-hotel-work.png", alt: "Content creation Antum Hotel", label: "Content & Social", fit: "contain" as const, position: "center", bg: "bg-black", padding: "p-2" },
+  { src: "/images/work-event-stage.png", alt: "Allestimento evento professionale", label: "Event Management", fit: "cover-center" as const, position: "center" },
 ];
 
 export default function Services() {
@@ -94,11 +95,13 @@ export default function Services() {
               key={img.src}
               className="relative h-48 sm:h-56 rounded-2xl overflow-hidden gradient-border group"
             >
-              <Image
+              <MediaImage
                 src={img.src}
                 alt={img.alt}
-                fill
-                className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+                fit={img.fit}
+                position={img.position}
+                bg={img.bg ?? "bg-zinc-950"}
+                padding={img.padding ?? ""}
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-4">

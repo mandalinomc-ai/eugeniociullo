@@ -61,7 +61,16 @@ function BrandVisual({
       src={brand.logo}
       alt={`${brand.name} - progetto Eugenio Ciullo`}
       fill
-      className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+      className={`transition-all duration-500 group-hover:scale-105 ${
+        "logoFit" in brand && brand.logoFit === "contain"
+          ? `object-contain p-6 sm:p-8 opacity-90 group-hover:opacity-100`
+          : "object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105"
+      }`}
+      style={
+        "logoFit" in brand && brand.logoFit === "contain"
+          ? undefined
+          : { objectPosition: "center" }
+      }
       sizes="(max-width: 768px) 100vw, 33vw"
       onError={onError}
     />
@@ -91,7 +100,7 @@ function BrandCard({
         "featured" in brand && brand.featured ? "ring-1 ring-[#a3ff12]/20" : ""
       }`}
     >
-      <div className="relative h-36 sm:h-40 bg-zinc-900/50 overflow-hidden">
+      <div className={`relative h-36 sm:h-40 overflow-hidden ${"logoBg" in brand && brand.logoBg ? brand.logoBg : "bg-zinc-900/50"}`}>
         <BrandVisual brand={brand} failed={failed} onError={() => onLogoError(brand.name)} />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
 
