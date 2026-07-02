@@ -84,7 +84,7 @@ export const BRANDS = [
     name: "ANTUM HOTEL",
     subtitle: "Benevento · Hospitality",
     highlight:
-      "Case study: format influencer con @quelladelgitiale, picchi fino a 72.800 views nell'ecosistema AMA & Lobby.",
+      "Case study: Business Lunch, format influencer con @quelladeldigitale, picchi fino a 72.800 views nell'ecosistema AMA & Lobby.",
     logo: "/images/logos/antum-hotel.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
@@ -95,7 +95,7 @@ export const BRANDS = [
     name: "AMA EXPERIENCE",
     subtitle: "Ristorante · Antum Hotel",
     highlight:
-      "Accordo cross-brand Antum + Lobby: format chef + host con @quelladelgitiale, reel virali fino a 72K.",
+      "Accordo cross-brand Antum + Lobby: format chef + host con @quelladeldigitale, reel virali fino a 72K.",
     logo: "/images/logos/ama-experience.png",
     logoFit: "contain" as const,
     logoBg: "bg-white",
@@ -286,13 +286,94 @@ const ECOSYSTEM_RESULT_METRICS = [
   { label: "Picco singolo reel", value: "72.800", highlight: true },
   { label: "Format virali", value: "50K–72K", highlight: true },
   { label: "Brand coinvolti", value: "3 realtà" },
-  { label: "Influencer", value: "@quelladelgitiale" },
+  { label: "Influencer", value: "@quelladeldigitale" },
 ] as const;
 
 const ECOSYSTEM_HIGHLIGHTS = [
   { label: "Picco contenuto", value: "72.800 views" },
   { label: "Accordo", value: "Antum + AMA + Lobby" },
   { label: "Trend locale", value: "Influencer marketing HQ" },
+] as const;
+
+const ECOSYSTEM_GRAPHIC_WORKS = [
+  {
+    src: "/images/graphics/ama-dish-01.png",
+    alt: "Asset grafico Business Lunch Ama Experience — piatto gourmet del giorno",
+    label: "Piatto del giorno",
+  },
+  {
+    src: "/images/graphics/ama-dish-02.png",
+    alt: "Asset grafico Business Lunch — risotto e nocciole",
+    label: "Risotto & nocciole",
+  },
+  {
+    src: "/images/graphics/ama-dish-03.png",
+    alt: "Asset grafico Business Lunch — secondo gourmet",
+    label: "Secondo gourmet",
+  },
+  {
+    src: "/images/graphics/ama-dish-04.png",
+    alt: "Asset grafico Business Lunch — polpo e purée",
+    label: "Polpo & purée",
+  },
+  {
+    src: "/images/graphics/ama-dish-05.png",
+    alt: "Asset grafico Business Lunch — uovo e tartufo",
+    label: "Uovo & tartufo",
+  },
+  {
+    src: "/images/graphics/ama-dish-06.png",
+    alt: "Asset grafico Business Lunch — pasta ripiena",
+    label: "Pasta ripiena",
+  },
+] as const;
+
+const INFLUENCER_VIDEO_PILLARS = [
+  {
+    title: "Posizione & accessibilità",
+    items: [
+      "Vicinanza alla stazione e parcheggio interno privato",
+      "Servizio transfer verso il centro città",
+    ],
+  },
+  {
+    title: "The Lobby Lounge",
+    items: [
+      "Il salotto di Benevento, aperto a tutti",
+      "Aperitivo post-lavoro, card drink+food, coffee moment",
+    ],
+  },
+  {
+    title: "Ama Experience",
+    items: [
+      "Filosofia gourmet e ricerca in cucina",
+      "Menu Business Lunch e Business Dinner",
+      "Sushi all'italiana e backstage in cucina",
+    ],
+  },
+  {
+    title: "Smart working & lifestyle",
+    items: [
+      "Hall comoda per call e lavoro",
+      "Atmosfera internazionale al mattino",
+    ],
+  },
+  {
+    title: "Eventi & ricorrenze",
+    items: [
+      "Chiara: consulenza dedicata per feste e meeting",
+      "Cene aziendali, compleanni, lauree e battesimi",
+      "Cura della mise en place e degli allestimenti",
+    ],
+  },
+  {
+    title: "Suite & pacchetti",
+    items: [
+      "Soggiorno in suite, cantina e degustazioni",
+      "San Valentino, compleanno in camera, gift card",
+      "Degustazione + pernottamento",
+    ],
+  },
 ] as const;
 
 export const META_ADS_SHOWCASE = [
@@ -325,13 +406,30 @@ export const ONGOING_MANAGEMENT = [
     scope:
       "Accordo cross-brand tra Antum Hotel, AMA Experience e The Lobby Lounge — content, Reels e influencer marketing.",
     influencer: {
-      handle: "@quelladelgitiale",
-      title: "Influencer marketing · voce dei contenuti",
+      handle: "@quelladeldigitale",
+      timing: "Fine gestione · inizio febbraio 2025",
+      title: "Influencer marketing · strategia contenuti",
       description:
-        "Abbiamo creato una campagna con influencer marketing insieme a @quelladelgitiale: in terza persona ha dato voce ai contenuti e ci ha messo la faccia, affiancando chef e brand in un format riconoscibile su tutti e tre i profili.",
+        "Nella fase finale della gestione abbiamo progettato 24 video brevi per Reels e TikTok. L'obiettivo: abbandonare la pubblicità fredda e mostrare cosa significa davvero vivere la struttura. Claudia (@quelladeldigitale) guida i contenuti; Eugenio compare nei momenti di coppia (brindisi, suite); Chiara dà voce agli eventi e alle ricorrenze.",
+      strategyIntro:
+        "Un format editoriale pianificato — non spot improvvisati — con una guida riconoscibile e volti professionali per ogni area dello stabile.",
+      gridImage: {
+        src: "/images/graphics/claudia-antum-grid.png",
+        alt: "Griglia Instagram @antumhotel con Reels di Claudia @quelladeldigitale e asset grafici",
+        label: "Profilo @antumhotel · Reels & grafiche",
+      },
+      pillars: INFLUENCER_VIDEO_PILLARS,
+    },
+    graphicsWork: {
+      title: "Business Lunch · asset grafici ZeroAgency",
+      description:
+        "Con ZeroAgency abbiamo creato l'asset Business Lunch: un invito a ospiti e clienti esterni a pranzare in struttura con un'offerta dedicata. Ogni giorno una pietanza diversa in foto — per comunicare varietà, qualità gourmet e presenza costante sui social.",
+      teamNote:
+        "Progettazione grafica, food styling in layout e coerenza visiva con i brand Ama Experience e Antum Hotel.",
+      items: ECOSYSTEM_GRAPHIC_WORKS,
     },
     story:
-      "Abbiamo strutturato un accordo unico tra AMA, Antum e The Lobby Lounge: stesso linguaggio visivo, stessi format, contenuti che viaggiano tra hotel, ristorante e lounge. Il risultato è stato un salto di qualità e reach su Instagram — con picchi fino a 72.800 views sui reel del format chef + host.",
+      "Abbiamo strutturato un accordo unico tra AMA, Antum e The Lobby Lounge: stesso linguaggio visivo, format condivisi, contenuti che viaggiano tra hotel, ristorante e lounge. Parallelamente abbiamo sviluppato asset grafici per il Business Lunch e, in chiusura gestione, una strategia influencer con @quelladeldigitale.",
     legacy:
       "Abbiamo portato a Benevento un trend che prima non c'era: influencer marketing con contenuti di qualità e persone preparate, non improvvisate. Anche i video già online hanno beneficiato del nuovo posizionamento una volta ripresa la gestione.",
     exitNote:

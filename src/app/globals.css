@@ -25,7 +25,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: calc(4.5rem + var(--safe-top));
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: calc(4rem + var(--safe-top));
+  }
 }
 
 body {
@@ -138,6 +144,18 @@ body {
     content: "|";
     animation: blink 1s step-end infinite;
     color: var(--color-accent);
+  }
+
+  .mobile-section-pad {
+    @apply px-3 sm:px-6;
+  }
+
+  .mobile-card-pad {
+    @apply p-4 sm:p-8;
+  }
+
+  .text-balance-safe {
+    text-wrap: balance;
   }
 }
 

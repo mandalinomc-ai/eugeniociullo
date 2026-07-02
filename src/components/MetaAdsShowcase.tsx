@@ -43,7 +43,7 @@ export default function MetaAdsShowcase() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <div className="p-6 sm:p-8 flex flex-col justify-center">
+              <div className="p-4 sm:p-8 flex flex-col justify-center">
                 <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-600 mb-1">{item.period}</p>
                 <h4 className="text-xl sm:text-2xl font-black tracking-tight mb-1">{item.title}</h4>
                 <p className="text-xs text-zinc-500 mb-5">

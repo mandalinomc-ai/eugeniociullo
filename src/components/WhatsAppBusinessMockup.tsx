@@ -11,7 +11,7 @@ const QUICK_REPLIES = [
 
 export default function WhatsAppBusinessMockup() {
   return (
-    <div className="h-full min-h-[420px] bg-[#0b141a] text-[#e9edef] flex flex-col">
+    <div className="h-full min-h-[300px] sm:min-h-[420px] bg-[#0b141a] text-[#e9edef] flex flex-col">
       <div className="bg-gradient-to-b from-[#075E54] to-[#128C7E] px-4 py-5 shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-lg shrink-0">

@@ -63,7 +63,7 @@ export default function Hero() {
         <div className="noise-overlay absolute inset-0 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-28 pb-12 sm:pb-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-6 pt-[4.5rem] sm:pt-28 pb-10 sm:pb-16">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           <div className="lg:col-span-7">
             <motion.div
@@ -83,7 +83,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35 }}
-              className="text-[2.25rem] leading-[0.95] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-5 sm:mb-6"
+              className="text-[1.75rem] leading-[0.95] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-4 sm:mb-6 text-balance-safe"
             >
               Digital Marketing
               <br />

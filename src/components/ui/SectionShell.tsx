@@ -33,8 +33,8 @@ export default function SectionShell({
     <section
       id={id}
       className={cn(
-        "relative scroll-mt-20 px-4 sm:px-6",
-        compact ? "py-10 sm:py-14" : "py-14 sm:py-20 md:py-24",
+        "relative scroll-mt-20 mobile-section-pad",
+        compact ? "py-8 sm:py-14" : "py-12 sm:py-20 md:py-24",
         TONE_CLASS[tone],
         className
       )}

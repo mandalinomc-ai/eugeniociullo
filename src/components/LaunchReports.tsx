@@ -59,23 +59,23 @@ export default function LaunchReports() {
           transition={{ duration: 0.35 }}
           className="card-surface rounded-2xl sm:rounded-3xl overflow-hidden"
         >
-          <div className="p-5 sm:p-8 border-b border-white/5 bg-zinc-950/50">
+          <div className="p-4 sm:p-8 border-b border-white/5 bg-zinc-950/50">
             <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-600 mb-1">{report.period}</p>
             <h4 className="text-lg sm:text-xl font-black tracking-tight">{report.title}</h4>
             <p className="text-sm text-zinc-500 mt-1">{report.subtitle}</p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 mt-4 sm:mt-6">
               {report.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className={`rounded-xl p-3 border ${
+                  className={`rounded-lg sm:rounded-xl p-2 sm:p-3 border min-w-0 ${
                     "highlight" in stat && stat.highlight
                       ? "border-amber-500/30 bg-amber-500/5"
                       : "border-white/5 bg-white/[0.02]"
                   }`}
                 >
                   <p
-                    className={`text-lg sm:text-xl font-black tracking-tight ${
+                    className={`text-sm sm:text-xl font-black tracking-tight truncate sm:whitespace-normal ${
                       "highlight" in stat && stat.highlight ? "text-amber-300" : "text-white"
                     }`}
                   >

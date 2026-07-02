@@ -45,7 +45,7 @@ export default function LanciDaZero() {
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className="relative"
             >
-              <div className="relative card-featured rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 bg-black overflow-hidden">
+              <div className="relative card-featured rounded-xl sm:rounded-3xl p-4 sm:p-8 md:p-12 bg-black overflow-hidden">
                 <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
                   <span className="inline-block px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase border border-amber-500/30 text-amber-300/90 rounded-full">
                     {item.tag}
@@ -80,7 +80,7 @@ export default function LanciDaZero() {
                         <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
                       </svg>
                     </div>
-                    <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-amber-300 leading-none tracking-tighter">
+                    <p className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-amber-300 leading-none tracking-tighter">
                       {item.impressions.toLocaleString("it-IT")}
                       <span className="text-2xl sm:text-3xl md:text-4xl">+</span>
                     </p>
@@ -114,10 +114,10 @@ export default function LanciDaZero() {
           className="mt-8 sm:mt-12 card-surface rounded-2xl sm:rounded-3xl overflow-hidden"
         >
           <div className="grid lg:grid-cols-2 gap-0">
-            <div className="relative lg:min-h-[480px] bg-[#0b141a] overflow-hidden">
+            <div className="relative lg:min-h-[360px] sm:min-h-[420px] bg-[#0b141a] overflow-hidden max-h-[70vh] sm:max-h-none">
               <WhatsAppBusinessMockup />
             </div>
-            <div className="p-6 sm:p-10 flex flex-col justify-center bg-zinc-950/80">
+            <div className="p-4 sm:p-10 flex flex-col justify-center bg-zinc-950/80">
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#25D366] mb-3">
                 {WHATSAPP_BUSINESS_SETUP.badge}
               </span>
