@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MediaImage from "@/components/ui/MediaImage";
+import SectionHeading from "@/components/ui/SectionHeading";
+import GlowButton from "@/components/ui/GlowButton";
 import { EVENT_PRODUCTION, whatsappUrl } from "@/lib/constants";
 
 type EventCategoryId = (typeof EVENT_PRODUCTION.categories)[number]["id"];
