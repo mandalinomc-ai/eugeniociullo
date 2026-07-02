@@ -13,9 +13,44 @@ const navLinks = [
   { href: "#brand", label: "Brand" },
   { href: "#lanci", label: "Risultati" },
   { href: "#servizi", label: "Servizi" },
-  { href: "#ai-sito", label: "Crea Sito" },
-  { href: "#preventivo", label: "Preventivo" },
-];
+  { href: "#ai-sito", label: "Crea Sito", accent: true },
+  { href: "#preventivo", label: "Preventivo", accent: true },
+] as const;
+
+function NavPill({
+  href,
+  label,
+  accent = false,
+  onClick,
+  size = "md",
+}: {
+  href: string;
+  label: string;
+  accent?: boolean;
+  onClick?: () => void;
+  size?: "sm" | "md";
+}) {
+  const sizeClass =
+    size === "sm"
+      ? "px-2.5 py-1 text-[10px] lg:px-3 lg:py-1.5 lg:text-[11px]"
+      : "px-4 py-3 text-sm";
+
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      className={`inline-flex items-center justify-center rounded-lg font-semibold border transition-all duration-200 active:scale-[0.98] ${sizeClass} ${
+        size === "md" ? "w-full" : ""
+      } ${
+        accent
+          ? "border-[#a3ff12]/30 bg-[#a3ff12]/10 text-[#a3ff12] hover:border-[#a3ff12]/50 hover:bg-[#a3ff12]/15 hover:shadow-[0_0_20px_rgba(163,255,18,0.12)]"
+          : "border-white/10 bg-white/[0.04] text-zinc-300 hover:border-white/20 hover:bg-white/[0.09] hover:text-white"
+      }`}
+    >
+      {label}
+    </a>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -48,8 +83,12 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
-          <a href="#" className="group flex flex-col shrink-0" onClick={closeMenu}>
+        <nav className="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+          <a
+            href="#"
+            className="group flex flex-col shrink-0 rounded-lg border border-transparent px-2 py-1 hover:border-white/10 hover:bg-white/[0.03] transition-colors"
+            onClick={closeMenu}
+          >
             <span className="text-base sm:text-lg font-black tracking-tighter">
               EUGENIO<span className="text-[#a3ff12]">.</span>
             </span>
@@ -58,20 +97,19 @@ export default function Navbar() {
             </span>
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden xl:flex flex-1 flex-wrap items-center justify-center gap-1.5 px-2 max-w-3xl">
             {navLinks.map((link) => (
-              <a
+              <NavPill
                 key={link.href}
                 href={link.href}
-                className="text-sm text-zinc-400 hover:text-white transition-colors relative group"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#a3ff12] group-hover:w-full transition-all duration-300" />
-              </a>
+                label={link.label}
+                accent={"accent" in link && link.accent}
+                size="sm"
+              />
             ))}
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <GlowButton
               href={SITE.consultationUrl}
               variant="primary"
@@ -84,7 +122,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-white/10 bg-white/5 hover:border-[#a3ff12]/40 transition-colors"
+              className="xl:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] hover:border-[#a3ff12]/40 hover:bg-white/[0.08] transition-colors"
               aria-label={menuOpen ? "Chiudi menu" : "Apri menu"}
               aria-expanded={menuOpen}
             >
@@ -109,7 +147,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-40 xl:hidden"
           >
             <div className="absolute inset-0 bg-black/95 backdrop-blur-xl" onClick={closeMenu} />
 
@@ -118,14 +156,14 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
-              className="absolute top-0 right-0 bottom-0 w-full max-w-sm bg-zinc-950 border-l border-white/5 flex flex-col safe-top safe-bottom"
+              className="absolute top-0 right-0 bottom-0 w-full max-w-sm bg-zinc-950 border-l border-white/10 flex flex-col safe-top safe-bottom shadow-[-8px_0_40px_rgba(0,0,0,0.5)]"
             >
-              <div className="flex items-center justify-between px-6 py-5 border-b border-white/5">
-                <span className="text-sm font-bold tracking-widest uppercase text-zinc-500">Menu</span>
+              <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-zinc-900/50">
+                <span className="text-xs font-bold tracking-[0.2em] uppercase text-zinc-400">Navigazione</span>
                 <button
                   type="button"
                   onClick={closeMenu}
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-white/10"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] hover:border-white/20 transition-colors"
                   aria-label="Chiudi menu"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -134,35 +172,42 @@ export default function Navbar() {
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-2">
-                {navLinks.map((link, i) => (
-                  <motion.a
-                    key={link.href}
-                    href={link.href}
-                    onClick={closeMenu}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    className="text-2xl font-black tracking-tight py-4 border-b border-white/5 hover:text-[#a3ff12] transition-colors"
-                  >
-                    {link.label}
-                  </motion.a>
-                ))}
+              <div className="flex-1 overflow-y-auto px-5 py-5">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-600 mb-3 px-1">Sezioni</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {navLinks.map((link, i) => (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.04 }}
+                      className={link.href === "#preventivo" ? "col-span-2" : undefined}
+                    >
+                      <NavPill
+                        href={link.href}
+                        label={link.label}
+                        accent={"accent" in link && link.accent}
+                        onClick={closeMenu}
+                        size="md"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
               </div>
 
-              <div className="px-6 py-6 border-t border-white/5 space-y-4">
-                <GlowButton href={SITE.consultationUrl} variant="primary" external className="w-full py-4">
+              <div className="px-5 py-5 border-t border-white/10 bg-zinc-900/40 space-y-3">
+                <GlowButton href={SITE.consultationUrl} variant="primary" external className="w-full py-3.5">
                   Prenota via WhatsApp
                 </GlowButton>
                 <a
                   href={`https://wa.me/${SITE.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center py-3 rounded-full border border-[#25D366]/40 text-[#25D366] text-sm font-semibold hover:bg-[#25D366]/10 transition-colors"
+                  className="block w-full text-center py-3 rounded-lg border border-[#25D366]/40 bg-[#25D366]/5 text-[#25D366] text-sm font-semibold hover:bg-[#25D366]/10 transition-colors"
                 >
                   WhatsApp · {SITE.whatsappDisplay}
                 </a>
-                <p className="text-xs text-zinc-500 text-center">{SITE.supportHoursLabel}</p>
+                <p className="text-[11px] text-zinc-600 text-center">{SITE.supportHoursLabel}</p>
               </div>
             </motion.nav>
           </motion.div>
