@@ -39,8 +39,11 @@ export const BRANDS = [
   },
   {
     name: "HEALTHYSAN",
-    textOnly: true,
-    accent: "#22c55e",
+    subtitle: "Beauty & Spa",
+    highlight: "Identità visiva e presenza social per il centro benessere.",
+    logo: "/images/logos/healthysan.png",
+    logoFit: "contain" as const,
+    logoBg: "bg-white",
   },
   {
     name: "AP TRICOSISTEM",
@@ -54,8 +57,12 @@ export const BRANDS = [
   },
   {
     name: "LE SETTE REGIONI",
-    textOnly: true,
-    accent: "#f59e0b",
+    subtitle: "Bar & Ristorante · Benevento",
+    highlight: "Gestione social e comunicazione digitale per il ristorante delle 7 regioni italiane.",
+    logo: "/images/logos/le-sette-regioni.png",
+    logoFit: "contain" as const,
+    logoBg: "bg-zinc-900",
+    website: "https://www.ristorantelesetteregioni.it/",
   },
   {
     name: "MISS GRAND INTERNATIONAL",
@@ -93,8 +100,11 @@ export const BRANDS = [
   },
   {
     name: "THE LOBBY LOUNGE",
-    textOnly: true,
-    accent: "#06b6d4",
+    subtitle: "Lounge Bar · Eventi",
+    highlight: "Comunicazione visiva e contenuti per il locale lounge e gli eventi in programma.",
+    logo: "/images/logos/lobby-lounge.png",
+    logoFit: "contain" as const,
+    logoBg: "bg-white",
   },
   {
     name: "PARISIO",

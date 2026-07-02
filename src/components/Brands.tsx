@@ -123,6 +123,16 @@ function BrandCard({
             {brand.highlight}
           </p>
         )}
+        {"website" in brand && brand.website && (
+          <a
+            href={brand.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-[#a3ff12] hover:underline"
+          >
+            Visita il sito →
+          </a>
+        )}
       </div>
     </motion.article>
   );
