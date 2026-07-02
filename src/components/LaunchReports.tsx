@@ -146,32 +146,36 @@ export default function LaunchReports() {
             <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-600 mb-4 text-center sm:text-left">
               {isParisio ? "Screenshot reali · IG & TikTok" : "Screenshot reali · Instagram"}
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
+            <div
+              className={
+                isParisio
+                  ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto"
+                  : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-6xl mx-auto"
+              }
+            >
               {report.frames.map((frame, i) => (
                 <motion.div
                   key={frame.src}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className="gradient-border rounded-xl sm:rounded-2xl overflow-hidden min-w-0"
+                  className={`gradient-border rounded-xl sm:rounded-2xl overflow-hidden w-full ${
+                    isParisio ? "max-w-[340px] mx-auto" : "max-w-[300px] mx-auto"
+                  }`}
                 >
-                  <div
-                    className={`relative w-full ${
-                      "aspect" in frame && frame.aspect ? frame.aspect : "aspect-[9/16]"
-                    }`}
-                  >
+                  <div className="relative w-full aspect-[9/16]">
                     <MediaImage
                       src={frame.src}
                       alt={frame.alt}
                       fit={frame.fit ?? "contain"}
                       position={frame.position ?? "center top"}
                       bg={frame.bg ?? "bg-black"}
-                      padding={"padding" in frame ? frame.padding : "p-2"}
-                      sizes="(max-width: 640px) 45vw, 220px"
+                      padding={isParisio ? "p-0.5 sm:p-1" : "padding" in frame ? frame.padding : "p-2"}
+                      sizes={isParisio ? "(max-width: 640px) 88vw, 340px" : "(max-width: 640px) 88vw, 300px"}
                     />
                   </div>
                   {"label" in frame && frame.label && (
-                    <p className="text-center text-[8px] sm:text-[10px] uppercase tracking-wide sm:tracking-widest text-zinc-600 py-2 sm:py-3 border-t border-white/5 px-1 leading-tight">
+                    <p className="text-center text-[10px] sm:text-[11px] uppercase tracking-wide sm:tracking-widest text-zinc-500 py-2.5 sm:py-3 border-t border-white/5 px-2 leading-tight bg-zinc-950/80">
                       {frame.label}
                     </p>
                   )}
