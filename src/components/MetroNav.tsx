@@ -17,7 +17,7 @@ const STOPS = [
 
 function ChevronLeftIcon() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d="M15 18l-6-6 6-6" />
     </svg>
   );
@@ -25,8 +25,33 @@ function ChevronLeftIcon() {
 
 function ChevronRightIcon() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d="M9 18l6-6-6-6" />
+    </svg>
+  );
+}
+
+// Glifo grafico della linea metro (nessuna lettera/numero): binario verticale con fermate
+function MetroLineGlyph({ activeIndex }: { activeIndex: number }) {
+  const dots = 4;
+  const activeDot = Math.round((activeIndex / (STOPS.length - 1)) * (dots - 1));
+  return (
+    <svg width="14" height="26" viewBox="0 0 14 26" fill="none" aria-hidden>
+      <line x1="7" y1="3" x2="7" y2="23" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.35" />
+      {Array.from({ length: dots }).map((_, i) => {
+        const y = 3 + (i * 20) / (dots - 1);
+        const isActive = i === activeDot;
+        return (
+          <circle
+            key={i}
+            cx="7"
+            cy={y}
+            r={isActive ? 3 : 2}
+            fill={isActive ? "#a3ff12" : "currentColor"}
+            opacity={isActive ? 1 : 0.5}
+          />
+        );
+      })}
     </svg>
   );
 }
@@ -88,16 +113,12 @@ export default function MetroNav() {
   if (pathname !== "/" || !hydrated) return null;
 
   const activeIndex = STOPS.findIndex((s) => s.id === activeId);
-  const activeStop = STOPS[activeIndex] ?? STOPS[0];
   const progress =
     STOPS.length > 1 ? (activeIndex / (STOPS.length - 1)) * 100 : 0;
 
-  const lateralTabClass =
-    "flex items-center justify-center shrink-0 w-5 sm:w-6 self-stretch min-h-[3.5rem] border border-white/[0.06] bg-black/55 text-zinc-400 hover:text-[#a3ff12] hover:bg-black/70 hover:border-[#a3ff12]/25 transition-colors";
-
   return (
     <div
-      className="fixed left-1 sm:left-3 lg:left-5 top-1/2 -translate-y-1/2 z-30 pointer-events-none"
+      className="fixed left-0 sm:left-2 lg:left-4 top-1/2 -translate-y-1/2 z-30 pointer-events-none"
       style={{ paddingLeft: "var(--safe-left)" }}
     >
       <AnimatePresence mode="wait" initial={false}>
@@ -105,42 +126,44 @@ export default function MetroNav() {
           <motion.button
             key="parked-tab"
             type="button"
-            initial={{ opacity: 0, x: -10 }}
+            initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -10 }}
+            exit={{ opacity: 0, x: -12 }}
             transition={{ duration: 0.22 }}
             onClick={toggleParked}
-            aria-label="Mostra navigazione metro"
+            aria-label="Apri mappa sezioni"
             title="Apri mappa sezioni"
-            className={`pointer-events-auto rounded-r-lg rounded-l-sm border-l-0 ${lateralTabClass} flex-col gap-1 py-3 shadow-[4px_0_16px_rgba(0,0,0,0.25)]`}
+            className="pointer-events-auto group/tab flex flex-col items-center gap-1.5 rounded-r-2xl border border-l-0 border-white/[0.07] bg-black/45 backdrop-blur-md px-1.5 py-3 text-zinc-400 shadow-[3px_0_20px_rgba(0,0,0,0.35)] hover:bg-black/70 hover:text-[#a3ff12] hover:border-[#a3ff12]/25 transition-colors"
           >
-            <ChevronRightIcon />
-            <span className="text-[7px] font-mono text-[#a3ff12]/75">{activeStop.code}</span>
+            <MetroLineGlyph activeIndex={activeIndex} />
+            <span className="text-[#a3ff12]/70 group-hover/tab:text-[#a3ff12] transition-colors">
+              <ChevronRightIcon />
+            </span>
           </motion.button>
         ) : (
           <motion.div
             key="metro-panel"
-            initial={{ opacity: 0, x: -14 }}
+            initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -14 }}
+            exit={{ opacity: 0, x: -16 }}
             transition={{ duration: 0.22 }}
             className="flex items-stretch pointer-events-auto max-w-[calc(100vw-1.5rem)] group/metro"
           >
             <nav
               aria-label="Navigazione rapida tra sezioni"
-              className="rounded-l-xl rounded-r-none border border-r-0 border-white/[0.04] bg-black/35 backdrop-blur-[2px] shadow-[0_4px_24px_rgba(0,0,0,0.2)] px-2 py-2 sm:px-2.5 sm:py-2.5 transition-[background-color,box-shadow] duration-300 group-hover/metro:bg-black/55 group-hover/metro:backdrop-blur-sm group-focus-within/metro:bg-black/55"
+              className="rounded-r-none rounded-l-none sm:rounded-l-2xl border border-r-0 border-white/[0.07] bg-black/45 backdrop-blur-md shadow-[3px_0_24px_rgba(0,0,0,0.35)] pl-2 pr-2.5 py-2.5 sm:py-3 transition-colors duration-300 group-hover/metro:bg-black/65 group-focus-within/metro:bg-black/65"
             >
-              <p className="text-[8px] uppercase tracking-[0.28em] text-zinc-500 mb-1.5 pl-6 sm:pl-7 font-semibold group-hover/metro:text-zinc-400 transition-colors">
+              <p className="text-[8px] uppercase tracking-[0.3em] text-zinc-500 mb-2 pl-6 sm:pl-7 font-semibold group-hover/metro:text-[#a3ff12]/60 transition-colors">
                 Linea EC
               </p>
 
-              <div className="relative pl-1">
+              <div className="relative">
                 <div
-                  className="absolute left-[11px] sm:left-[12px] top-3 bottom-3 w-px rounded-full bg-white/[0.06]"
+                  className="absolute left-[11px] sm:left-[12px] top-3 bottom-3 w-px rounded-full bg-white/[0.1]"
                   aria-hidden
                 />
                 <motion.div
-                  className="absolute left-[11px] sm:left-[12px] top-3 w-px rounded-full bg-[#a3ff12]/35"
+                  className="absolute left-[11px] sm:left-[12px] top-3 w-px rounded-full bg-[#a3ff12]/50"
                   initial={false}
                   animate={{ height: `calc((100% - 1.5rem) * ${progress / 100})` }}
                   transition={{ type: "spring", stiffness: 280, damping: 32 }}
@@ -156,20 +179,25 @@ export default function MetroNav() {
                       <li key={stop.id}>
                         <a
                           href={`#${stop.id}`}
-                          className="flex items-center gap-2 py-1 pr-0.5 rounded-lg outline-none focus-visible:ring-1 focus-visible:ring-[#a3ff12]/35 hover:bg-white/[0.04] transition-colors"
+                          className="flex items-center gap-2.5 py-1 pr-1.5 rounded-lg outline-none focus-visible:ring-1 focus-visible:ring-[#a3ff12]/40 hover:bg-white/[0.05] transition-colors"
                           aria-current={isActive ? "location" : undefined}
                         >
-                          <span className="relative flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 shrink-0">
+                          <span className="relative flex items-center justify-center w-6 sm:w-7 h-7 shrink-0">
                             {isActive && (
-                              <span className="absolute inset-0 rounded-full bg-[#a3ff12]/10" aria-hidden />
+                              <motion.span
+                                className="absolute inset-1 rounded-full border border-[#a3ff12]/30"
+                                animate={{ scale: [1, 1.3, 1], opacity: [0.6, 0, 0.6] }}
+                                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                                aria-hidden
+                              />
                             )}
                             <span
                               className={`relative z-10 rounded-full border transition-all duration-300 ${
                                 isActive
-                                  ? "w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#a3ff12] border-[#a3ff12] shadow-[0_0_6px_rgba(163,255,18,0.4)]"
+                                  ? "w-3 h-3 sm:w-3.5 sm:h-3.5 bg-[#a3ff12] border-[#a3ff12] shadow-[0_0_8px_rgba(163,255,18,0.6)]"
                                   : isPassed
-                                    ? "w-2 h-2 bg-[#a3ff12]/30 border-[#a3ff12]/35"
-                                    : "w-2 h-2 bg-transparent border-[#a3ff12]/18"
+                                    ? "w-2 h-2 bg-[#a3ff12]/40 border-[#a3ff12]/40"
+                                    : "w-2 h-2 bg-black/60 border-[#a3ff12]/25"
                               }`}
                             />
                           </span>
@@ -177,18 +205,18 @@ export default function MetroNav() {
                           <span className="min-w-0 flex flex-col leading-tight">
                             <span
                               className={`text-[8px] font-mono tracking-widest ${
-                                isActive ? "text-[#a3ff12]/65" : "text-zinc-600"
+                                isActive ? "text-[#a3ff12]/70" : "text-zinc-600"
                               }`}
                             >
                               {stop.code}
                             </span>
                             <span
-                              className={`text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide truncate max-w-[4.75rem] sm:max-w-none ${
+                              className={`text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide truncate max-w-[5rem] sm:max-w-none ${
                                 isActive
                                   ? "text-[#a3ff12]"
                                   : isPassed
-                                    ? "text-zinc-500"
-                                    : "text-zinc-600"
+                                    ? "text-zinc-400"
+                                    : "text-zinc-500"
                               }`}
                             >
                               {stop.label}
@@ -202,13 +230,13 @@ export default function MetroNav() {
               </div>
             </nav>
 
-            {/* Tab laterale freccia ← = parcheggia verso sinistra */}
+            {/* Linguetta laterale: freccia ← per parcheggiare verso sinistra */}
             <button
               type="button"
               onClick={toggleParked}
-              aria-label="Parcheggia navigazione metro"
+              aria-label="Parcheggia mappa sezioni"
               title="Parcheggia mappa sezioni"
-              className={`rounded-r-lg rounded-l-none border-l-0 ${lateralTabClass} shadow-[4px_0_16px_rgba(0,0,0,0.2)]`}
+              className="flex items-center justify-center shrink-0 w-5 sm:w-6 rounded-r-2xl border border-l-0 border-white/[0.07] bg-black/45 backdrop-blur-md text-zinc-500 shadow-[3px_0_20px_rgba(0,0,0,0.3)] hover:bg-black/70 hover:text-[#a3ff12] hover:border-[#a3ff12]/25 transition-colors"
             >
               <ChevronLeftIcon />
             </button>
