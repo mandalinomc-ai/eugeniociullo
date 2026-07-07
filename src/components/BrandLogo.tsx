@@ -14,11 +14,11 @@ export default function BrandLogo({
   if (variant === "mark") {
     return (
       <Image
-        src="/logo-mark.svg"
+        src="/images/logo-icon.png"
         alt="Eugenio Ciullo"
         width={40}
         height={40}
-        className={className}
+        className={`rounded-xl ${className}`}
         priority
       />
     );
@@ -27,11 +27,11 @@ export default function BrandLogo({
   return (
     <span className={`inline-flex flex-col ${className}`}>
       <Image
-        src="/logo.svg"
+        src="/images/logo-wordmark.png"
         alt="Eugenio Ciullo - Digital Marketer"
-        width={260}
-        height={54}
-        className="h-8 sm:h-9 w-auto max-w-[11.5rem] sm:max-w-none"
+        width={320}
+        height={90}
+        className="h-9 sm:h-10 w-auto max-w-[13rem] sm:max-w-[18rem]"
         priority
       />
       {showTagline ? (

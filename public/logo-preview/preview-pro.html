@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anteprima Logo Pro — Eugenio Ciullo</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      background: #000;
+      color: #fff;
+      padding: 32px 20px 56px;
+    }
+    h1 { font-size: 1.6rem; margin: 0 0 10px; }
+    p { color: #a1a1aa; line-height: 1.65; max-width: 760px; }
+    .badge {
+      display: inline-block;
+      margin: 14px 0 24px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(163,255,18,0.12);
+      border: 1px solid rgba(163,255,18,0.25);
+      color: #a3ff12;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .link-box {
+      margin: 18px 0 28px;
+      padding: 14px 16px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 12px;
+      max-width: 760px;
+      font-size: 14px;
+    }
+    .link-box a { color: #a3ff12; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      max-width: 1200px;
+    }
+    .card {
+      background: #0a0a0a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 22px;
+    }
+    .card h2 {
+      font-size: 12px;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin: 0 0 14px;
+    }
+    .preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #050505;
+      border-radius: 14px;
+      border: 1px solid rgba(163,255,18,0.12);
+      padding: 20px;
+      min-height: 160px;
+    }
+    .preview.dark { background: #000; }
+    .preview img { max-width: 100%; height: auto; display: block; }
+    .sizes {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      margin-top: 8px;
+    }
+    .size-item { text-align: center; }
+    .size-item span {
+      display: block;
+      margin-top: 8px;
+      font-size: 11px;
+      color: #71717a;
+    }
+    .icon-16, .icon-32, .icon-64, .icon-180 {
+      border-radius: 16px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+      background: #000;
+    }
+    .icon-16 { width: 16px; height: 16px; border-radius: 4px; }
+    .icon-32 { width: 32px; height: 32px; border-radius: 8px; }
+    .icon-64 { width: 64px; height: 64px; border-radius: 14px; }
+    .icon-180 { width: 180px; height: 180px; border-radius: 40px; }
+    .note {
+      margin-top: 32px;
+      padding: 16px 18px;
+      border-left: 3px solid #a3ff12;
+      background: rgba(163,255,18,0.05);
+      max-width: 760px;
+      color: #d4d4d8;
+      font-size: 14px;
+    }
+    .hero {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="badge">Proposta professionale 3D — solo anteprima</div>
+  <h1>Logo integrato E + cervello</h1>
+  <p>
+    Design unico: la <strong>E</strong> è parte del cervello, non una sovrapposizione.
+    Stile premium 3D con glow verde brand <strong>#a3ff12</strong>.
+  </p>
+
+  <div class="link-box">
+    Apri: <a href="http://localhost:8765/preview-pro.html">http://localhost:8765/preview-pro.html</a>
+    &nbsp;·&nbsp; Ricarica con <strong>Ctrl+F5</strong>
+  </div>
+
+  <div class="grid">
+    <div class="card" style="grid-column: 1 / -1;">
+      <h2>Icona principale — 3D</h2>
+      <div class="preview">
+        <img class="hero" src="./ec-brain-3d-icon-glow.png" alt="Logo 3D E cervello con alone verde" />
+      </div>
+      <div class="sizes">
+        <div class="size-item">
+          <img class="icon-16" src="./ec-brain-3d-icon-glow.png" alt="16px" />
+          <span>16px favicon</span>
+        </div>
+        <div class="size-item">
+          <img class="icon-32" src="./ec-brain-3d-icon-glow.png" alt="32px" />
+          <span>32px</span>
+        </div>
+        <div class="size-item">
+          <img class="icon-64" src="./ec-brain-3d-icon-glow.png" alt="64px" />
+          <span>64px</span>
+        </div>
+        <div class="size-item">
+          <img class="icon-180" src="./ec-brain-3d-icon-glow.png" alt="180px" />
+          <span>180px app</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Wordmark orizzontale v2</h2>
+      <div class="preview dark">
+        <img src="./ec-brain-3d-wordmark-glow.png" alt="Wordmark glow" />
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Anteprima link social (OG)</h2>
+      <div class="preview dark">
+        <img src="./ec-brain-3d-wordmark-glow.png" alt="OG preview" style="border-radius:12px;" />
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    Dimmi se approvi questa direzione (<strong>«ok carica»</strong>), oppure cosa cambiare:
+    più minimal, più 3D, cervello più evidente, E più sottile, ecc.
+    <strong>Non pubblico sul sito finché non approvi.</strong>
+  </div>
+</body>
+</html>

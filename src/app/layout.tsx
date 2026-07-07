@@ -32,10 +32,8 @@ export const metadata: Metadata = {
     description: SITE.description,
   },
   icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/logo-mark.svg", type: "image/svg+xml", sizes: "72x72" },
-    ],
+    icon: [{ url: "/images/logo-icon.png", sizes: "512x512", type: "image/png" }],
+    apple: "/images/logo-icon.png",
   },
 };
 
