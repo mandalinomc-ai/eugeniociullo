@@ -157,6 +157,18 @@ body {
   .text-balance-safe {
     text-wrap: balance;
   }
+
+  /* Maschera fumo logo — limita le particelle alla forma del cervello */
+  .logo-smoke-mask {
+    -webkit-mask-image: url("/images/logo-icon.png");
+    mask-image: url("/images/logo-icon.png");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
 }
 
 @keyframes marquee {
