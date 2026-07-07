@@ -8,28 +8,39 @@ import GlowButton from "@/components/ui/GlowButton";
 import { FORM_OBJECTIVES, BUDGET_OPTIONS, SITE, whatsappUrl } from "@/lib/constants";
 
 type FormData = {
-  objective: string;
+  objectives: string[];
   budget: string;
+  details: string;
   socialLinks: string;
   name: string;
   email: string;
 };
 
-const STEPS = ["Obiettivo", "Budget", "Contatti"];
+const STEPS = ["Obiettivi", "Budget", "Contatti"];
 
 export default function QuoteForm() {
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState<FormData>({
-    objective: "",
+    objectives: [],
     budget: "",
+    details: "",
     socialLinks: "",
     name: "",
     email: "",
   });
 
+  const toggleObjective = (label: string) => {
+    setForm((prev) => ({
+      ...prev,
+      objectives: prev.objectives.includes(label)
+        ? prev.objectives.filter((o) => o !== label)
+        : [...prev.objectives, label],
+    }));
+  };
+
   const canProceed = () => {
-    if (step === 0) return !!form.objective;
+    if (step === 0) return form.objectives.length > 0;
     if (step === 1) return !!form.budget;
     if (step === 2) return !!form.name && !!form.email;
     return false;
@@ -37,7 +48,10 @@ export default function QuoteForm() {
 
   const handleSubmit = () => {
     setSubmitted(true);
-    const message = `Ciao Eugenio! Vorrei un preventivo.\n\nObiettivo: ${form.objective}\nBudget: ${form.budget}\nSocial: ${form.socialLinks || "Non indicati"}\nNome: ${form.name}\nEmail: ${form.email}`;
+    const objectives = form.objectives.length
+      ? form.objectives.join(", ")
+      : "Non indicati";
+    const message = `Ciao Eugenio! Vorrei un preventivo.\n\nServizi richiesti: ${objectives}\nBudget: ${form.budget}\nDettagli richiesta: ${form.details || "Non indicati"}\nSocial: ${form.socialLinks || "Non indicati"}\nNome: ${form.name}\nEmail: ${form.email}`;
     window.open(whatsappUrl(message), "_blank");
   };
 
@@ -47,7 +61,7 @@ export default function QuoteForm() {
         <SectionHeading
           label="Preventivo"
           title="Inizia il tuo progetto."
-          subtitle="Compila il form multi-step e ricevi una risposta personalizzata dal nostro team. Pagamenti dilazionabili su richiesta."
+          subtitle="Seleziona tutti i servizi che ti servono e descrivi le tue richieste: ricevi una risposta personalizzata dal nostro team. Pagamenti dilazionabili su richiesta."
           align="center"
           tone="accent"
         />
@@ -88,23 +102,46 @@ export default function QuoteForm() {
               >
                 {step === 0 && (
                   <div className="space-y-4">
-                    <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">Qual è il tuo obiettivo?</h3>
+                    <h3 className="text-lg sm:text-xl font-bold mb-1">Di cosa hai bisogno?</h3>
+                    <p className="text-sm text-zinc-500 mb-4 sm:mb-6">
+                      Puoi selezionare più servizi — combiniamo tutto in un unico progetto.
+                    </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {FORM_OBJECTIVES.map((obj) => (
-                        <button
-                          key={obj.id}
-                          type="button"
-                          onClick={() => setForm({ ...form, objective: obj.label })}
-                          className={`p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 active:scale-[0.98] ${
-                            form.objective === obj.label
-                              ? "border-[#a3ff12] bg-[#a3ff12]/10 glow-accent"
-                              : "border-white/10 hover:border-white/20 bg-white/[0.02]"
-                          }`}
-                        >
-                          <span className="font-semibold text-sm sm:text-base">{obj.label}</span>
-                        </button>
-                      ))}
+                      {FORM_OBJECTIVES.map((obj) => {
+                        const selected = form.objectives.includes(obj.label);
+                        return (
+                          <button
+                            key={obj.id}
+                            type="button"
+                            aria-pressed={selected}
+                            onClick={() => toggleObjective(obj.label)}
+                            className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 active:scale-[0.98] ${
+                              selected
+                                ? "border-[#a3ff12] bg-[#a3ff12]/10 glow-accent"
+                                : "border-white/10 hover:border-white/20 bg-white/[0.02]"
+                            }`}
+                          >
+                            <span
+                              className={`flex items-center justify-center w-5 h-5 rounded-md border shrink-0 transition-colors ${
+                                selected
+                                  ? "bg-[#a3ff12] border-[#a3ff12] text-black"
+                                  : "border-white/25 text-transparent"
+                              }`}
+                            >
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                                <path d="M20 6L9 17l-5-5" />
+                              </svg>
+                            </span>
+                            <span className="font-semibold text-sm sm:text-base">{obj.label}</span>
+                          </button>
+                        );
+                      })}
                     </div>
+                    {form.objectives.length > 0 && (
+                      <p className="text-xs text-[#a3ff12]/80 pt-1">
+                        {form.objectives.length} servizi selezionati
+                      </p>
+                    )}
                   </div>
                 )}
 
@@ -132,7 +169,20 @@ export default function QuoteForm() {
 
                 {step === 2 && (
                   <div className="space-y-5">
-                    <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">Social & contatti</h3>
+                    <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">Dettagli & contatti</h3>
+                    <div>
+                      <label htmlFor="details" className="text-xs uppercase tracking-widest text-zinc-500 mb-2 block">
+                        Le tue richieste
+                      </label>
+                      <textarea
+                        id="details"
+                        rows={3}
+                        placeholder="Raccontaci cosa ti serve: obiettivi, tempistiche, più richieste insieme..."
+                        value={form.details}
+                        onChange={(e) => setForm({ ...form, details: e.target.value })}
+                        className="w-full px-4 sm:px-5 py-3.5 sm:py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-[#a3ff12]/50 focus:outline-none focus:ring-1 focus:ring-[#a3ff12]/30 transition-all text-base resize-none"
+                      />
+                    </div>
                     <div>
                       <label htmlFor="social-links" className="text-xs uppercase tracking-widest text-zinc-500 mb-2 block">
                         Link social attuali
