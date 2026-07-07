@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -56,11 +56,14 @@ function MetroLineGlyph({ activeIndex }: { activeIndex: number }) {
   );
 }
 
+const AUTO_PARK_DELAY_MS = 350;
+
 export default function MetroNav() {
   const pathname = usePathname();
   const [activeId, setActiveId] = useState<string>("hero");
   const [parked, setParked] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const updateActive = useCallback(() => {
     const marker = window.scrollY + window.innerHeight * 0.38;
@@ -85,20 +88,51 @@ export default function MetroNav() {
     setHydrated(true);
   }, []);
 
-  const toggleParked = useCallback(() => {
-    setParked((prev) => {
-      const next = !prev;
-      try {
-        localStorage.setItem(STORAGE_KEY, next ? "1" : "0");
-      } catch {
-        /* ignore */
-      }
-      return next;
-    });
+  const parkNav = useCallback(() => {
+    setParked(true);
+    try {
+      localStorage.setItem(STORAGE_KEY, "1");
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  const unparkNav = useCallback(() => {
+    if (leaveTimerRef.current) {
+      clearTimeout(leaveTimerRef.current);
+      leaveTimerRef.current = null;
+    }
+    setParked(false);
+    try {
+      localStorage.setItem(STORAGE_KEY, "0");
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  const scheduleAutoPark = useCallback(() => {
+    if (leaveTimerRef.current) clearTimeout(leaveTimerRef.current);
+    leaveTimerRef.current = setTimeout(() => {
+      parkNav();
+      leaveTimerRef.current = null;
+    }, AUTO_PARK_DELAY_MS);
+  }, [parkNav]);
+
+  const cancelAutoPark = useCallback(() => {
+    if (leaveTimerRef.current) {
+      clearTimeout(leaveTimerRef.current);
+      leaveTimerRef.current = null;
+    }
   }, []);
 
   useEffect(() => {
-    if (pathname !== "/" || parked) return;
+    return () => {
+      if (leaveTimerRef.current) clearTimeout(leaveTimerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (pathname !== "/") return;
 
     updateActive();
     window.addEventListener("scroll", updateActive, { passive: true });
@@ -108,7 +142,7 @@ export default function MetroNav() {
       window.removeEventListener("scroll", updateActive);
       window.removeEventListener("resize", updateActive);
     };
-  }, [pathname, parked, updateActive]);
+  }, [pathname, updateActive]);
 
   if (pathname !== "/" || !hydrated) return null;
 
@@ -130,7 +164,7 @@ export default function MetroNav() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -12 }}
             transition={{ duration: 0.22 }}
-            onClick={toggleParked}
+            onClick={unparkNav}
             aria-label="Apri mappa sezioni"
             title="Apri mappa sezioni"
             className="pointer-events-auto group/tab flex flex-col items-center gap-1.5 rounded-r-2xl border border-l-0 border-white/10 bg-black/80 supports-[backdrop-filter]:bg-black/40 backdrop-blur-lg backdrop-saturate-150 px-1.5 py-3 text-zinc-400 shadow-[3px_0_20px_rgba(0,0,0,0.4)] ring-1 ring-inset ring-white/5 hover:supports-[backdrop-filter]:bg-black/60 hover:text-[#a3ff12] hover:border-[#a3ff12]/25 transition-colors"
@@ -148,6 +182,14 @@ export default function MetroNav() {
             exit={{ opacity: 0, x: -16 }}
             transition={{ duration: 0.22 }}
             className="flex items-stretch pointer-events-auto max-w-[calc(100vw-1.5rem)] group/metro"
+            onMouseEnter={cancelAutoPark}
+            onMouseLeave={scheduleAutoPark}
+            onFocus={cancelAutoPark}
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                scheduleAutoPark();
+              }
+            }}
           >
             <nav
               aria-label="Navigazione rapida tra sezioni"
@@ -185,6 +227,7 @@ export default function MetroNav() {
                       <li key={stop.id}>
                         <a
                           href={`#${stop.id}`}
+                          onClick={parkNav}
                           className="flex items-center gap-2.5 py-1 pr-1.5 rounded-lg outline-none focus-visible:ring-1 focus-visible:ring-[#a3ff12]/40 hover:bg-white/[0.05] transition-colors"
                           aria-current={isActive ? "location" : undefined}
                         >
@@ -239,7 +282,7 @@ export default function MetroNav() {
             {/* Linguetta laterale: freccia ← per parcheggiare verso sinistra */}
             <button
               type="button"
-              onClick={toggleParked}
+              onClick={parkNav}
               aria-label="Parcheggia mappa sezioni"
               title="Parcheggia mappa sezioni"
               className="flex items-center justify-center shrink-0 w-5 sm:w-6 rounded-r-2xl border border-l-0 border-white/10 bg-black/80 supports-[backdrop-filter]:bg-black/40 backdrop-blur-lg backdrop-saturate-150 text-zinc-400 shadow-[3px_0_20px_rgba(0,0,0,0.35)] ring-1 ring-inset ring-white/5 hover:supports-[backdrop-filter]:bg-black/60 hover:text-[#a3ff12] hover:border-[#a3ff12]/25 transition-colors"
