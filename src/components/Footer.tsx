@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-12 items-start">
           <div>
-            <BrandLogo className="mb-3" />
+            <BrandLogo variant="mark" size="nav" className="mb-4" />
             <p className="text-zinc-500 text-sm leading-relaxed">
               Digital Marketer & Content Creator
               <br />
@@ -68,13 +68,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+        <div className="mt-12 sm:mt-16 pt-10 border-t border-white/5">
+          <div className="flex justify-center px-2 mb-10 sm:mb-12">
+            <BrandLogo size="banner" className="w-full justify-center items-center" />
+          </div>
+
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <p className="text-xs text-zinc-600">
             © {new Date().getFullYear()} Eugenio Ciullo & Team. Tutti i diritti riservati.
           </p>
           <p className="text-xs text-zinc-700 tracking-widest uppercase">
             Built with strategy & soul
           </p>
+          </div>
         </div>
       </div>
     </footer>
