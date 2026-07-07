@@ -1,6 +1,7 @@
 "use client";
 
 import GlowButton from "@/components/ui/GlowButton";
+import BrandLogo from "@/components/BrandLogo";
 import { SITE, whatsappUrl } from "@/lib/constants";
 
 export default function Footer() {
@@ -9,9 +10,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-12 items-start">
           <div>
-            <p className="text-2xl font-black tracking-tighter mb-2">
-              EUGENIO<span className="text-[#a3ff12]">.</span>
-            </p>
+            <BrandLogo className="mb-3" />
             <p className="text-zinc-500 text-sm leading-relaxed">
               Digital Marketer & Content Creator
               <br />

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 88" fill="none" role="img" aria-label="Eugenio Ciullo Digital Marketer">
+  <defs>
+    <linearGradient id="mark-bg" x1="0" y1="0" x2="88" y2="88" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050505"/>
+      <stop offset="1" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="mark-glow" x1="58" y1="10" x2="76" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c8ff5a"/>
+      <stop offset="1" stop-color="#a3ff12"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="8" width="72" height="72" rx="18" fill="url(#mark-bg)"/>
+  <rect x="1" y="9" width="70" height="70" rx="17" stroke="#a3ff12" stroke-opacity="0.2"/>
+  <path d="M20 26h27c4.7 0 7.8 2.7 7.8 7 0 2.9-1.6 5.1-4.2 6.1 3.5.9 5.7 3.5 5.7 7.3 0 4.8-3.6 8.1-9.1 8.1H20V26zm9.2 9.8h12.4c2 0 3.2-1 3.2-2.6 0-1.6-1.2-2.6-3.2-2.6H29.2v5.2zm0 13.5h13.5c2.2 0 3.6-1.1 3.6-2.8 0-1.8-1.4-2.9-3.6-2.9H29.2v5.7z" fill="#fff"/>
+  <circle cx="59" cy="24" r="6.5" fill="url(#mark-glow)"/>
+  <text x="92" y="46" fill="#fff" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="34" font-weight="900" letter-spacing="-1.5">EUGENIO</text>
+  <circle cx="248" cy="38" r="5" fill="#a3ff12"/>
+  <text x="92" y="68" fill="#737373" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" font-weight="600" letter-spacing="4.5">DIGITAL MARKETER</text>
+</svg>

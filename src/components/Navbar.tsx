@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import GlowButton from "@/components/ui/GlowButton";
+import BrandLogo from "@/components/BrandLogo";
 import { SITE } from "@/lib/constants";
 
 const navLinks = [
@@ -84,13 +85,8 @@ export default function Navbar() {
         }`}
       >
         <nav className="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
-          <a href="#" className="group flex flex-col shrink-0" onClick={closeMenu}>
-            <span className="text-base sm:text-lg font-black tracking-tighter">
-              EUGENIO<span className="text-[#a3ff12]">.</span>
-            </span>
-            <span className="text-[10px] text-zinc-500 tracking-[0.2em] uppercase group-hover:text-[#a3ff12] transition-colors">
-              Digital Marketer
-            </span>
+          <a href="#" className="group shrink-0" onClick={closeMenu}>
+            <BrandLogo className="group-hover:opacity-90 transition-opacity" />
           </a>
 
           <div className="hidden md:flex items-center gap-6 lg:gap-8">

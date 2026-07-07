@@ -24,18 +24,18 @@ export const metadata: Metadata = {
     description: SITE.description,
     type: "website",
     url: "https://eugeniociullo.vercel.app",
-    images: [{ url: "/images/eugenio-portrait.png", width: 800, height: 1000, alt: "Eugenio Ciullo" }],
     locale: "it_IT",
   },
   twitter: {
     card: "summary_large_image",
     title: SITE.title,
     description: SITE.description,
-    images: ["/images/eugenio-portrait.png"],
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: "/images/eugenio-portrait.png",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/logo-mark.svg", type: "image/svg+xml", sizes: "72x72" },
+    ],
   },
 };
 

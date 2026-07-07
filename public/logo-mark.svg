@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="none" role="img" aria-label="Eugenio Ciullo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="72" y2="72" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050505"/>
+      <stop offset="1" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="48" y1="10" x2="64" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c8ff5a"/>
+      <stop offset="1" stop-color="#a3ff12"/>
+    </linearGradient>
+  </defs>
+  <rect width="72" height="72" rx="18" fill="url(#bg)"/>
+  <rect x="1" y="1" width="70" height="70" rx="17" stroke="#a3ff12" stroke-opacity="0.2"/>
+  <path d="M20 18h27c4.7 0 7.8 2.7 7.8 7 0 2.9-1.6 5.1-4.2 6.1 3.5.9 5.7 3.5 5.7 7.3 0 4.8-3.6 8.1-9.1 8.1H20V18zm9.2 9.8h12.4c2 0 3.2-1 3.2-2.6 0-1.6-1.2-2.6-3.2-2.6H29.2v5.2zm0 13.5h13.5c2.2 0 3.6-1.1 3.6-2.8 0-1.8-1.4-2.9-3.6-2.9H29.2v5.7z" fill="#fff"/>
+  <circle cx="55" cy="16" r="6.5" fill="url(#glow)"/>
+</svg>
