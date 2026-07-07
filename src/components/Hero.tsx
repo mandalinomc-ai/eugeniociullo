@@ -32,10 +32,10 @@ function HeroCtas({ className = "" }: { className?: string }) {
   return (
     <div className={`flex flex-col gap-3 sm:gap-4 ${className}`}>
       <GlowButton href="#preventivo" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
-        Richiedi Preventivo
+        Inizia il tuo Lancio
       </GlowButton>
       <GlowButton href="#casi-studio" variant="secondary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
-        Guarda i Risultati
+        Guarda i nostri Risultati
       </GlowButton>
     </div>
   );
@@ -108,9 +108,9 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-[15px] sm:text-lg md:text-xl text-zinc-400 max-w-xl leading-relaxed font-light"
             >
-              Strategia, Content, ADS &amp;{" "}
-              <span className="text-white font-medium">Siti Web Premium</span>{" "}
-              per brand che vogliono farsi sentire — con il nostro team al fianco.
+              Strategia, Content Creation sul campo e Performance Marketing. Insieme a{" "}
+              <span className="text-white font-medium">ZeroAgency</span>, guidiamo il posizionamento
+              digitale di brand locali e nazionali.
             </motion.p>
 
             <motion.div

@@ -12,8 +12,8 @@ export default function CasiStudio() {
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           label="Prove & Risultati"
-          title="Case study che parlano da soli."
-          subtitle="Sold-out, view organiche a 6 cifre e brand che crescono — ecco i numeri reali del nostro lavoro."
+          title="Non gestiamo semplici pagine social."
+          subtitle="Creiamo ecosistemi di marketing che vendono. I numeri di Ittico, Parisio e Antum — 119k views, sold-out, crescita organica — sono il frutto di strategia digitale, contenuti virali e campagne ADS, non della semplice creazione di un sito."
           align="center"
           tone="results"
         />

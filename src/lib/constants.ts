@@ -585,50 +585,46 @@ export const LAUNCH_REPORTS = [
 
 export const SERVICES = [
   {
-    id: "websites",
-    title: "Creazione Siti Web Premium",
-    badge: "NUOVO",
-    description:
-      "Siti veloci, SEO-ready e mobile-first. Design su misura, integrazione social/ADS e funnel di conversione integrato.",
-    icon: "🌐",
-    gradient: "from-cyan-500/20 to-blue-600/10",
-    featured: true,
-  },
-  {
     id: "social",
-    title: "Social Media Management & ADS",
+    title: "Social Media Management & Performance ADS",
+    badge: "CORE",
     description:
-      "Strategia, Funnel, Meta ADS e Report Mensili per far crescere la tua presenza online con dati concreti.",
+      "Strategia editoriale, funnel, Meta ADS e report mensili. Il motore che trasforma follower in clienti e lanci in sold-out.",
     icon: "📊",
     gradient: "from-violet-600/20 to-fuchsia-600/10",
+    featured: true,
   },
   {
     id: "content",
-    title: "Content Creation",
+    title: "Content Creation & UGC",
     description:
-      "Remote, UGC, on-site o team dedicato. Foto, video, drone e editing pro per brand e personal brand.",
+      "Produzione agile sul campo: iPhone 16 Pro, droni, UGC e team ZeroAgency. Contenuti autentici pensati per performare sui social.",
     icon: "🎬",
     gradient: "from-emerald-500/20 to-cyan-500/10",
-    link: "#content-creator",
   },
   {
     id: "consulting",
-    title: "Consulenza Strategica 1to1",
+    title: "Consulenza Strategica 1to1 & Lanci commerciali",
     description:
-      "Sessioni personalizzate con Eugenio e il team per sbloccare la crescita del tuo brand con piano d'azione concreto.",
+      "Piano d'azione su misura con Eugenio e il team: lanci da zero, posizionamento, qualifica lead e roadmap per crescere con metodo.",
     icon: "🎯",
     gradient: "from-amber-500/20 to-orange-500/10",
-    featured: true,
   },
   {
     id: "events",
     title: "Event Management & Booking",
-    badge: "NUOVO",
     description:
-      "Allestimenti, DJ, stand fiera, proiezioni video/PDF e consulenza. Feste private, corporate e showroom — organizzati dal nostro team.",
+      "Allestimenti, DJ, stand fiera e produzione live. Estensione del marketing sul campo per brand che vogliono esperienze memorabili.",
     icon: "🎉",
     gradient: "from-pink-500/20 to-rose-500/10",
-    link: "#eventi",
+  },
+  {
+    id: "websites",
+    title: "Siti Web Premium & Automazioni AI",
+    description:
+      "Infrastruttura tecnica che supporta il marketing: siti veloci, SEO, funnel di conversione e automazioni per qualificare i lead.",
+    icon: "🌐",
+    gradient: "from-cyan-500/20 to-blue-600/10",
   },
 ] as const;
 
