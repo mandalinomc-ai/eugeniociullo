@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import MetroNav from "@/components/MetroNav";
 import Hero from "@/components/Hero";
 import CasiStudio from "@/components/CasiStudio";
 import Bio from "@/components/Bio";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main className="relative bg-black">
       <Navbar />
+      <MetroNav />
       <Hero />
       <CasiStudio />
       <Bio />

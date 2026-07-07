@@ -43,7 +43,7 @@ function HeroCtas({ className = "" }: { className?: string }) {
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden scroll-mt-20">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(163,255,18,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(163,255,18,0.03)_1px,transparent_1px)] bg-[size:40px_40px] sm:bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
 
