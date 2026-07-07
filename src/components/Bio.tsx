@@ -66,10 +66,10 @@ export default function Bio() {
             <div className="relative w-full max-w-xs aspect-[3/4] rounded-2xl overflow-hidden gradient-border lg:hidden">
               <MediaImage
                 src="/images/eugenio-portrait.png"
-                alt="Eugenio Ciullo - Digital Marketer"
+                alt="Eugenio Ciullo - Digital Marketer, ritratto professionale"
                 fit="cover-center"
-                position="50% 18%"
-                className="scale-[1.12]"
+                position="center 22%"
+                className="scale-[1.04]"
                 sizes="(max-width: 1024px) 100vw, 320px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

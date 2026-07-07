@@ -10,10 +10,10 @@ function PortraitCard({ className = "" }: { className?: string }) {
     <div className={`relative overflow-hidden gradient-border rounded-2xl ${className}`}>
       <MediaImage
         src="/images/eugenio-portrait.png"
-        alt="Eugenio Ciullo - Digital Marketer"
+        alt="Eugenio Ciullo - Digital Marketer, ritratto professionale"
         fit="cover-center"
-        position="50% 18%"
-        className="scale-[1.12]"
+        position="center 22%"
+        className="scale-[1.04]"
         priority
         sizes="(max-width: 1024px) 160px, 320px"
       />
