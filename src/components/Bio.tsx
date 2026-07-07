@@ -65,7 +65,7 @@ export default function Bio() {
 
             <div className="relative w-full max-w-xs aspect-[3/4] rounded-2xl overflow-hidden gradient-border lg:hidden">
               <MediaImage
-                src="/images/eugenio-portrait.png"
+                src="/images/eugenio-portrait-pro.png"
                 alt="Eugenio Ciullo - Digital Marketer, ritratto professionale"
                 fit="cover-center"
                 position="center 22%"

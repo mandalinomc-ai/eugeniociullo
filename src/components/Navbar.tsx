@@ -84,7 +84,7 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+        <nav className="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-5 flex items-center justify-between gap-2 sm:gap-3">
           <a href="#" className="group shrink-0" onClick={closeMenu}>
             <BrandLogo size="nav" className="group-hover:opacity-90 transition-opacity" />
           </a>

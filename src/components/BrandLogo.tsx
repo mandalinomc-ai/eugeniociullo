@@ -8,13 +8,13 @@ type BrandLogoProps = {
 };
 
 const wordmarkSizes = {
-  nav: "h-11 sm:h-12 md:h-14 w-auto max-w-[16rem] sm:max-w-[22rem] md:max-w-[26rem]",
+  nav: "h-[3.25rem] sm:h-[3.75rem] md:h-20 lg:h-[5.5rem] w-auto max-w-[20rem] sm:max-w-[28rem] md:max-w-[34rem] lg:max-w-[40rem]",
   default: "h-9 sm:h-10 w-auto max-w-[13rem] sm:max-w-[18rem]",
   banner: "w-full h-auto max-w-[min(100%,42rem)] sm:max-w-3xl md:max-w-4xl",
 };
 
 const markSizes = {
-  nav: "w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14",
+  nav: "w-[3.25rem] h-[3.25rem] sm:w-[3.75rem] sm:h-[3.75rem] md:w-20 md:h-20",
   default: "w-10 h-10",
   banner: "w-16 h-16 sm:w-20 sm:h-20",
 };

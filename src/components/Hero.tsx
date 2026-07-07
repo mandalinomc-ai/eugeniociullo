@@ -9,7 +9,7 @@ function PortraitCard({ className = "" }: { className?: string }) {
   return (
     <div className={`relative overflow-hidden gradient-border rounded-2xl ${className}`}>
       <MediaImage
-        src="/images/eugenio-portrait.png"
+        src="/images/eugenio-portrait-pro.png"
         alt="Eugenio Ciullo - Digital Marketer, ritratto professionale"
         fit="cover-center"
         position="center 22%"
@@ -82,7 +82,7 @@ export default function Hero() {
         <div className="noise-overlay absolute inset-0 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-6 pt-[4.5rem] sm:pt-28 pb-10 sm:pb-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-6 pt-[5.25rem] sm:pt-32 pb-10 sm:pb-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -137,7 +137,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="flex flex-col items-center sm:items-end justify-center gap-5 sm:gap-6"
           >
-            <PortraitCard className="aspect-[3/4] w-full max-w-[9.5rem] sm:max-w-[10.5rem] lg:max-w-[17rem] xl:max-w-[19rem]" />
+            <PortraitCard className="aspect-[3/4] w-full max-w-[11rem] sm:max-w-[12rem] lg:max-w-[17rem] xl:max-w-[19rem]" />
 
             <div className="hidden lg:flex flex-col w-full max-w-[17rem] xl:max-w-[19rem] gap-4">
               <HeroCtas />
