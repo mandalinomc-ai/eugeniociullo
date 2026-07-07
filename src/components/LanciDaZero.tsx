@@ -23,10 +23,10 @@ function InstagramBadge() {
   );
 }
 
-export default function LanciDaZero() {
-  return (
-    <SectionShell id="lanci" tone="results">
-      <div className="max-w-7xl mx-auto">
+export default function LanciDaZero({ embedded = false }: { embedded?: boolean }) {
+  const content = (
+    <div className={embedded ? "max-w-7xl mx-auto px-4 sm:px-6" : "max-w-7xl mx-auto"}>
+        {!embedded && (
         <SectionHeading
           label="Case Study · Lanci & Gestione"
           title="Risultati reali su Instagram"
@@ -34,6 +34,13 @@ export default function LanciDaZero() {
           align="center"
           tone="results"
         />
+        )}
+
+        {embedded && (
+          <h3 className="text-xl sm:text-2xl font-black tracking-tight text-center mb-8 sm:mb-10">
+            Lanci da zero &amp; report
+          </h3>
+        )}
 
         <div className="grid md:grid-cols-2 gap-5 sm:gap-8">
           {LANCI_DA_ZERO.map((item, i) => (
@@ -205,6 +212,15 @@ export default function LanciDaZero() {
           </div>
         </motion.div>
       </div>
+  );
+
+  if (embedded) {
+    return <div className="py-10 sm:py-14 border-t border-white/5">{content}</div>;
+  }
+
+  return (
+    <SectionShell id="lanci" tone="results">
+      {content}
     </SectionShell>
   );
 }

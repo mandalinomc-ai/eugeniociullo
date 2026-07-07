@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import MediaImage from "@/components/ui/MediaImage";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionShell from "@/components/ui/SectionShell";
+import { CONTENT_CREATOR } from "@/lib/constants";
 
 const bioCards = [
   {
@@ -144,6 +145,44 @@ export default function Bio() {
             </div>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-10 sm:mt-14 pt-10 border-t border-white/5"
+        >
+            <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-600 mb-2">Metodo di produzione</p>
+            <h3 className="text-xl sm:text-2xl font-black tracking-tight mb-3">{CONTENT_CREATOR.headline}</h3>
+            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6 max-w-3xl">
+              {CONTENT_CREATOR.subheadline}
+            </p>
+            <div className="grid sm:grid-cols-3 gap-3 sm:gap-4 mb-6">
+              {CONTENT_CREATOR.modes.map((mode, i) => (
+                <div key={mode.id} className="card-surface-hover rounded-xl p-4 sm:p-5">
+                  <span className="text-2xl">{mode.icon}</span>
+                  <p className="font-bold mt-2 text-sm sm:text-base">{mode.title}</p>
+                  <p className="text-xs text-zinc-500 mt-1 leading-relaxed">{mode.description}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {CONTENT_CREATOR.gear.map((g) => (
+                <span
+                  key={g.label}
+                  className={`px-3 py-1.5 rounded-full text-xs font-semibold border ${
+                    g.highlight
+                      ? "border-[#a3ff12]/40 bg-[#a3ff12]/10 text-[#a3ff12]"
+                      : "border-white/10 text-zinc-400"
+                  }`}
+                >
+                  {g.label}
+                  {g.detail ? ` · ${g.detail}` : ""}
+                </span>
+              ))}
+            </div>
+          </motion.div>
       </div>
     </SectionShell>
   );

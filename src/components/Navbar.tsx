@@ -2,20 +2,16 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import GlowButton from "@/components/ui/GlowButton";
 import BrandLogo from "@/components/BrandLogo";
 import { SITE } from "@/lib/constants";
 
 const navLinks = [
+  { href: "#casi-studio", label: "Risultati" },
   { href: "#chi-sono", label: "Chi Siamo" },
-  { href: "#lavori", label: "Lavori" },
-  { href: "#content-creator", label: "Content" },
-  { href: "#eventi", label: "Eventi" },
-  { href: "#brand", label: "Brand" },
-  { href: "#lanci", label: "Risultati" },
   { href: "#servizi", label: "Servizi" },
-  { href: "#ai-sito", label: "Crea Sito", accent: true },
-  { href: "#preventivo", label: "Preventivo", accent: true },
+  { href: "#preventivo", label: "Richiedi Preventivo", accent: true },
 ] as const;
 
 function NavPill({
@@ -56,6 +52,8 @@ function NavPill({
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const homePrefix = pathname === "/" ? "" : "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -85,33 +83,35 @@ export default function Navbar() {
         }`}
       >
         <nav className="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-5 flex items-center justify-between gap-2 sm:gap-3">
-          <a href="#" className="group shrink-0" onClick={closeMenu}>
+          <a href={pathname === "/" ? "#" : "/"} className="group shrink-0" onClick={closeMenu}>
             <BrandLogo size="nav" className="group-hover:opacity-90 transition-opacity" />
           </a>
 
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-zinc-400 hover:text-white transition-colors relative group whitespace-nowrap"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#a3ff12] group-hover:w-full transition-all duration-300" />
-              </a>
-            ))}
+          <div className="hidden md:flex items-center gap-4 lg:gap-6">
+            {navLinks.map((link) =>
+              "accent" in link && link.accent ? (
+                <GlowButton
+                  key={link.href}
+                  href={`${homePrefix}${link.href}`}
+                  variant="primary"
+                  className="text-xs md:text-sm px-4 sm:px-5 py-2.5"
+                >
+                  {link.label}
+                </GlowButton>
+              ) : (
+                <a
+                  key={link.href}
+                  href={`${homePrefix}${link.href}`}
+                  className="text-sm text-zinc-400 hover:text-white transition-colors relative group whitespace-nowrap"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#a3ff12] group-hover:w-full transition-all duration-300" />
+                </a>
+              )
+            )}
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <GlowButton
-              href={SITE.consultationUrl}
-              variant="primary"
-              external
-              className="hidden sm:inline-flex text-xs md:text-sm px-4 sm:px-6"
-            >
-              Prenota via WhatsApp
-            </GlowButton>
-
             <button
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
@@ -176,7 +176,7 @@ export default function Navbar() {
                       className={link.href === "#preventivo" ? "col-span-2" : undefined}
                     >
                       <NavPill
-                        href={link.href}
+                        href={`${homePrefix}${link.href}`}
                         label={link.label}
                         accent={"accent" in link && link.accent}
                         onClick={closeMenu}

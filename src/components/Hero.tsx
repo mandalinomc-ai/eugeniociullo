@@ -31,27 +31,19 @@ function PortraitCard({ className = "" }: { className?: string }) {
 function HeroCtas({ className = "" }: { className?: string }) {
   return (
     <div className={`flex flex-col gap-3 sm:gap-4 ${className}`}>
-      <GlowButton href="#ai-sito" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
-        CREA IL TUO SITO
-      </GlowButton>
-      <GlowButton href="#preventivo" variant="secondary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
+      <GlowButton href="#preventivo" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
         Richiedi Preventivo
       </GlowButton>
-      <a
-        href={`https://wa.me/${SITE.whatsapp}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full text-center py-2 text-sm text-zinc-400 hover:text-[#25D366] transition-colors"
-      >
-        💬 WhatsApp · {SITE.whatsappDisplay}
-      </a>
+      <GlowButton href="#casi-studio" variant="secondary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
+        Guarda i Risultati
+      </GlowButton>
     </div>
   );
 }
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(163,255,18,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(163,255,18,0.03)_1px,transparent_1px)] bg-[size:40px_40px] sm:bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
 

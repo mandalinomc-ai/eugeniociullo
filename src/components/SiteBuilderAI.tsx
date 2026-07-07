@@ -504,7 +504,7 @@ export default function SiteBuilderAI() {
                   <div
                     className={`max-w-[88%] text-sm px-4 py-3 rounded-2xl ${
                       msg.role === "user"
-                        ? "bg-[#a3ff12]/20 text-white rounded-br-sm"
+                        ? "bg-[#a3ff12]/20 text-black rounded-br-sm"
                         : "bg-white/5 text-zinc-200 rounded-bl-sm"
                     }`}
                   >
@@ -571,7 +571,7 @@ export default function SiteBuilderAI() {
                               onClick={() => togglePage(opt)}
                               className={`px-3 py-2 text-xs rounded-full border transition-all ${
                                 data.pages.includes(opt)
-                                  ? "border-[#a3ff12] bg-[#a3ff12]/15 text-white"
+                                  ? "border-[#a3ff12] bg-[#a3ff12] text-black"
                                   : "border-white/10 hover:border-white/25"
                               }`}
                             >

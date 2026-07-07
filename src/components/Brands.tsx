@@ -146,16 +146,16 @@ function BrandCard({
   );
 }
 
-export default function Brands() {
+export default function Brands({ embedded = false }: { embedded?: boolean }) {
   const [failedLogos, setFailedLogos] = useState<Record<string, boolean>>({});
 
   const handleLogoError = (name: string) => {
     setFailedLogos((prev) => ({ ...prev, [name]: true }));
   };
 
-  return (
-    <SectionShell id="brand" tone="warm">
-      <div className="max-w-7xl mx-auto">
+  const inner = (
+    <div className="max-w-7xl mx-auto">
+      {!embedded && (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -180,7 +180,7 @@ export default function Brands() {
                   sizes="(max-width: 768px) 100vw, 40vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/80 md:bg-gradient-to-r md:from-transparent md:to-black pointer-events-none" />
-                <span className="absolute top-4 left-4 px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-white text-black rounded-full">
+                <span className="absolute top-4 left-4 px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-[#a3ff12] text-black rounded-full">
                   {WORK_COLLABORATION.badge}
                 </span>
               </div>
@@ -198,7 +198,13 @@ export default function Brands() {
             </div>
           </div>
         </motion.div>
+      )}
 
+      {embedded ? (
+        <h3 className="text-xl sm:text-2xl font-black tracking-tight text-center mb-8 sm:mb-10">
+          Brand con cui abbiamo lavorato
+        </h3>
+      ) : (
         <SectionHeading
           label="I Nostri Successi"
           title="Brand con cui abbiamo lavorato"
@@ -206,19 +212,29 @@ export default function Brands() {
           align="center"
           tone="neutral"
         />
+      )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {BRANDS.map((brand, i) => (
-            <BrandCard
-              key={brand.name}
-              brand={brand}
-              failedLogos={failedLogos}
-              onLogoError={handleLogoError}
-              index={i}
-            />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {BRANDS.map((brand, i) => (
+          <BrandCard
+            key={brand.name}
+            brand={brand}
+            failedLogos={failedLogos}
+            onLogoError={handleLogoError}
+            index={i}
+          />
+        ))}
       </div>
+    </div>
+  );
+
+  if (embedded) {
+    return <div className="py-10 sm:py-14 border-t border-white/5 px-4 sm:px-6">{inner}</div>;
+  }
+
+  return (
+    <SectionShell id="brand" tone="warm">
+      {inner}
     </SectionShell>
   );
 }

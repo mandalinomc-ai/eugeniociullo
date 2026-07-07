@@ -1,39 +1,21 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import TrustMarquee from "@/components/TrustMarquee";
+import CasiStudio from "@/components/CasiStudio";
 import Bio from "@/components/Bio";
-import WorkGallery from "@/components/WorkGallery";
-import ContentCreator from "@/components/ContentCreator";
-import EventProduction from "@/components/EventProduction";
-import Brands from "@/components/Brands";
-import LanciDaZero from "@/components/LanciDaZero";
 import Services from "@/components/Services";
-import SiteBuilderAI from "@/components/SiteBuilderAI";
-import PaymentBanner from "@/components/PaymentBanner";
-import AutomationHub from "@/components/AutomationHub";
 import QuoteForm from "@/components/QuoteForm";
-import ChatBot from "@/components/ChatBot";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main className="relative bg-black">
       <Navbar />
       <Hero />
-      <TrustMarquee />
+      <CasiStudio />
       <Bio />
-      <WorkGallery />
-      <ContentCreator />
-      <EventProduction />
-      <Brands />
-      <LanciDaZero />
       <Services />
-      <SiteBuilderAI />
-      <PaymentBanner />
-      <AutomationHub />
       <QuoteForm />
       <Footer />
-      <ChatBot />
     </main>
   );
 }

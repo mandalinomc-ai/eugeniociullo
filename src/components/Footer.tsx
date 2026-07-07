@@ -43,15 +43,10 @@ export default function Footer() {
             <p className="text-xs uppercase tracking-[0.3em] text-zinc-600 mb-4">Navigazione</p>
             <nav className="flex flex-col gap-2 mb-6">
               {[
-                { label: "Chi Siamo", href: "#chi-sono" },
-                { label: "Lavori", href: "#lavori" },
-                { label: "Content", href: "#content-creator" },
-                { label: "Eventi", href: "#eventi" },
-                { label: "Brand", href: "#brand" },
-                { label: "Lanci da Zero", href: "#lanci" },
-                { label: "Servizi", href: "#servizi" },
-                { label: "Crea Sito", href: "#ai-sito" },
-                { label: "Preventivo", href: "#preventivo" },
+                { label: "Risultati", href: "/#casi-studio" },
+                { label: "Chi Siamo", href: "/#chi-sono" },
+                { label: "Servizi", href: "/#servizi" },
+                { label: "Preventivo", href: "/#preventivo" },
               ].map((item) => (
                 <a
                   key={item.href}

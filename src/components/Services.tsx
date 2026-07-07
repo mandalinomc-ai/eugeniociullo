@@ -1,17 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import MediaImage from "@/components/ui/MediaImage";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionShell from "@/components/ui/SectionShell";
 import GlowButton from "@/components/ui/GlowButton";
-import { SERVICES, SITE } from "@/lib/constants";
+import { SERVICES, SITE, PAYMENT_PLANS } from "@/lib/constants";
 
-const serviceImages = [
-  { src: "/images/analytics-meta-ads.png", alt: "Report performance Meta ADS", label: "Risultati ADS", fit: "contain" as const, position: "center", bg: "bg-zinc-900", padding: "p-2" },
-  { src: "/images/antum-hotel-work.png", alt: "Content creation Antum Hotel", label: "Content & Social", fit: "contain" as const, position: "center", bg: "bg-black", padding: "p-2" },
-  { src: "/images/work-event-stage.png", alt: "Allestimento evento professionale", label: "Event Management", fit: "cover-center" as const, position: "center" },
-];
+const serviceExtras: Record<string, string[]> = {
+  websites: ["Pagabile a rate · 2–3 rate", "Brief AI su /crea-sito"],
+  consulting: ["Qualifica lead AI", "Strategia umana + automazione"],
+};
 
 export default function Services() {
   return (
@@ -19,8 +17,8 @@ export default function Services() {
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           label="I Nostri Servizi"
-          title="Tutto ciò che serve per farvi sentire."
-          subtitle="Cinque pilastri — siti web, social, content, consulenza ed eventi — che gestiamo noi con il team ZeroAgency per costruire presenza e risultati misurabili."
+          title="Tutto ciò che serve per farvi crescere."
+          subtitle="Cinque pilastri gestiti dal nostro team con ZeroAgency — risultati misurabili, zero dispersione."
           tone="neutral"
         />
 
@@ -49,11 +47,6 @@ export default function Services() {
                         {service.badge}
                       </span>
                     )}
-                    {"featured" in service && service.featured && (
-                      <span className="px-2.5 sm:px-3 py-1 text-[10px] font-black tracking-widest uppercase border border-[#a3ff12]/50 text-[#a3ff12] rounded-full">
-                        Focus Vendita
-                      </span>
-                    )}
                   </div>
                 </div>
 
@@ -62,23 +55,28 @@ export default function Services() {
                 </h3>
                 <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">{service.description}</p>
 
-                {"link" in service && service.link && (
-                  <div className="mt-5">
-                    <GlowButton href={service.link} variant="outline" className="w-full sm:w-auto text-xs sm:text-sm">
-                      Scopri di più →
-                    </GlowButton>
+                {serviceExtras[service.id] && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {serviceExtras[service.id].map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide rounded-full border border-[#a3ff12]/30 text-[#a3ff12] bg-[#a3ff12]/5"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 )}
 
                 {"featured" in service && service.featured && (
                   <div className="mt-6 sm:mt-8">
                     <GlowButton
-                      href={service.id === "websites" ? "#ai-sito" : SITE.consultationUrl}
-                      variant="outline"
+                      href={service.id === "websites" ? "/crea-sito" : SITE.consultationUrl}
+                      variant={service.id === "websites" ? "outline" : "primary"}
                       external={service.id !== "websites"}
                       className="w-full sm:w-auto"
                     >
-                      {service.id === "websites" ? "CREA IL TUO SITO →" : "Prenota via WhatsApp →"}
+                      {service.id === "websites" ? "Crea il tuo sito →" : "Prenota via WhatsApp →"}
                     </GlowButton>
                   </div>
                 )}
@@ -87,32 +85,14 @@ export default function Services() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4"
+          className="mt-8 text-center text-xs text-zinc-600 max-w-2xl mx-auto leading-relaxed"
         >
-          {serviceImages.map((img) => (
-            <div
-              key={img.src}
-              className="relative h-48 sm:h-56 rounded-2xl overflow-hidden gradient-border group"
-            >
-              <MediaImage
-                src={img.src}
-                alt={img.alt}
-                fit={img.fit}
-                position={img.position}
-                bg={img.bg ?? "bg-zinc-950"}
-                padding={img.padding ?? ""}
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-4">
-                <span className="text-sm font-bold">{img.label}</span>
-              </div>
-            </div>
-          ))}
-        </motion.div>
+          {PAYMENT_PLANS.description} · Automazioni AI integrate per qualifica lead e brief progetti.
+        </motion.p>
       </div>
     </SectionShell>
   );
