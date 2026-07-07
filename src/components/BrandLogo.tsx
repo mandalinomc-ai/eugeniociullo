@@ -29,9 +29,9 @@ export default function BrandLogo({
       <Image
         src="/logo.svg"
         alt="Eugenio Ciullo - Digital Marketer"
-        width={220}
+        width={260}
         height={54}
-        className="h-8 sm:h-9 w-auto"
+        className="h-8 sm:h-9 w-auto max-w-[11.5rem] sm:max-w-none"
         priority
       />
       {showTagline ? (

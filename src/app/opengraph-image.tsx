@@ -80,26 +80,18 @@ export default function OpenGraphImage() {
           >
             <div
               style={{
-                fontSize: 92,
+                display: "flex",
+                alignItems: "center",
+                gap: 2,
+                fontSize: 64,
                 fontWeight: 900,
-                color: "#ffffff",
                 lineHeight: 1,
-                marginTop: -8,
+                letterSpacing: -2,
               }}
             >
-              E
+              <span style={{ color: "#ffffff" }}>E</span>
+              <span style={{ color: "#a3ff12" }}>C</span>
             </div>
-            <div
-              style={{
-                position: "absolute",
-                top: 24,
-                right: 24,
-                width: 22,
-                height: 22,
-                borderRadius: "50%",
-                background: "linear-gradient(135deg, #c8ff5a, #a3ff12)",
-              }}
-            />
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -113,17 +105,8 @@ export default function OpenGraphImage() {
                   lineHeight: 1,
                 }}
               >
-                EUGENIO
+                EUGENIO CIULLO
               </div>
-              <div
-                style={{
-                  width: 18,
-                  height: 18,
-                  borderRadius: "50%",
-                  background: "#a3ff12",
-                  marginTop: 18,
-                }}
-              />
             </div>
             <div
               style={{
