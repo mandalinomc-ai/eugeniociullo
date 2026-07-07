@@ -40,18 +40,6 @@ export default function OpenGraphImage() {
             filter: "blur(80px)",
           }}
         />
-        <div
-          style={{
-            position: "absolute",
-            bottom: -140,
-            right: -60,
-            width: 380,
-            height: 380,
-            borderRadius: "50%",
-            background: "rgba(124,58,237,0.14)",
-            filter: "blur(90px)",
-          }}
-        />
 
         <div
           style={{
@@ -80,33 +68,58 @@ export default function OpenGraphImage() {
           >
             <div
               style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 2,
-                fontSize: 64,
+                position: "absolute",
+                width: 108,
+                height: 92,
+                borderRadius: "50% 50% 46% 46%",
+                border: "3px solid rgba(163,255,18,0.55)",
+                background: "rgba(163,255,18,0.12)",
+                top: 24,
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                width: 2,
+                height: 70,
+                background: "rgba(163,255,18,0.35)",
+                top: 36,
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                width: 70,
+                height: 2,
+                background: "rgba(163,255,18,0.28)",
+                top: 58,
+              }}
+            />
+            <div
+              style={{
+                fontSize: 78,
                 fontWeight: 900,
+                color: "#ffffff",
                 lineHeight: 1,
-                letterSpacing: -2,
+                position: "relative",
+                zIndex: 2,
               }}
             >
-              <span style={{ color: "#ffffff" }}>E</span>
-              <span style={{ color: "#a3ff12" }}>C</span>
+              E
             </div>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div
-                style={{
-                  fontSize: 72,
-                  fontWeight: 900,
-                  color: "#ffffff",
-                  letterSpacing: -3,
-                  lineHeight: 1,
-                }}
-              >
-                EUGENIO CIULLO
-              </div>
+            <div
+              style={{
+                fontSize: 68,
+                fontWeight: 900,
+                color: "#ffffff",
+                letterSpacing: -3,
+                lineHeight: 1,
+              }}
+            >
+              EUGENIO CIULLO
             </div>
             <div
               style={{

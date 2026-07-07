@@ -4,15 +4,17 @@
       <stop stop-color="#050505"/>
       <stop offset="1" stop-color="#141414"/>
     </linearGradient>
-    <linearGradient id="mark-accent" x1="38" y1="16" x2="58" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#c8ff5a"/>
-      <stop offset="1" stop-color="#a3ff12"/>
+    <linearGradient id="brain" x1="20" y1="12" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c8ff5a" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#a3ff12" stop-opacity="0.75"/>
     </linearGradient>
   </defs>
   <rect x="0" y="8" width="72" height="72" rx="18" fill="url(#mark-bg)"/>
-  <rect x="1" y="9" width="70" height="70" rx="17" stroke="#a3ff12" stroke-opacity="0.2"/>
-  <path d="M14 26h16c4.3 0 7 2.3 7 5.9 0 2.5-1.3 4.2-3.6 5 2.7.7 4.5 2.7 4.5 5.6 0 4-3 7-7.6 7H14V26zm7.8 8.2h8.4c1.6 0 2.5-.8 2.5-2 0-1.2-.9-2-2.5-2h-8.4v4zm0 11h9.2c1.8 0 2.9-.9 2.9-2.3 0-1.4-1.1-2.3-2.9-2.3h-9.2v4.6z" fill="#fff"/>
-  <path d="M37 26.5c8.1 0 13 5.2 13 13s-4.9 13-13 13c-4.7 0-8.3-2-10.4-5.4l5.2-3.8c1.2 2 3.1 3.1 5.4 3.1 3.5 0 5.8-2.6 5.8-6.9s-2.3-6.9-5.8-6.9c-2.3 0-4.2 1.1-5.4 3.1l-5.2-3.8c2.1-3.4 5.7-5.4 10.4-5.4z" fill="url(#mark-accent)"/>
+  <rect x="1" y="9" width="70" height="70" rx="17" stroke="#a3ff12" stroke-opacity="0.18"/>
+  <path d="M36 20c-10 0-17.5 6.5-19 15.2-.6 3.6.4 7 2.5 9.5-3.2 2.7-4.8 6.5-4.1 10.8 1 6 6.6 10.4 14 11.4 1 .1 1.8.2 2.7.2 1.4 0 2.6-.1 3.8-.5 7.4-1.5 12.6-6.5 13.3-12.4.5-4.3-1.4-8.1-4.7-10.6 1.7-2.4 2.4-5.3 1.8-8.5C43.1 26.5 40.3 20 36 20z" fill="url(#brain)" fill-opacity="0.22" stroke="url(#brain)" stroke-width="1.6"/>
+  <path d="M36 26v34" stroke="#a3ff12" stroke-opacity="0.35" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M24.5 32.5c3.2 2.5 5.2 6 5.4 9.8M47.5 32.5c-3.2 2.5-5.2 6-5.4 9.8M22 46c4 2 8.1 2.9 13.5 2.9s9.5-.9 13.5-2.9M27 55.5c2.5 1.8 5.4 2.7 9 2.7s6.5-.9 9-2.7" stroke="#a3ff12" stroke-opacity="0.42" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M27 28h13.5c3.8 0 6.3 2 6.3 5.3 0 2.2-1.2 3.8-3.2 4.6 2.4.7 4 2.5 4 5.2 0 3.5-2.7 5.9-6.8 5.9H27V28zm6.5 7.4h7.2c1.4 0 2.2-.7 2.2-1.7 0-1-.8-1.7-2.2-1.7h-7.2v3.4zm0 9.4h7.9c1.6 0 2.6-.8 2.6-2 0-1.2-1-2-2.6-2h-7.9v4z" fill="#fff"/>
   <text x="92" y="40" fill="#fff" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="900" letter-spacing="-1">EUGENIO CIULLO</text>
   <text x="92" y="68" fill="#737373" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" font-weight="600" letter-spacing="4.5">DIGITAL MARKETER</text>
 </svg>

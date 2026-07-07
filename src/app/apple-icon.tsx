@@ -28,17 +28,35 @@ export default function AppleIcon() {
         />
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 2,
-            fontSize: 72,
+            position: "absolute",
+            width: 118,
+            height: 100,
+            borderRadius: "50% 50% 46% 46%",
+            border: "3px solid rgba(163,255,18,0.55)",
+            background: "rgba(163,255,18,0.12)",
+            top: 34,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: 3,
+            height: 76,
+            background: "rgba(163,255,18,0.35)",
+            top: 46,
+          }}
+        />
+        <div
+          style={{
+            fontSize: 88,
             fontWeight: 900,
+            color: "#ffffff",
             lineHeight: 1,
-            letterSpacing: -3,
+            position: "relative",
+            zIndex: 2,
           }}
         >
-          <span style={{ color: "#ffffff" }}>E</span>
-          <span style={{ color: "#a3ff12" }}>C</span>
+          E
         </div>
       </div>
     ),
