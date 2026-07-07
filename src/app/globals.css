@@ -121,6 +121,10 @@ body {
     bottom: calc(5.5rem + var(--safe-bottom));
   }
 
+  .safe-bottom-fab {
+    margin-bottom: var(--safe-bottom);
+  }
+
   .marquee-track {
     animation: marquee 30s linear infinite;
   }

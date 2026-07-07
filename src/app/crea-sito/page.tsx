@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import SiteBuilderAI from "@/components/SiteBuilderAI";
 import Footer from "@/components/Footer";
+import WhatsAppFab from "@/components/WhatsAppFab";
 
 export const metadata = {
   title: "Crea il tuo sito | Eugenio Ciullo",
@@ -22,6 +23,7 @@ export default function CreaSitoPage() {
       </div>
       <SiteBuilderAI />
       <Footer />
+      <WhatsAppFab />
     </main>
   );
 }

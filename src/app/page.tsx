@@ -6,6 +6,7 @@ import Bio from "@/components/Bio";
 import Services from "@/components/Services";
 import QuoteForm from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
+import WhatsAppFab from "@/components/WhatsAppFab";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Services />
       <QuoteForm />
       <Footer />
+      <WhatsAppFab />
     </main>
   );
 }
