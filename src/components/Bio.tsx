@@ -47,7 +47,7 @@ export default function Bio() {
         <SectionHeading
           label="Chi Siamo"
           title="Dati, visual e street culture."
-          subtitle="La nostra esperienza unisce marketing digitale, creatività sul campo e il team ZeroAgency."
+          subtitle="Strategia, contenuti, social, siti web e campagne ADS: un team unico con ZeroAgency per far crescere ogni attività che gestiamo."
           tone="neutral"
         />
 

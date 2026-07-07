@@ -2,7 +2,7 @@ export const SITE = {
   name: "Eugenio Ciullo",
   title: "Eugenio Ciullo | Digital Marketer & Content Creator",
   description:
-    "Digital Marketing con l'anima da Creator. Noi di Eugenio Ciullo & Team — con ZeroAgency — portiamo strategia, content e ADS ai brand che vogliono farsi sentire.",
+    "Gestiamo tutto il digitale per far conoscere e convertire il tuo brand: strategia, contenuti, social, siti web, analisi e campagne ADS. Eugenio Ciullo & Team con ZeroAgency.",
   whatsapp: "393483470654",
   whatsappDisplay: "348 347 0654",
   email: "eugeniociullo96@gmail.com",
@@ -585,46 +585,44 @@ export const LAUNCH_REPORTS = [
 
 export const SERVICES = [
   {
-    id: "social",
-    title: "Social Media Management & Performance ADS",
-    badge: "CORE",
+    id: "consulting",
+    title: "Consulenza Strategica & Lanci",
     description:
-      "Strategia editoriale, funnel, Meta ADS e report mensili. Il motore che trasforma follower in clienti e lanci in sold-out.",
-    icon: "📊",
-    gradient: "from-violet-600/20 to-fuchsia-600/10",
-    featured: true,
+      "Definiamo posizionamento, obiettivi e piano d'azione. Dalla consulenza 1to1 ai lanci commerciali: la strategia che coordina ogni canale digitale.",
+    icon: "🎯",
+    gradient: "from-amber-500/20 to-orange-500/10",
   },
   {
     id: "content",
     title: "Content Creation & UGC",
     description:
-      "Produzione agile sul campo: iPhone 16 Pro, droni, UGC e team ZeroAgency. Contenuti autentici pensati per performare sui social.",
+      "Foto, video, reel e UGC prodotti sul campo con iPhone 16 Pro, droni e team ZeroAgency. Contenuti pensati per raccontare il brand e alimentare ogni canale.",
     icon: "🎬",
     gradient: "from-emerald-500/20 to-cyan-500/10",
   },
   {
-    id: "consulting",
-    title: "Consulenza Strategica 1to1 & Lanci commerciali",
+    id: "social",
+    title: "Gestione Social & Campagne ADS",
     description:
-      "Piano d'azione su misura con Eugenio e il team: lanci da zero, posizionamento, qualifica lead e roadmap per crescere con metodo.",
-    icon: "🎯",
-    gradient: "from-amber-500/20 to-orange-500/10",
+      "Gestione quotidiana dei profili, analisi dei dati, creazione e ottimizzazione campagne Meta ADS con report mensili. Social e advertising che lavorano insieme.",
+    icon: "📊",
+    gradient: "from-violet-600/20 to-fuchsia-600/10",
+  },
+  {
+    id: "websites",
+    title: "Creazione Siti Web Premium",
+    description:
+      "Siti veloci, SEO-ready e mobile-first con funnel di conversione integrato. La vetrina digitale che completa strategia, contenuti e campagne.",
+    icon: "🌐",
+    gradient: "from-cyan-500/20 to-blue-600/10",
   },
   {
     id: "events",
     title: "Event Management & Booking",
     description:
-      "Allestimenti, DJ, stand fiera e produzione live. Estensione del marketing sul campo per brand che vogliono esperienze memorabili.",
+      "Allestimenti, DJ, stand fiera e produzione live. Portiamo il digitale sul campo con esperienze che rafforzano brand e community.",
     icon: "🎉",
     gradient: "from-pink-500/20 to-rose-500/10",
-  },
-  {
-    id: "websites",
-    title: "Siti Web Premium & Automazioni AI",
-    description:
-      "Infrastruttura tecnica che supporta il marketing: siti veloci, SEO, funnel di conversione e automazioni per qualificare i lead.",
-    icon: "🌐",
-    gradient: "from-cyan-500/20 to-blue-600/10",
   },
 ] as const;
 
