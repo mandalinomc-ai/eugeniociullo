@@ -133,7 +133,7 @@ export default function MetroNav() {
             onClick={toggleParked}
             aria-label="Apri mappa sezioni"
             title="Apri mappa sezioni"
-            className="pointer-events-auto group/tab flex flex-col items-center gap-1.5 rounded-r-2xl border border-l-0 border-white/[0.07] bg-black/45 backdrop-blur-md px-1.5 py-3 text-zinc-400 shadow-[3px_0_20px_rgba(0,0,0,0.35)] hover:bg-black/70 hover:text-[#a3ff12] hover:border-[#a3ff12]/25 transition-colors"
+            className="pointer-events-auto group/tab flex flex-col items-center gap-1.5 rounded-r-2xl border border-l-0 border-white/10 bg-black/80 supports-[backdrop-filter]:bg-black/40 backdrop-blur-lg backdrop-saturate-150 px-1.5 py-3 text-zinc-400 shadow-[3px_0_20px_rgba(0,0,0,0.4)] ring-1 ring-inset ring-white/5 hover:supports-[backdrop-filter]:bg-black/60 hover:text-[#a3ff12] hover:border-[#a3ff12]/25 transition-colors"
           >
             <MetroLineGlyph activeIndex={activeIndex} />
             <span className="text-[#a3ff12]/70 group-hover/tab:text-[#a3ff12] transition-colors">
@@ -151,9 +151,15 @@ export default function MetroNav() {
           >
             <nav
               aria-label="Navigazione rapida tra sezioni"
-              className="rounded-r-none rounded-l-none sm:rounded-l-2xl border border-r-0 border-white/[0.07] bg-black/45 backdrop-blur-md shadow-[3px_0_24px_rgba(0,0,0,0.35)] pl-2 pr-2.5 py-2.5 sm:py-3 transition-colors duration-300 group-hover/metro:bg-black/65 group-focus-within/metro:bg-black/65"
+              className="relative overflow-hidden rounded-r-none rounded-l-none sm:rounded-l-2xl border border-r-0 border-white/10 bg-black/80 supports-[backdrop-filter]:bg-black/40 backdrop-blur-lg backdrop-saturate-150 shadow-[3px_0_24px_rgba(0,0,0,0.4)] ring-1 ring-inset ring-white/5 pl-2 pr-2.5 py-2.5 sm:py-3 transition-colors duration-300 group-hover/metro:bg-black/60 group-focus-within/metro:bg-black/60"
             >
-              <p className="text-[8px] uppercase tracking-[0.3em] text-zinc-500 mb-2 pl-6 sm:pl-7 font-semibold group-hover/metro:text-[#a3ff12]/60 transition-colors">
+              {/* Strato gradiente: rinforza il contrasto sul lato del testo, sfuma verso il bordo */}
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent"
+                aria-hidden
+              />
+
+              <p className="relative text-[8px] uppercase tracking-[0.3em] text-zinc-400 mb-2 pl-6 sm:pl-7 font-semibold [text-shadow:0_1px_2px_rgba(0,0,0,0.7)] group-hover/metro:text-[#a3ff12]/70 transition-colors">
                 Linea EC
               </p>
 
@@ -211,12 +217,12 @@ export default function MetroNav() {
                               {stop.code}
                             </span>
                             <span
-                              className={`text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide truncate max-w-[5rem] sm:max-w-none ${
+                              className={`text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide truncate max-w-[5rem] sm:max-w-none [text-shadow:0_1px_2px_rgba(0,0,0,0.7)] ${
                                 isActive
                                   ? "text-[#a3ff12]"
                                   : isPassed
-                                    ? "text-zinc-400"
-                                    : "text-zinc-500"
+                                    ? "text-zinc-300"
+                                    : "text-zinc-400"
                               }`}
                             >
                               {stop.label}
@@ -236,7 +242,7 @@ export default function MetroNav() {
               onClick={toggleParked}
               aria-label="Parcheggia mappa sezioni"
               title="Parcheggia mappa sezioni"
-              className="flex items-center justify-center shrink-0 w-5 sm:w-6 rounded-r-2xl border border-l-0 border-white/[0.07] bg-black/45 backdrop-blur-md text-zinc-500 shadow-[3px_0_20px_rgba(0,0,0,0.3)] hover:bg-black/70 hover:text-[#a3ff12] hover:border-[#a3ff12]/25 transition-colors"
+              className="flex items-center justify-center shrink-0 w-5 sm:w-6 rounded-r-2xl border border-l-0 border-white/10 bg-black/80 supports-[backdrop-filter]:bg-black/40 backdrop-blur-lg backdrop-saturate-150 text-zinc-400 shadow-[3px_0_20px_rgba(0,0,0,0.35)] ring-1 ring-inset ring-white/5 hover:supports-[backdrop-filter]:bg-black/60 hover:text-[#a3ff12] hover:border-[#a3ff12]/25 transition-colors"
             >
               <ChevronLeftIcon />
             </button>
