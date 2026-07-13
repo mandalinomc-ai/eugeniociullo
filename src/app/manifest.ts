@@ -18,7 +18,7 @@ export default function manifest(): MetadataRoute.Manifest {
         name: "Appunti Cliente",
         short_name: "Appunti",
         description: "Quaderno digitale per schede cliente",
-        url: "/appunti",
+        url: "/admin/appunti",
         icons: [{ src: "/images/logo-icon.png", sizes: "512x512", type: "image/png" }],
       },
     ],
