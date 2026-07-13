@@ -9,6 +9,7 @@ function LoginForm() {
   const searchParams = useSearchParams();
   const next = searchParams.get("next") || "/admin/appunti";
 
+  const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,7 @@ function LoginForm() {
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ id, password }),
       });
 
       const data = (await res.json()) as { error?: string };
@@ -55,8 +56,26 @@ function LoginForm() {
           className="card-featured rounded-3xl p-6 sm:p-8 bg-black/60 border border-white/10 space-y-5"
         >
           <div>
+            <label htmlFor="admin-id" className="text-xs uppercase tracking-widest text-zinc-500 mb-2 block">
+              ID
+            </label>
+            <input
+              id="admin-id"
+              type="text"
+              name="username"
+              autoComplete="username"
+              inputMode="text"
+              required
+              value={id}
+              onChange={(e) => setId(e.target.value)}
+              className="w-full min-h-[52px] px-4 py-3.5 rounded-2xl bg-white/5 border border-white/10 focus:border-[#a3ff12]/50 focus:outline-none focus:ring-1 focus:ring-[#a3ff12]/30 text-base touch-manipulation"
+              placeholder="admin"
+            />
+          </div>
+
+          <div>
             <label htmlFor="admin-password" className="text-xs uppercase tracking-widest text-zinc-500 mb-2 block">
-              Password admin
+              Password
             </label>
             <input
               id="admin-password"
@@ -68,7 +87,7 @@ function LoginForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full min-h-[52px] px-4 py-3.5 rounded-2xl bg-white/5 border border-white/10 focus:border-[#a3ff12]/50 focus:outline-none focus:ring-1 focus:ring-[#a3ff12]/30 text-base touch-manipulation"
-              placeholder="••••••••"
+              placeholder="••••"
             />
           </div>
 
@@ -80,7 +99,7 @@ function LoginForm() {
 
           <button
             type="submit"
-            disabled={loading || !password}
+            disabled={loading || !id || !password}
             className="w-full min-h-[52px] rounded-2xl bg-[#a3ff12] text-black font-bold text-base hover:brightness-110 active:scale-[0.98] disabled:opacity-40 touch-manipulation"
           >
             {loading ? "Accesso..." : "Entra"}
