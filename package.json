@@ -8,10 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "brandkit": "python scripts/build-brandkit.py"
+    "brandkit": "python scripts/build-brandkit.py",
+    "social-slides": "python scripts/build-social-slides.py"
   },
   "dependencies": {
     "framer-motion": "^12.0.0",
+    "jspdf": "^4.2.1",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

@@ -1,72 +1,53 @@
 import { SITE } from "@/lib/constants";
 import type { QuoteFormData } from "@/lib/quote-form-types";
 
-type JsPDFInstance = {
-  internal: { pageSize: { getWidth: () => number } };
-  setFillColor: (...args: number[]) => void;
-  setTextColor: (...args: number[]) => void;
-  setFont: (family: string, style: string) => void;
-  setFontSize: (size: number) => void;
-  setDrawColor: (...args: number[]) => void;
-  rect: (...args: Array<number | string>) => void;
-  roundedRect: (...args: Array<number | string>) => void;
-  line: (...args: number[]) => void;
-  text: (text: string | string[], x: number, y: number) => void;
-  splitTextToSize: (text: string, maxWidth: number) => string[];
-  save: (filename: string) => void;
-};
-
-type JsPDFConstructor = new (options?: { unit?: string; format?: string }) => JsPDFInstance;
-
-declare global {
-  interface Window {
-    jspdf?: { jsPDF: JsPDFConstructor };
+async function createPdfDocument() {
+  try {
+    const { jsPDF } = await import("jspdf");
+    return new jsPDF({ unit: "mm", format: "a4" });
+  } catch {
+    await loadJsPDFFromCdn();
+    const win = window as Window & { jspdf?: { jsPDF: new (o?: object) => ReturnType<typeof Object> } };
+    if (!win.jspdf?.jsPDF) throw new Error("jsPDF non disponibile");
+    return new win.jspdf.jsPDF({ unit: "mm", format: "a4" }) as Awaited<ReturnType<typeof createPdfFromPackage>>;
   }
 }
 
-const JSPDF_CDN = "https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js";
+async function createPdfFromPackage() {
+  const { jsPDF } = await import("jspdf");
+  return new jsPDF({ unit: "mm", format: "a4" });
+}
 
-function loadJsPDF(): Promise<JsPDFConstructor> {
-  if (typeof window === "undefined") {
-    return Promise.reject(new Error("PDF disponibile solo nel browser"));
-  }
+type PdfDoc = Awaited<ReturnType<typeof createPdfFromPackage>>;
 
-  if (window.jspdf?.jsPDF) {
-    return Promise.resolve(window.jspdf.jsPDF);
-  }
+function loadJsPDFFromCdn(): Promise<void> {
+  const cdn = "https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js";
 
   return new Promise((resolve, reject) => {
+    const win = window as Window & { jspdf?: { jsPDF: unknown } };
+    if (win.jspdf?.jsPDF) {
+      resolve();
+      return;
+    }
+
     const existing = document.querySelector<HTMLScriptElement>("script[data-jspdf]");
     if (existing) {
-      existing.addEventListener("load", () => {
-        if (window.jspdf?.jsPDF) resolve(window.jspdf.jsPDF);
-        else reject(new Error("jsPDF non disponibile"));
-      });
+      existing.addEventListener("load", () => resolve());
       existing.addEventListener("error", () => reject(new Error("Caricamento jsPDF fallito")));
       return;
     }
 
     const script = document.createElement("script");
-    script.src = JSPDF_CDN;
+    script.src = cdn;
     script.async = true;
     script.dataset.jspdf = "true";
-    script.onload = () => {
-      if (window.jspdf?.jsPDF) resolve(window.jspdf.jsPDF);
-      else reject(new Error("jsPDF non disponibile"));
-    };
+    script.onload = () => resolve();
     script.onerror = () => reject(new Error("Caricamento jsPDF fallito"));
     document.head.appendChild(script);
   });
 }
 
-function line(
-  doc: JsPDFInstance,
-  text: string,
-  x: number,
-  y: number,
-  maxWidth: number,
-  fontSize = 10
-): number {
+function line(doc: PdfDoc, text: string, x: number, y: number, maxWidth: number, fontSize = 10): number {
   doc.setFontSize(fontSize);
   const lines = doc.splitTextToSize(text, maxWidth);
   doc.text(lines, x, y);
@@ -74,8 +55,7 @@ function line(
 }
 
 export async function exportQuotePdf(form: QuoteFormData): Promise<void> {
-  const jsPDF = await loadJsPDF();
-  const doc = new jsPDF({ unit: "mm", format: "a4" });
+  const doc = await createPdfDocument();
   const margin = 18;
   const pageWidth = doc.internal.pageSize.getWidth();
   const contentWidth = pageWidth - margin * 2;
