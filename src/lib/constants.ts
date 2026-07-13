@@ -838,3 +838,17 @@ export const BUDGET_OPTIONS = [
   { id: "enterprise", label: "Oltre €5.000/mese" },
   { id: "website", label: "Progetto sito web (una tantum)" },
 ] as const;
+
+export const QUOTE_TIMELINES = [
+  "Urgente (2–3 settimane)",
+  "Standard (1 mese)",
+  "Flessibile (2+ mesi)",
+  "Da definire in consulenza",
+] as const;
+
+export const QUOTE_PAYMENT_PLANS = [
+  { id: "single", label: "Pagamento unico" },
+  { id: "2rate", label: "Dilazionato in 2 rate (senza interessi)" },
+  { id: "3rate", label: "Dilazionato in 3 rate (senza interessi)" },
+  { id: "discuss", label: "Da valutare in consulenza" },
+] as const;

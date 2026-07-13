@@ -13,5 +13,14 @@ export default function manifest(): MetadataRoute.Manifest {
       { src: "/images/logo-icon.png", sizes: "512x512", type: "image/png", purpose: "any" },
       { src: "/images/logo-icon.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
+    shortcuts: [
+      {
+        name: "Appunti Cliente",
+        short_name: "Appunti",
+        description: "Quaderno digitale per schede cliente",
+        url: "/appunti",
+        icons: [{ src: "/images/logo-icon.png", sizes: "512x512", type: "image/png" }],
+      },
+    ],
   };
 }

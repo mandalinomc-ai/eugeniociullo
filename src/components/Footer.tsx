@@ -47,6 +47,7 @@ export default function Footer() {
                 { label: "Chi Siamo", href: "/#chi-sono" },
                 { label: "Servizi", href: "/#servizi" },
                 { label: "Preventivo", href: "/#preventivo" },
+                { label: "Appunti (mobile)", href: "/appunti" },
               ].map((item) => (
                 <a
                   key={item.href}
