@@ -297,10 +297,18 @@ body {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .creator-chrome {
-    animation: none;
-    color: #a3ff12;
-    -webkit-text-fill-color: #a3ff12;
+html.has-custom-cursor,
+html.has-custom-cursor body,
+html.has-custom-cursor a,
+html.has-custom-cursor button {
+  cursor: none;
+}
+
+@media (max-width: 767px) {
+  html.has-custom-cursor,
+  html.has-custom-cursor body,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button {
+    cursor: auto;
   }
 }

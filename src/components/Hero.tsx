@@ -5,21 +5,24 @@ import MediaImage from "@/components/ui/MediaImage";
 import GlowButton from "@/components/ui/GlowButton";
 import Magnetic from "@/components/motion/Magnetic";
 import Parallax from "@/components/motion/Parallax";
+import { ImageMaskReveal } from "@/components/motion/MaskReveal";
 import { SITE } from "@/lib/constants";
 
 function PortraitCard({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative overflow-hidden gradient-border rounded-2xl group ${className}`}>
-      <MediaImage
-        src="/images/eugenio-portrait-pro.png"
-        alt="Eugenio Ciullo - Digital Marketer, ritratto professionale"
-        fit="cover-center"
-        position="center 22%"
-        className="scale-[1.04] transition-transform duration-700 ease-out group-hover:scale-[1.1]"
-        priority
-        sizes="(max-width: 1024px) 160px, 320px"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
+    <div className={`relative overflow-hidden gradient-border rounded-2xl group ${className}`} data-cursor>
+      <ImageMaskReveal className="absolute inset-0" delay={0.35}>
+        <MediaImage
+          src="/images/eugenio-portrait-pro.png"
+          alt="Eugenio Ciullo - Digital Marketer, ritratto professionale"
+          fit="cover-center"
+          position="center 22%"
+          className="scale-[1.04] transition-transform duration-700 ease-out group-hover:scale-[1.1] h-full"
+          priority
+          sizes="(max-width: 1024px) 160px, 320px"
+        />
+      </ImageMaskReveal>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent pointer-events-none" />
       <div className="absolute bottom-3 left-3 right-3">
         <p className="text-xs sm:text-sm font-black tracking-tight">EUGENIO CIULLO</p>
         <p className="text-[9px] sm:text-[10px] text-[#a3ff12] tracking-widest uppercase">

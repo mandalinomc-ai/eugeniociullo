@@ -5,6 +5,7 @@ import MediaImage from "@/components/ui/MediaImage";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionShell from "@/components/ui/SectionShell";
 import HoverTilt from "@/components/motion/HoverTilt";
+import { ImageMaskReveal } from "@/components/motion/MaskReveal";
 import { CONTENT_CREATOR } from "@/lib/constants";
 
 const bioCards = [
@@ -66,16 +67,18 @@ export default function Bio() {
             </p>
 
             <div className="relative w-full max-w-xs aspect-[3/4] rounded-2xl overflow-hidden gradient-border lg:hidden">
-              <MediaImage
-                src="/images/eugenio-portrait-pro.png"
-                alt="Eugenio Ciullo - Digital Marketer, ritratto professionale"
-                fit="cover-center"
-                position="center 22%"
-                className="scale-[1.04]"
-                sizes="(max-width: 1024px) 100vw, 320px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
+              <ImageMaskReveal className="h-full w-full">
+                <MediaImage
+                  src="/images/eugenio-portrait-pro.png"
+                  alt="Eugenio Ciullo - Digital Marketer, ritratto professionale"
+                  fit="cover-center"
+                  position="center 22%"
+                  className="scale-[1.04]"
+                  sizes="(max-width: 1024px) 100vw, 320px"
+                />
+              </ImageMaskReveal>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent pointer-events-none" />
               <p className="absolute bottom-4 left-4 text-xs text-zinc-400 tracking-widest uppercase">
                 Sul campo
               </p>
@@ -109,14 +112,16 @@ export default function Bio() {
               viewport={{ once: true }}
               className="relative hidden lg:block w-full aspect-[16/10] rounded-2xl overflow-hidden gradient-border mb-4"
             >
-              <MediaImage
-                src="/images/ap-tricosistem-cosmoprof.png"
-                alt="Eugenio Ciullo a Cosmoprof Bologna"
-                fit="cover-top"
-                position="center 20%"
-                sizes="50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <ImageMaskReveal className="h-full w-full" delay={0.1}>
+                <MediaImage
+                  src="/images/ap-tricosistem-cosmoprof.png"
+                  alt="Eugenio Ciullo a Cosmoprof Bologna"
+                  fit="cover-top"
+                  position="center 20%"
+                  sizes="50vw"
+                />
+              </ImageMaskReveal>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
               <p className="absolute bottom-4 left-4 text-xs text-zinc-400 tracking-widest uppercase">
                 Sul campo · Fiere & Eventi
               </p>
