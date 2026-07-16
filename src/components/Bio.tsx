@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import MediaImage from "@/components/ui/MediaImage";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionShell from "@/components/ui/SectionShell";
+import HoverTilt from "@/components/motion/HoverTilt";
 import { CONTENT_CREATOR } from "@/lib/constants";
 
 const bioCards = [
@@ -129,17 +130,23 @@ export default function Bio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-colors duration-300 ${card.span} ${
-                    card.highlight ? "card-featured" : "card-surface-hover"
-                  }`}
+                  className={card.span}
                 >
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 mb-2 sm:mb-3">
-                    {card.label}
-                  </p>
-                  <p className="text-lg sm:text-xl md:text-2xl font-black tracking-tight mb-1 break-words">
-                    {card.value}
-                  </p>
-                  <p className="text-xs sm:text-sm text-zinc-500 leading-snug">{card.sub}</p>
+                  <HoverTilt className="h-full group">
+                    <div
+                      className={`h-full rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:-translate-y-0.5 ${
+                        card.highlight ? "card-featured" : "card-surface-hover"
+                      }`}
+                    >
+                      <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 mb-2 sm:mb-3">
+                        {card.label}
+                      </p>
+                      <p className="text-lg sm:text-xl md:text-2xl font-black tracking-tight mb-1 break-words">
+                        {card.value}
+                      </p>
+                      <p className="text-xs sm:text-sm text-zinc-500 leading-snug">{card.sub}</p>
+                    </div>
+                  </HoverTilt>
                 </motion.div>
               ))}
             </div>

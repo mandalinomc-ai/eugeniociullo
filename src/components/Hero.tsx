@@ -3,17 +3,20 @@
 import { motion } from "framer-motion";
 import MediaImage from "@/components/ui/MediaImage";
 import GlowButton from "@/components/ui/GlowButton";
+import Magnetic from "@/components/motion/Magnetic";
+import Parallax from "@/components/motion/Parallax";
+import { TextReveal } from "@/components/motion/Reveal";
 import { SITE } from "@/lib/constants";
 
 function PortraitCard({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative overflow-hidden gradient-border rounded-2xl ${className}`}>
+    <div className={`relative overflow-hidden gradient-border rounded-2xl group ${className}`}>
       <MediaImage
         src="/images/eugenio-portrait-pro.png"
         alt="Eugenio Ciullo - Digital Marketer, ritratto professionale"
         fit="cover-center"
         position="center 22%"
-        className="scale-[1.04]"
+        className="scale-[1.04] transition-transform duration-700 ease-out group-hover:scale-[1.1]"
         priority
         sizes="(max-width: 1024px) 160px, 320px"
       />
@@ -31,12 +34,16 @@ function PortraitCard({ className = "" }: { className?: string }) {
 function HeroCtas({ className = "" }: { className?: string }) {
   return (
     <div className={`flex flex-col gap-3 sm:gap-4 ${className}`}>
-      <GlowButton href="#preventivo" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
-        Richiedi una Consulenza
-      </GlowButton>
-      <GlowButton href="#casi-studio" variant="secondary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
-        Guarda i nostri Risultati
-      </GlowButton>
+      <Magnetic strength={0.25} className="w-full">
+        <GlowButton href="#preventivo" variant="primary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
+          Richiedi una Consulenza
+        </GlowButton>
+      </Magnetic>
+      <Magnetic strength={0.2} className="w-full">
+        <GlowButton href="#casi-studio" variant="secondary" className="w-full py-3.5 sm:py-4 text-sm sm:text-base">
+          Guarda i nostri Risultati
+        </GlowButton>
+      </Magnetic>
     </div>
   );
 }
@@ -58,17 +65,17 @@ export default function Hero() {
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="absolute inset-0">
+        <Parallax speed={0.18} className="absolute inset-0">
           <MediaImage
             src="/images/hero-background.png"
             alt="Eugenio Ciullo - digital marketing e content creation"
             fit="cover-top"
             position="center 20%"
-            className="opacity-25"
+            className="opacity-25 scale-110"
             priority
             sizes="100vw"
           />
-        </div>
+        </Parallax>
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
         <div className="noise-overlay absolute inset-0 pointer-events-none" />
@@ -76,9 +83,9 @@ export default function Hero() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-6 pt-[5.25rem] sm:pt-32 pb-10 sm:pb-16">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mb-5 sm:mb-6"
         >
           <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] sm:text-xs tracking-widest uppercase text-zinc-400">
@@ -89,23 +96,25 @@ export default function Hero() {
 
         <div className="grid grid-cols-1 sm:grid-cols-[1fr_10.5rem] lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
           <div className="flex flex-col justify-center space-y-4 sm:space-y-5 min-w-0">
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35 }}
-              className="text-[1.75rem] leading-[1] sm:text-5xl md:text-6xl lg:text-[3.25rem] xl:text-7xl font-black tracking-tighter text-balance-safe"
-            >
-              Digital Marketing
-              <br />
-              <span className="text-gradient-accent">con l&apos;anima</span>
-              <br />
-              da Creator.
-            </motion.h1>
+            <h1 className="text-[1.75rem] leading-[1] sm:text-5xl md:text-6xl lg:text-[3.25rem] xl:text-7xl font-black tracking-tighter text-balance-safe">
+              <TextReveal text="Digital Marketing" as="span" className="block" delay={0.2} />
+              <span className="block overflow-hidden">
+                <motion.span
+                  className="inline-block text-gradient-accent"
+                  initial={{ y: "110%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  transition={{ duration: 0.75, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  con l&apos;anima
+                </motion.span>
+              </span>
+              <TextReveal text="da Creator." as="span" className="block" delay={0.55} />
+            </h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="text-[15px] sm:text-lg md:text-xl text-zinc-400 max-w-xl leading-relaxed font-light"
             >
               Gestiamo tutto ciò che riguarda il digitale: strategia, contenuti, social, siti web,
@@ -117,7 +126,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.65 }}
+              transition={{ duration: 0.8, delay: 0.85 }}
               className="lg:hidden pt-1"
             >
               <HeroCtas />
@@ -125,16 +134,16 @@ export default function Hero() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
+            initial={{ opacity: 0, x: 48, scale: 0.96 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col items-center sm:items-end justify-center gap-5 sm:gap-6"
           >
             <PortraitCard className="aspect-[3/4] w-full max-w-[11rem] sm:max-w-[12rem] lg:max-w-[17rem] xl:max-w-[19rem]" />
 
             <div className="hidden lg:flex flex-col w-full max-w-[17rem] xl:max-w-[19rem] gap-4">
               <HeroCtas />
-              <div className="card-surface rounded-2xl p-4 sm:p-5">
+              <div className="card-surface rounded-2xl p-4 sm:p-5 transition-transform duration-500 hover:-translate-y-1 hover:border-white/15">
                 <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-1.5">Assistenza</p>
                 <p className="text-sm font-semibold text-white">{SITE.supportHoursLabel}</p>
                 <p className="text-xs text-zinc-500 mt-1.5">{SITE.email}</p>

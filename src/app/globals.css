@@ -193,3 +193,33 @@ body {
 @keyframes blink {
   50% { opacity: 0; }
 }
+
+/* Webflow-like smooth interactions */
+@media (prefers-reduced-motion: no-preference) {
+  a, button {
+    transition: color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .wf-mask-reveal {
+    clip-path: inset(0 0 100% 0);
+    animation: wf-mask-open 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes wf-mask-open {
+  to { clip-path: inset(0 0 0% 0); }
+}
+
+.wf-line-grow {
+  transform-origin: left;
+  animation: wf-line 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes wf-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}

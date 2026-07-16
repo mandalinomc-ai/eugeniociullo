@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import MetroNav from "@/components/MetroNav";
 import Hero from "@/components/Hero";
+import MotionMarquee from "@/components/motion/MotionMarquee";
+import CursorGlow from "@/components/motion/CursorGlow";
 import CasiStudio from "@/components/CasiStudio";
 import Bio from "@/components/Bio";
 import Services from "@/components/Services";
@@ -11,9 +13,11 @@ import WhatsAppFab from "@/components/WhatsAppFab";
 export default function Home() {
   return (
     <main className="relative bg-black">
+      <CursorGlow />
       <Navbar />
       <MetroNav />
       <Hero />
+      <MotionMarquee />
       <CasiStudio />
       <Bio />
       <Services />
