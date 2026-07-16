@@ -106,53 +106,24 @@ export default function Hero() {
               <span className="text-gradient-accent">con l&apos;anima</span>
               <br />
               da{" "}
-              <span className="inline-block perspective-[800px] align-baseline">
+              <span className="inline-block perspective-[1200px] align-baseline [perspective-origin:center]">
                 <motion.span
-                  className="inline-block origin-center text-[#a3ff12]"
-                  style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden" }}
-                  initial={{
-                    opacity: 0,
-                    rotateX: -95,
-                    rotateY: 35,
-                    rotateZ: -8,
-                    scale: 0.7,
-                    filter: "blur(8px)",
-                  }}
-                  animate={{
-                    opacity: 1,
-                    rotateX: [ -95, 12, -4, 0 ],
-                    rotateY: [ 35, -8, 3, 0 ],
-                    rotateZ: [ -8, 2, 0 ],
-                    scale: [ 0.7, 1.08, 0.98, 1 ],
-                    filter: [ "blur(8px)", "blur(0px)", "blur(0px)", "blur(0px)" ],
-                  }}
+                  className="relative inline-block origin-center"
+                  style={{ transformStyle: "preserve-3d" }}
+                  initial={{ opacity: 0, rotateY: 90 }}
+                  animate={{ opacity: 1, rotateY: -270 }}
                   transition={{
-                    duration: 1.35,
-                    delay: 0.75,
-                    ease: [0.22, 1, 0.36, 1],
-                    times: [0, 0.55, 0.82, 1],
+                    opacity: { duration: 0.5, delay: 0.65 },
+                    rotateY: {
+                      duration: 3.8,
+                      delay: 0.65,
+                      ease: [0.33, 0.1, 0.25, 1],
+                    },
                   }}
                 >
-                  <motion.span
-                    className="inline-block"
-                    animate={{
-                      rotateY: [0, 8, -6, 0],
-                      textShadow: [
-                        "0 0 0px rgba(163,255,18,0)",
-                        "0 0 28px rgba(163,255,18,0.65)",
-                        "0 0 12px rgba(163,255,18,0.35)",
-                        "0 0 20px rgba(163,255,18,0.45)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 4.5,
-                      delay: 2.2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
+                  <span className="creator-chrome relative inline-block font-black">
                     Creator
-                  </motion.span>
+                  </span>
                 </motion.span>
               </span>
               .
