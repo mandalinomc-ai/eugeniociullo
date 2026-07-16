@@ -9,7 +9,7 @@ const STORAGE_KEY = "ec-metro-nav-parked";
 const STOPS = [
   { id: "hero", code: "01", label: "Home" },
   { id: "casi-studio", code: "02", label: "Risultati" },
-  { id: "chi-sono", code: "03", label: "Chi Siamo" },
+  { id: "chi-sono", code: "03", label: "Chi è Eugenio" },
   { id: "servizi", code: "04", label: "Servizi" },
   { id: "preventivo", code: "05", label: "Preventivo" },
   { id: "contatti", code: "06", label: "Contatti" },

@@ -9,7 +9,7 @@ import { SITE } from "@/lib/constants";
 
 const navLinks = [
   { href: "#casi-studio", label: "Risultati" },
-  { href: "#chi-sono", label: "Chi Siamo" },
+  { href: "#chi-sono", label: "Chi è Eugenio" },
   { href: "#servizi", label: "Servizi" },
   { href: "#preventivo", label: "Richiedi Preventivo", accent: true },
 ] as const;

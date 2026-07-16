@@ -44,7 +44,7 @@ export default function Footer() {
             <nav className="flex flex-col gap-2 mb-6">
               {[
                 { label: "Risultati", href: "/#casi-studio" },
-                { label: "Chi Siamo", href: "/#chi-sono" },
+                { label: "Chi è Eugenio", href: "/#chi-sono" },
                 { label: "Servizi", href: "/#servizi" },
                 { label: "Preventivo", href: "/#preventivo" },
               ].map((item) => (

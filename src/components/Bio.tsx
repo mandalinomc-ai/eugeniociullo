@@ -46,7 +46,7 @@ export default function Bio() {
     <SectionShell id="chi-sono" tone="raised">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
-          label="Chi Siamo"
+          label="Chi è Eugenio"
           title="Dati, visual e street culture."
           subtitle="Strategia, contenuti, social, siti web e campagne ADS: un team unico con ZeroAgency per far crescere ogni attività che gestiamo."
           tone="neutral"
